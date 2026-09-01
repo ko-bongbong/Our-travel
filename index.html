@@ -1,33 +1,344 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>우리의 여행</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111827" />
+  <title>OUR TRAVEL</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      padding-bottom: 90px;
+    }
+
+    .app {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #f8fafc;
+    }
+
+    .hero {
+      height: 280px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: white;
+      background:
+        linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      border-radius: 0 0 28px 28px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .profile {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 6px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      opacity: .92;
+    }
+
+    .content {
+      padding: 22px 18px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.06);
+    }
+
+    .card-row {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      color: #6b7280;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .timeline {
+      margin-top: 10px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .date {
+      font-weight: bold;
+      color: #4f46e5;
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item span {
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    .budget {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .budget strong {
+      font-size: 24px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(480px, 100%);
+      height: 72px;
+      background: white;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .nav-item div {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item.active {
+      color: #4f46e5;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="app">
 
-  <h1>✈️ OUR TRAVEL</h1>
+    <section class="hero">
+      <div class="topbar">
+        <div class="logo">OUR TRAVEL</div>
+        <div class="profile">👫</div>
+      </div>
 
-  <h2>BOHOL</h2>
-  <p>2027.03.01 - 03.06</p>
+      <div>
+        <p>UPCOMING TRIP</p>
+        <h1>BOHOL</h1>
+        <p>2027.03.01 — 03.06 · 5박 6일</p>
+      </div>
+    </section>
 
-  <hr>
+    <main class="content">
 
-  <h3>🏨 숙소</h3>
-  <p>South Palms Resort & Spa Panglao - MGallery</p>
+      <div class="section-title">
+        <h2>🏨 숙소</h2>
+      </div>
 
-  <h3>✈️ 항공</h3>
-  <p>서울 → 보홀</p>
+      <div class="card">
+        <div class="card-row">
+          <div class="icon">🌴</div>
 
-  <h3>📅 일정</h3>
-  <p>3/1 보홀 도착</p>
-  <p>3/2 리조트 체크인</p>
-  <p>3/3 발리카삭</p>
-  <p>3/4 자유일정</p>
-  <p>3/5 체크아웃</p>
-  <p>3/6 서울 도착</p>
+          <div>
+            <h3>South Palms MGallery</h3>
+            <p>3/2 — 3/5 · 3박</p>
+            <p>조식 포함 · 메인 리조트</p>
+          </div>
+        </div>
+      </div>
 
+
+      <div class="section-title">
+        <h2>📅 일정</h2>
+      </div>
+
+      <div class="card timeline">
+
+        <div class="timeline-item">
+          <div class="date">3/1</div>
+          <div>
+            <strong>✈️ 서울 → 보홀</strong>
+            <span>새벽 도착 · 공항 근처 숙소</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">3/2</div>
+          <div>
+            <strong>🏨 South Palms 체크인</strong>
+            <span>리조트 휴양</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">3/3</div>
+          <div>
+            <strong>🐠 발리카삭 투어</strong>
+            <span>스노클링 · 바다 일정</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">3/4</div>
+          <div>
+            <strong>🌴 자유 일정</strong>
+            <span>리조트 · 마사지 · 맛집</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">3/5</div>
+          <div>
+            <strong>🏖️ 체크아웃</strong>
+            <span>마지막 가성비 숙소 이동</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="date">3/6</div>
+          <div>
+            <strong>✈️ 보홀 → 서울</strong>
+            <span>새벽 출발</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="section-title">
+        <h2>💰 예상 경비</h2>
+      </div>
+
+      <div class="card budget">
+        <div>
+          <p>현재 예상</p>
+          <strong>₩1,370,000</strong>
+        </div>
+
+        <div>💳</div>
+      </div>
+
+    </main>
+
+
+    <nav class="bottom-nav">
+
+      <div class="nav-item active">
+        <div>🏠</div>
+        홈
+      </div>
+
+      <div class="nav-item">
+        <div>📅</div>
+        일정
+      </div>
+
+      <div class="nav-item">
+        <div>✈️</div>
+        항공
+      </div>
+
+      <div class="nav-item">
+        <div>🏨</div>
+        숙소
+      </div>
+
+      <div class="nav-item">
+        <div>💰</div>
+        경비
+      </div>
+
+    </nav>
+
+  </div>
 </body>
 </html>
