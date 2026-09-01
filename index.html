@@ -23,81 +23,12 @@ body{
 }
 
 button,input,textarea{
-  font:inherit;
+  font-family:inherit;
 }
 
-/* LOGIN */
-
-.login-screen{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  background:
-    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65)),
-    url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80");
-  background-size:cover;
-  background-position:center;
-}
-
-.login-card{
-  width:100%;
-  max-width:400px;
-  background:rgba(255,255,255,.96);
-  padding:28px;
-  border-radius:24px;
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
-
-.login-card h1{
-  font-size:30px;
-  margin-bottom:5px;
-}
-
-.login-card .sub{
-  color:#6b7280;
-  margin-bottom:25px;
-  font-size:14px;
-}
-
-.login-card label{
-  display:block;
-  font-size:12px;
-  color:#6b7280;
-  margin-top:14px;
-}
-
-.login-card input{
-  width:100%;
-  margin-top:6px;
-  padding:14px;
-  border:1px solid #d1d5db;
-  border-radius:12px;
-}
-
-.login-button{
-  width:100%;
-  padding:14px;
-  margin-top:20px;
-  border:0;
-  border-radius:12px;
-  background:#111827;
-  color:white;
+button{
   cursor:pointer;
-}
-
-.login-error{
-  margin-top:12px;
-  color:#dc2626;
-  font-size:13px;
-  line-height:1.4;
-}
-
-/* APP */
-
-#app{
-  display:none;
+  border:none;
 }
 
 .app{
@@ -105,21 +36,101 @@ button,input,textarea{
   margin:auto;
   min-height:100vh;
   background:#f8fafc;
+}
+
+/* LOGIN */
+
+#loginScreen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  background:#111827;
+}
+
+.login-box{
+  width:100%;
+  max-width:400px;
+  background:white;
+  padding:30px 22px;
+  border-radius:25px;
+}
+
+.login-logo{
+  font-size:13px;
+  letter-spacing:3px;
+  font-weight:800;
+  color:#6366f1;
+  margin-bottom:8px;
+}
+
+.login-box h1{
+  font-size:31px;
+  margin-bottom:6px;
+}
+
+.login-box>p{
+  color:#6b7280;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.login-box label{
+  display:block;
+  font-size:12px;
+  color:#6b7280;
+  margin:14px 0 6px;
+}
+
+.login-box input{
+  width:100%;
+  padding:14px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  font-size:15px;
+}
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  margin-top:20px;
+  background:#111827;
+  color:white;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:700;
+}
+
+.login-message{
+  min-height:20px;
+  margin-top:15px;
+  font-size:13px;
+  text-align:center;
+  color:#dc2626;
+}
+
+/* MAIN */
+
+#mainApp{
+  display:none;
   padding-bottom:90px;
 }
 
 /* HERO */
 
 .hero{
-  height:285px;
+  height:280px;
   padding:22px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   color:white;
+
   background:
-    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.65)),
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.68)),
     url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80");
+
   background-size:cover;
   background-position:center;
   border-radius:0 0 30px 30px;
@@ -132,24 +143,17 @@ button,input,textarea{
 }
 
 .logo{
-  font-weight:700;
-  letter-spacing:2px;
   font-size:14px;
+  font-weight:800;
+  letter-spacing:2px;
 }
 
-.top-actions{
-  display:flex;
-  gap:8px;
-}
-
-.top-btn{
-  border:0;
-  border-radius:50%;
-  width:40px;
-  height:40px;
+.logout-btn{
   background:rgba(255,255,255,.22);
   color:white;
-  cursor:pointer;
+  padding:8px 12px;
+  border-radius:20px;
+  backdrop-filter:blur(8px);
 }
 
 .hero small{
@@ -158,7 +162,22 @@ button,input,textarea{
 
 .hero h1{
   font-size:40px;
-  margin:4px 0;
+  margin:5px 0;
+}
+
+.hero p{
+  font-size:15px;
+}
+
+/* SYNC */
+
+.sync-status{
+  display:inline-block;
+  margin-top:8px;
+  padding:5px 9px;
+  border-radius:20px;
+  background:rgba(255,255,255,.2);
+  font-size:11px;
 }
 
 /* CONTENT */
@@ -185,8 +204,8 @@ button,input,textarea{
 
 .page-title p{
   color:#6b7280;
-  margin-top:4px;
   font-size:14px;
+  margin-top:4px;
 }
 
 .section-title{
@@ -212,7 +231,7 @@ button,input,textarea{
 .card p{
   color:#6b7280;
   font-size:14px;
-  line-height:1.5;
+  line-height:1.55;
 }
 
 /* QUICK */
@@ -227,8 +246,8 @@ button,input,textarea{
   background:white;
   padding:18px;
   border-radius:18px;
-  cursor:pointer;
   box-shadow:0 5px 20px rgba(0,0,0,.05);
+  cursor:pointer;
 }
 
 .quick-card .emoji{
@@ -245,83 +264,87 @@ button,input,textarea{
   color:#6b7280;
 }
 
-/* INPUT */
+/* BUTTON */
+
+.edit-btn{
+  background:#eef2ff;
+  color:#4338ca;
+  border-radius:10px;
+  padding:9px 13px;
+  margin-top:14px;
+}
+
+.save-btn{
+  background:#111827;
+  color:white;
+  width:100%;
+  border-radius:12px;
+  padding:13px;
+  margin-top:14px;
+  font-weight:700;
+}
+
+/* EDIT */
 
 .edit-box{
   display:none;
   margin-top:15px;
+  padding-top:5px;
 }
 
 .edit-box.active{
   display:block;
 }
 
-label{
+.edit-box label{
   display:block;
   font-size:12px;
   color:#6b7280;
-  margin-top:10px;
+  margin-top:11px;
 }
 
-input,textarea{
+.edit-box input,
+.edit-box textarea{
   width:100%;
   padding:12px;
-  margin-top:7px;
   border:1px solid #d1d5db;
   border-radius:12px;
-  background:white;
+  margin-top:6px;
+  font-size:14px;
 }
 
-textarea{
-  resize:vertical;
+.edit-box textarea{
   min-height:80px;
+  resize:vertical;
 }
 
-.edit-btn{
-  border:0;
-  padding:9px 12px;
-  border-radius:10px;
-  background:#eef2ff;
-  color:#4338ca;
-  margin-top:12px;
-  cursor:pointer;
+/* TIMELINE */
+
+.timeline-item{
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:12px;
+  padding:15px 0;
+  border-bottom:1px solid #eee;
 }
 
-.save-btn{
-  width:100%;
-  border:0;
-  padding:13px;
-  border-radius:12px;
-  background:#111827;
-  color:white;
-  margin-top:14px;
-  cursor:pointer;
+.timeline-item:last-child{
+  border-bottom:none;
 }
 
-/* HOTEL */
-
-.hotel-photo{
-  width:100%;
-  height:170px;
-  border-radius:16px;
-  object-fit:cover;
-  margin-bottom:15px;
+.date{
+  color:#4f46e5;
+  font-weight:800;
 }
 
-.price{
-  font-size:25px;
-  font-weight:700;
-  margin-top:10px;
+.timeline-title{
+  font-weight:600;
 }
 
-.badge{
-  display:inline-block;
-  margin-top:8px;
-  padding:5px 9px;
-  border-radius:20px;
-  background:#ecfdf5;
-  color:#047857;
-  font-size:11px;
+.timeline-desc{
+  color:#6b7280;
+  font-size:13px;
+  margin-top:4px;
 }
 
 /* FLIGHT */
@@ -338,13 +361,43 @@ textarea{
 }
 
 .airport strong{
+  display:block;
   font-size:28px;
 }
 
 .airport span{
-  display:block;
   font-size:12px;
   color:#6b7280;
+}
+
+.flight-arrow{
+  font-size:24px;
+}
+
+/* HOTEL */
+
+.hotel-photo{
+  width:100%;
+  height:170px;
+  border-radius:16px;
+  object-fit:cover;
+  margin-bottom:15px;
+}
+
+.price{
+  font-size:25px;
+  font-weight:800;
+  margin-top:10px;
+}
+
+.badge{
+  display:inline-block;
+  margin-top:9px;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#ecfdf5;
+  color:#047857;
+  font-size:11px;
 }
 
 /* EXPENSE */
@@ -352,12 +405,17 @@ textarea{
 .expense-row{
   display:flex;
   justify-content:space-between;
+  gap:12px;
   padding:13px 0;
   border-bottom:1px solid #eee;
 }
 
 .expense-row:last-child{
   border-bottom:none;
+}
+
+.expense-price{
+  font-weight:700;
 }
 
 .total{
@@ -371,7 +429,7 @@ textarea{
 
 .total-price{
   font-size:30px;
-  font-weight:700;
+  font-weight:800;
   margin-top:5px;
 }
 
@@ -380,7 +438,7 @@ textarea{
 .check-item{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:11px;
   padding:12px 0;
   border-bottom:1px solid #eee;
 }
@@ -388,61 +446,32 @@ textarea{
 .check-item input{
   width:20px;
   height:20px;
-  margin:0;
+}
+
+.checked-text{
+  text-decoration:line-through;
+  color:#9ca3af;
 }
 
 .add-row{
   display:flex;
   gap:8px;
-  margin-top:12px;
+  margin-top:15px;
 }
 
 .add-row input{
-  margin:0;
+  flex:1;
+  min-width:0;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
 }
 
 .add-row button{
-  min-width:65px;
-  border:0;
-  border-radius:12px;
   background:#111827;
   color:white;
-}
-
-/* SCHEDULE */
-
-.schedule-item{
-  margin-bottom:12px;
-}
-
-.schedule-top{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-}
-
-.schedule-date{
-  min-width:50px;
-  font-weight:700;
-  color:#4f46e5;
-}
-
-.schedule-title{
-  font-weight:600;
-}
-
-.schedule-desc{
-  font-size:13px;
-  color:#6b7280;
-  margin-top:4px;
-}
-
-/* STATUS */
-
-.sync-status{
-  margin-top:12px;
-  font-size:12px;
-  color:#6b7280;
+  padding:0 16px;
+  border-radius:12px;
 }
 
 /* NAV */
@@ -454,11 +483,11 @@ textarea{
   transform:translateX(-50%);
   width:min(480px,100%);
   height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-around;
   background:white;
   border-top:1px solid #eee;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
   z-index:100;
 }
 
@@ -472,196 +501,225 @@ textarea{
 
 .nav-item .icon{
   font-size:22px;
+  margin-bottom:2px;
 }
 
 .nav-item.active{
   color:#4f46e5;
-  font-weight:700;
+  font-weight:800;
+}
+
+.error-box{
+  background:#fef2f2;
+  color:#b91c1c;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:15px;
+  font-size:13px;
+  display:none;
 }
 </style>
 </head>
 
 <body>
 
+<div class="app">
+
 <!-- LOGIN -->
 
-<section id="loginScreen" class="login-screen">
+<section id="loginScreen">
 
-  <div class="login-card">
+<div class="login-box">
 
-    <h1>✈️ OUR TRAVEL</h1>
-    <div class="sub">우리만의 여행 공간</div>
+<div class="login-logo">
+OUR TRAVEL
+</div>
 
-    <label>이메일</label>
-    <input
-      id="loginEmail"
-      type="email"
-      placeholder="이메일"
-    >
+<h1>Welcome 👋</h1>
 
-    <label>비밀번호</label>
-    <input
-      id="loginPassword"
-      type="password"
-      placeholder="비밀번호"
-    >
+<p>우리의 여행을 시작해요.</p>
 
-    <button
-      class="login-button"
-      onclick="login()"
-    >
-      로그인
-    </button>
+<label>이메일</label>
+<input
+  id="loginEmail"
+  type="email"
+  placeholder="email@example.com"
+>
 
-    <div
-      id="loginError"
-      class="login-error"
-    ></div>
+<label>비밀번호</label>
+<input
+  id="loginPassword"
+  type="password"
+  placeholder="비밀번호"
+>
 
-  </div>
+<button
+  class="login-btn"
+  onclick="login()"
+>
+로그인
+</button>
+
+<div
+  id="loginMessage"
+  class="login-message"
+></div>
+
+</div>
 
 </section>
 
 
-<!-- APP -->
+<!-- MAIN APP -->
 
-<div id="app">
-
-<div class="app">
+<section id="mainApp">
 
 <section class="hero">
 
-  <div class="topbar">
+<div class="topbar">
 
-    <div class="logo">
-      OUR TRAVEL
-    </div>
+<div class="logo">
+OUR TRAVEL
+</div>
 
-    <div class="top-actions">
+<button
+  class="logout-btn"
+  onclick="logout()"
+>
+로그아웃
+</button>
 
-      <button
-        class="top-btn"
-        onclick="loadTravelData()"
-      >
-        ↻
-      </button>
+</div>
 
-      <button
-        class="top-btn"
-        onclick="logout()"
-      >
-        ⎋
-      </button>
+<div>
 
-    </div>
+<small>
+UPCOMING TRIP
+</small>
 
-  </div>
+<h1>BOHOL</h1>
 
-  <div>
-    <small>UPCOMING TRIP</small>
-    <h1>BOHOL</h1>
-    <p>2027.03.01 — 03.06 · 5박 6일</p>
-    <div
-      id="syncStatus"
-      class="sync-status"
-      style="color:white"
-    ></div>
-  </div>
+<p>
+2027.03.01 — 03.06 · 5박 6일
+</p>
+
+<div
+  id="syncStatus"
+  class="sync-status"
+>
+☁️ 연결 중...
+</div>
+
+</div>
 
 </section>
 
 
 <main class="content">
 
+<div
+  id="errorBox"
+  class="error-box"
+></div>
+
 
 <!-- HOME -->
 
-<section id="home" class="page active">
+<section
+  id="home"
+  class="page active"
+>
 
 <h2 class="section-title">
-  여행 한눈에 보기
+여행 한눈에 보기
 </h2>
 
 <div class="quick-grid">
 
-  <div
-    class="quick-card"
-    onclick="showPage('schedule')"
-  >
-    <div class="emoji">📅</div>
-    <strong>일정</strong>
-    <span>5박 6일</span>
-  </div>
+<div
+  class="quick-card"
+  onclick="showPage('schedule')"
+>
+<div class="emoji">📅</div>
+<strong>일정</strong>
+<span>5박 6일</span>
+</div>
 
-  <div
-    class="quick-card"
-    onclick="showPage('flight')"
-  >
-    <div class="emoji">✈️</div>
-    <strong>항공</strong>
-    <span>서울 ↔ 보홀</span>
-  </div>
+<div
+  class="quick-card"
+  onclick="showPage('flight')"
+>
+<div class="emoji">✈️</div>
+<strong>항공</strong>
+<span>서울 ↔ 보홀</span>
+</div>
 
-  <div
-    class="quick-card"
-    onclick="showPage('hotel')"
-  >
-    <div class="emoji">🏨</div>
-    <strong>숙소</strong>
-    <span>South Palms</span>
-  </div>
+<div
+  class="quick-card"
+  onclick="showPage('hotel')"
+>
+<div class="emoji">🏨</div>
+<strong>숙소</strong>
+<span>South Palms</span>
+</div>
 
-  <div
-    class="quick-card"
-    onclick="showPage('expense')"
-  >
-    <div class="emoji">💰</div>
-    <strong>경비</strong>
-    <span>자동 계산</span>
-  </div>
+<div
+  class="quick-card"
+  onclick="showPage('expense')"
+>
+<div class="emoji">💰</div>
+<strong>경비</strong>
+<span>자동 계산</span>
+</div>
 
 </div>
 
 
 <h2 class="section-title">
-  🏨 메인 숙소
+🏨 메인 숙소
 </h2>
 
 <div class="card">
 
-  <h3 id="homeHotelName"></h3>
-  <p id="homeHotelDate"></p>
-  <p id="homeHotelMemo"></p>
+<h3 id="homeHotelName">
+-
+</h3>
 
-  <span class="badge">
-    메인 리조트
-  </span>
+<p id="homeHotelDate">
+-
+</p>
+
+<p id="homeHotelMemo">
+-
+</p>
+
+<span class="badge">
+메인 리조트
+</span>
 
 </div>
 
 
 <h2 class="section-title">
-  ☑️ 준비물
+☑️ 준비물
 </h2>
 
 <div class="card">
 
-  <div id="checklist"></div>
+<div id="checklist"></div>
 
-  <div class="add-row">
+<div class="add-row">
 
-    <input
-      id="newChecklist"
-      placeholder="준비물 추가"
-    >
+<input
+  id="newChecklist"
+  placeholder="준비물 추가"
+>
 
-    <button
-      onclick="addChecklist()"
-    >
-      추가
-    </button>
+<button onclick="addChecklist()">
+추가
+</button>
 
-  </div>
+</div>
 
 </div>
 
@@ -670,25 +728,105 @@ textarea{
 
 <!-- SCHEDULE -->
 
-<section id="schedule" class="page">
+<section
+  id="schedule"
+  class="page"
+>
 
 <div class="page-title">
-  <h1>📅 일정</h1>
-  <p>보홀 5박 6일</p>
+<h1>📅 일정</h1>
+<p>보홀 5박 6일</p>
 </div>
 
-<div id="scheduleList"></div>
+<div class="card">
+
+<div class="timeline-item">
+<div class="date">3/1</div>
+<div>
+<div class="timeline-title">
+✈️ 서울 → 보홀
+</div>
+<div class="timeline-desc">
+새벽 도착 · 공항 근처 숙소
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="date">3/2</div>
+<div>
+<div class="timeline-title">
+🏨 South Palms 체크인
+</div>
+<div class="timeline-desc">
+리조트 휴식 · 해변
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="date">3/3</div>
+<div>
+<div class="timeline-title">
+🐠 발리카삭 투어
+</div>
+<div class="timeline-desc">
+호핑 · 스노클링
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="date">3/4</div>
+<div>
+<div class="timeline-title">
+🌴 자유 일정
+</div>
+<div class="timeline-desc">
+리조트 · 마사지 · 맛집
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="date">3/5</div>
+<div>
+<div class="timeline-title">
+🏖️ 체크아웃
+</div>
+<div class="timeline-desc">
+마지막 가성비 숙소 이동
+</div>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="date">3/6</div>
+<div>
+<div class="timeline-title">
+✈️ 보홀 → 서울
+</div>
+<div class="timeline-desc">
+귀국
+</div>
+</div>
+</div>
+
+</div>
 
 </section>
 
 
 <!-- FLIGHT -->
 
-<section id="flight" class="page">
+<section
+  id="flight"
+  class="page"
+>
 
 <div class="page-title">
-  <h1>✈️ 항공</h1>
-  <p>항공편 정보</p>
+<h1>✈️ 항공</h1>
+<p>항공편 정보</p>
 </div>
 
 
@@ -698,27 +836,31 @@ textarea{
 
 <div class="flight-route">
 
-  <div class="airport">
-    <strong>ICN</strong>
-    <span>인천</span>
-  </div>
+<div class="airport">
+<strong>ICN</strong>
+<span>인천</span>
+</div>
 
-  <div>✈️</div>
+<div class="flight-arrow">
+✈️
+</div>
 
-  <div class="airport">
-    <strong>TAG</strong>
-    <span>보홀</span>
-  </div>
+<div class="airport">
+<strong>TAG</strong>
+<span>보홀</span>
+</div>
 
 </div>
 
-<p id="outboundInfo"></p>
+<p id="outboundInfo">
+-
+</p>
 
 <button
   class="edit-btn"
   onclick="toggleEdit('outboundEdit')"
 >
-  ✏️ 수정
+✏️ 수정
 </button>
 
 <div
@@ -729,7 +871,7 @@ textarea{
 <label>항공사 / 편명</label>
 <input id="outboundFlight">
 
-<label>출발 시간</label>
+<label>출발 날짜 / 시간</label>
 <input id="outboundTime">
 
 <label>좌석</label>
@@ -739,7 +881,7 @@ textarea{
   class="save-btn"
   onclick="saveFlight('outbound')"
 >
-  온라인 저장
+저장
 </button>
 
 </div>
@@ -753,27 +895,31 @@ textarea{
 
 <div class="flight-route">
 
-  <div class="airport">
-    <strong>TAG</strong>
-    <span>보홀</span>
-  </div>
+<div class="airport">
+<strong>TAG</strong>
+<span>보홀</span>
+</div>
 
-  <div>✈️</div>
+<div class="flight-arrow">
+✈️
+</div>
 
-  <div class="airport">
-    <strong>ICN</strong>
-    <span>인천</span>
-  </div>
+<div class="airport">
+<strong>ICN</strong>
+<span>인천</span>
+</div>
 
 </div>
 
-<p id="returnInfo"></p>
+<p id="returnInfo">
+-
+</p>
 
 <button
   class="edit-btn"
   onclick="toggleEdit('returnEdit')"
 >
-  ✏️ 수정
+✏️ 수정
 </button>
 
 <div
@@ -784,7 +930,7 @@ textarea{
 <label>항공사 / 편명</label>
 <input id="returnFlight">
 
-<label>출발 시간</label>
+<label>출발 날짜 / 시간</label>
 <input id="returnTime">
 
 <label>좌석</label>
@@ -794,7 +940,7 @@ textarea{
   class="save-btn"
   onclick="saveFlight('return')"
 >
-  온라인 저장
+저장
 </button>
 
 </div>
@@ -806,11 +952,14 @@ textarea{
 
 <!-- HOTEL -->
 
-<section id="hotel" class="page">
+<section
+  id="hotel"
+  class="page"
+>
 
 <div class="page-title">
-  <h1>🏨 숙소</h1>
-  <p>호텔 예약 정보</p>
+<h1>🏨 숙소</h1>
+<p>호텔 예약 정보</p>
 </div>
 
 <div class="card">
@@ -820,26 +969,38 @@ textarea{
   src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
 >
 
-<h3 id="hotelNameText"></h3>
+<h3 id="hotelNameText">
+-
+</h3>
 
-<p id="hotelDateText"></p>
-<p id="hotelMemoText"></p>
+<p id="hotelDateText">
+-
+</p>
+
+<p id="hotelMemoText">
+-
+</p>
 
 <div
   class="price"
   id="hotelPriceText"
-></div>
+>
+-
+</div>
 
 <span class="badge">
-  ALL 공식
+메인 리조트
 </span>
+
+<br>
 
 <button
   class="edit-btn"
   onclick="toggleEdit('hotelEdit')"
 >
-  ✏️ 수정
+✏️ 숙소 수정
 </button>
+
 
 <div
   id="hotelEdit"
@@ -868,15 +1029,13 @@ textarea{
 >
 
 <label>메모</label>
-<textarea
-  id="hotelMemoInput"
-></textarea>
+<textarea id="hotelMemoInput"></textarea>
 
 <button
   class="save-btn"
   onclick="saveHotel()"
 >
-  온라인 저장
+저장
 </button>
 
 </div>
@@ -888,40 +1047,65 @@ textarea{
 
 <!-- EXPENSE -->
 
-<section id="expense" class="page">
+<section
+  id="expense"
+  class="page"
+>
 
 <div class="page-title">
-  <h1>💰 경비</h1>
-  <p>여행 비용</p>
+<h1>💰 경비</h1>
+<p>여행 비용 자동 계산</p>
 </div>
+
 
 <div class="card">
 
 <div class="expense-row">
-  <span>🏨 숙소</span>
-  <strong id="expenseHotel"></strong>
+<span>🏨 숙소</span>
+<span
+  class="expense-price"
+  id="expenseHotel"
+>
+-
+</span>
 </div>
 
 <div class="expense-row">
-  <span>✈️ 항공권</span>
-  <strong id="expenseFlight"></strong>
+<span>✈️ 항공권</span>
+<span
+  class="expense-price"
+  id="expenseFlight"
+>
+-
+</span>
 </div>
 
 <div class="expense-row">
-  <span>🐠 투어</span>
-  <strong id="expenseTour"></strong>
+<span>🐠 투어</span>
+<span
+  class="expense-price"
+  id="expenseTour"
+>
+-
+</span>
 </div>
 
 <div class="expense-row">
-  <span>🍴 식비</span>
-  <strong id="expenseFood"></strong>
+<span>🍴 식비</span>
+<span
+  class="expense-price"
+  id="expenseFood"
+>
+-
+</span>
 </div>
+
 
 <button
   class="edit-btn"
   onclick="toggleEdit('expenseEdit')"
 >
-  ✏️ 비용 수정
+✏️ 비용 수정
 </button>
 
 
@@ -936,13 +1120,13 @@ textarea{
   type="number"
 >
 
-<label>투어 비용</label>
+<label>투어</label>
 <input
   id="tourCost"
   type="number"
 >
 
-<label>식비 예상</label>
+<label>식비</label>
 <input
   id="foodCost"
   type="number"
@@ -952,7 +1136,7 @@ textarea{
   class="save-btn"
   onclick="saveExpenses()"
 >
-  온라인 저장
+저장
 </button>
 
 </div>
@@ -962,12 +1146,16 @@ textarea{
 
 <div class="card total">
 
-<p>현재 예상 여행비</p>
+<p>
+현재 예상 여행비
+</p>
 
 <div
   id="totalPrice"
   class="total-price"
-></div>
+>
+-
+</div>
 
 </div>
 
@@ -983,8 +1171,8 @@ textarea{
   data-page="home"
   onclick="showPage('home')"
 >
-  <div class="icon">🏠</div>
-  홈
+<div class="icon">🏠</div>
+홈
 </div>
 
 <div
@@ -992,8 +1180,8 @@ textarea{
   data-page="schedule"
   onclick="showPage('schedule')"
 >
-  <div class="icon">📅</div>
-  일정
+<div class="icon">📅</div>
+일정
 </div>
 
 <div
@@ -1001,8 +1189,8 @@ textarea{
   data-page="flight"
   onclick="showPage('flight')"
 >
-  <div class="icon">✈️</div>
-  항공
+<div class="icon">✈️</div>
+항공
 </div>
 
 <div
@@ -1010,8 +1198,8 @@ textarea{
   data-page="hotel"
   onclick="showPage('hotel')"
 >
-  <div class="icon">🏨</div>
-  숙소
+<div class="icon">🏨</div>
+숙소
 </div>
 
 <div
@@ -1019,47 +1207,58 @@ textarea{
   data-page="expense"
   onclick="showPage('expense')"
 >
-  <div class="icon">💰</div>
-  경비
+<div class="icon">💰</div>
+경비
 </div>
 
 </nav>
 
-</div>
+</section>
+
 </div>
 
 
 <script>
 
-/* =============================
-   SUPABASE
-============================= */
+/* ========================================
+   ★★★ 여기 두 줄만 네 것으로 변경 ★★★
+======================================== */
 
 const SUPABASE_URL =
-  "https://usfxzxzssajnqfasbzkr.supabase.co";
+  "여기에_Project_URL";
 
 const SUPABASE_KEY =
-  "sb_publishable_3-VFzdCdhlSRSEXokDc24A_dECpWgcb";
+  "여기에_Publishable_Key";
 
-const sb =
+
+/* ======================================== */
+
+const supabaseClient =
   supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
 
 
-/* =============================
-   DEFAULT DATA
-============================= */
+/* 기본 데이터 */
 
-let travelData = {
+const DEFAULT_DATA = {
 
   hotel:{
-    name:"South Palms Resort & Spa Panglao - MGallery",
-    checkin:"2027-03-02",
-    checkout:"2027-03-05",
-    price:1370000,
-    memo:"3박 · 조식 포함"
+    name:
+      "South Palms Resort & Spa Panglao - MGallery",
+
+    checkin:
+      "2027-03-02",
+
+    checkout:
+      "2027-03-05",
+
+    price:
+      1370000,
+
+    memo:
+      "3박 · 조식 포함"
   },
 
   flight:{
@@ -1085,58 +1284,36 @@ let travelData = {
   },
 
   checklist:[
-    {name:"여권",done:false},
-    {name:"항공권",done:false},
-    {name:"수영복",done:false},
-    {name:"선크림",done:false}
-  ],
-
-  schedule:[
-
     {
-      date:"3/1",
-      title:"✈️ 서울 → 보홀",
-      desc:"새벽 도착 · 공항 근처 숙소"
+      name:"여권",
+      done:false
     },
-
     {
-      date:"3/2",
-      title:"🏨 South Palms 체크인",
-      desc:"리조트 휴식 · 해변"
+      name:"항공권",
+      done:false
     },
-
     {
-      date:"3/3",
-      title:"🐠 발리카삭 투어",
-      desc:"스노클링 · 호핑"
+      name:"수영복",
+      done:false
     },
-
     {
-      date:"3/4",
-      title:"🌴 자유 일정",
-      desc:"리조트 · 마사지 · 맛집"
-    },
-
-    {
-      date:"3/5",
-      title:"🏖️ 체크아웃",
-      desc:"마지막 가성비 숙소"
-    },
-
-    {
-      date:"3/6",
-      title:"✈️ 보홀 → 서울",
-      desc:"새벽 출발"
+      name:"선크림",
+      done:false
     }
-
   ]
 
 };
 
 
-/* =============================
+let travelData =
+  JSON.parse(
+    JSON.stringify(DEFAULT_DATA)
+  );
+
+
+/* ========================================
    LOGIN
-============================= */
+======================================== */
 
 async function login(){
 
@@ -1151,129 +1328,168 @@ async function login(){
     .getElementById("loginPassword")
     .value;
 
-  loginError.innerText =
+  const message =
+    document
+    .getElementById("loginMessage");
+
+  message.style.color =
+    "#6b7280";
+
+  message.textContent =
     "로그인 중...";
 
+
   const {
     data,
     error
   } =
-  await sb.auth.signInWithPassword({
-    email,
-    password
+  await supabaseClient.auth
+  .signInWithPassword({
+    email:email,
+    password:password
   });
-
-  if(error){
-
-    loginError.innerText =
-      "로그인 실패: "
-      + error.message;
-
-    return;
-  }
-
-  loginError.innerText="";
-
-  showApp();
-
-  await loadTravelData();
-
-}
-
-
-async function logout(){
-
-  await sb.auth.signOut();
-
-  document
-    .getElementById("app")
-    .style.display="none";
-
-  document
-    .getElementById("loginScreen")
-    .style.display="flex";
-
-}
-
-
-/* =============================
-   SESSION CHECK
-============================= */
-
-async function checkSession(){
-
-  const {
-    data:{
-      session
-    }
-  } =
-  await sb.auth.getSession();
-
-  if(session){
-
-    showApp();
-
-    await loadTravelData();
-
-  }else{
-
-    loginScreen.style.display="flex";
-
-    app.style.display="none";
-
-  }
-
-}
-
-
-function showApp(){
-
-  loginScreen.style.display="none";
-
-  app.style.display="block";
-
-}
-
-
-/* =============================
-   LOAD DATA
-============================= */
-
-async function loadTravelData(){
-
-  setStatus(
-    "☁️ 데이터 불러오는 중..."
-  );
-
-  const {
-    data,
-    error
-  } =
-  await sb
-  .from("travel_data")
-  .select("id,data")
-  .eq("id",1)
-  .maybeSingle();
 
 
   if(error){
 
     console.error(error);
 
-    setStatus(
-      "❌ 불러오기 실패"
+    message.style.color =
+      "#dc2626";
+
+    message.textContent =
+      "로그인 실패: " +
+      error.message;
+
+    return;
+  }
+
+
+  message.textContent = "";
+
+  await openApp();
+
+}
+
+
+/* ENTER로 로그인 */
+
+document
+.getElementById("loginPassword")
+.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Enter"){
+      login();
+    }
+
+  }
+);
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+async function logout(){
+
+  await supabaseClient.auth
+  .signOut();
+
+  document
+  .getElementById("mainApp")
+  .style.display =
+    "none";
+
+  document
+  .getElementById("loginScreen")
+  .style.display =
+    "flex";
+
+}
+
+
+/* ========================================
+   OPEN APP
+======================================== */
+
+async function openApp(){
+
+  document
+  .getElementById("loginScreen")
+  .style.display =
+    "none";
+
+  document
+  .getElementById("mainApp")
+  .style.display =
+    "block";
+
+  setSyncStatus(
+    "☁️ 데이터 불러오는 중..."
+  );
+
+  await loadTravelData();
+
+}
+
+
+/* ========================================
+   SUPABASE에서 데이터 불러오기
+======================================== */
+
+async function loadTravelData(){
+
+  clearError();
+
+  const {
+    data:row,
+    error
+  } =
+  await supabaseClient
+  .from("travel_data")
+  .select("id, data")
+  .eq("id",1)
+  .maybeSingle();
+
+
+  if(error){
+
+    console.error(
+      "불러오기 오류:",
+      error
+    );
+
+    showError(
+      "데이터 불러오기 실패: " +
+      error.message
+    );
+
+    setSyncStatus(
+      "⚠️ 불러오기 실패"
     );
 
     return;
   }
 
 
-  if(!data){
+  /* id=1이 없는 경우 자동 생성 */
+
+  if(!row){
+
+    travelData =
+      JSON.parse(
+        JSON.stringify(
+          DEFAULT_DATA
+        )
+      );
+
 
     const {
       error:insertError
     } =
-    await sb
+    await supabaseClient
     .from("travel_data")
     .insert({
       id:1,
@@ -1283,63 +1499,143 @@ async function loadTravelData(){
 
     if(insertError){
 
-      console.error(insertError);
+      console.error(
+        "초기 데이터 생성 오류:",
+        insertError
+      );
 
-      setStatus(
-        "❌ 초기 데이터 생성 실패"
+      showError(
+        "초기 데이터 생성 실패: " +
+        insertError.message
       );
 
       return;
     }
 
-  }else if(data.data){
+  }else{
 
-    travelData =
-      data.data;
+    /*
+      기존 JSON에 일부 항목이
+      빠져있어도 오류 안 나도록 병합
+    */
+
+    const loaded =
+      row.data || {};
+
+    travelData = {
+
+      ...DEFAULT_DATA,
+      ...loaded,
+
+      hotel:{
+        ...DEFAULT_DATA.hotel,
+        ...(loaded.hotel || {})
+      },
+
+      flight:{
+
+        outbound:{
+          ...DEFAULT_DATA.flight.outbound,
+          ...(loaded.flight?.outbound || {})
+        },
+
+        return:{
+          ...DEFAULT_DATA.flight.return,
+          ...(loaded.flight?.return || {})
+        }
+
+      },
+
+      expenses:{
+        ...DEFAULT_DATA.expenses,
+        ...(loaded.expenses || {})
+      },
+
+      checklist:
+        Array.isArray(
+          loaded.checklist
+        )
+        ?
+        loaded.checklist
+        :
+        DEFAULT_DATA.checklist
+
+    };
 
   }
 
+
   renderAll();
 
-  setStatus(
-    "☁️ 온라인 동기화 완료"
+  setSyncStatus(
+    "☁️ Supabase 연결됨"
   );
 
 }
 
 
-/* =============================
-   SAVE DATA
-============================= */
+/* ========================================
+   SUPABASE 저장
+======================================== */
 
-async function saveOnline(){
+async function saveTravelData(){
 
-  setStatus(
+  clearError();
+
+  setSyncStatus(
     "☁️ 저장 중..."
   );
 
+
   const {
+    data:savedRows,
     error
   } =
-  await sb
+  await supabaseClient
   .from("travel_data")
-  .upsert({
-    id:1,
+  .update({
     data:travelData
-  });
+  })
+  .eq("id",1)
+  .select();
 
 
   if(error){
 
-    console.error(error);
-
-    alert(
-      "저장 실패:\n"
-      + error.message
+    console.error(
+      "저장 오류:",
+      error
     );
 
-    setStatus(
-      "❌ 저장 실패"
+    showError(
+      "수정 오류: " +
+      error.message
+    );
+
+    setSyncStatus(
+      "⚠️ 저장 실패"
+    );
+
+    return false;
+  }
+
+
+  /*
+    UPDATE가 성공했다고 나왔지만
+    실제 수정된 행이 0개인 경우 확인
+  */
+
+  if(
+    !savedRows ||
+    savedRows.length === 0
+  ){
+
+    showError(
+      "저장할 id=1 데이터가 없습니다."
+    );
+
+    setSyncStatus(
+      "⚠️ 저장 실패"
     );
 
     return false;
@@ -1348,157 +1644,237 @@ async function saveOnline(){
 
   renderAll();
 
-  setStatus(
-    "✅ 온라인 저장 완료"
+  setSyncStatus(
+    "✓ 저장 완료"
   );
+
+
+  setTimeout(
+    function(){
+
+      setSyncStatus(
+        "☁️ Supabase 연결됨"
+      );
+
+    },
+    1500
+  );
+
 
   return true;
 
 }
 
 
-function setStatus(text){
-
-  const el =
-    document
-    .getElementById("syncStatus");
-
-  if(el){
-    el.innerText=text;
-  }
-
-}
-
-
-/* =============================
-   HOTEL
-============================= */
+/* ========================================
+   HOTEL 저장
+======================================== */
 
 async function saveHotel(){
 
-  travelData.hotel.name =
-    hotelNameInput.value;
+  const name =
+    document
+    .getElementById(
+      "hotelNameInput"
+    )
+    .value
+    .trim();
 
-  travelData.hotel.checkin =
-    hotelCheckinInput.value;
+  const checkin =
+    document
+    .getElementById(
+      "hotelCheckinInput"
+    )
+    .value;
 
-  travelData.hotel.checkout =
-    hotelCheckoutInput.value;
+  const checkout =
+    document
+    .getElementById(
+      "hotelCheckoutInput"
+    )
+    .value;
 
-  travelData.hotel.price =
+  const price =
     Number(
-      hotelPriceInput.value
+      document
+      .getElementById(
+        "hotelPriceInput"
+      )
+      .value
     );
 
-  travelData.hotel.memo =
-    hotelMemoInput.value;
+  const memo =
+    document
+    .getElementById(
+      "hotelMemoInput"
+    )
+    .value;
 
-  const ok =
-    await saveOnline();
 
-  if(ok){
-    toggleEdit("hotelEdit");
+  travelData.hotel = {
+    name,
+    checkin,
+    checkout,
+    price,
+    memo
+  };
+
+
+  const success =
+    await saveTravelData();
+
+
+  if(success){
+
+    document
+    .getElementById(
+      "hotelEdit"
+    )
+    .classList
+    .remove("active");
+
   }
 
 }
 
 
-/* =============================
-   FLIGHT
-============================= */
+/* ========================================
+   FLIGHT 저장
+======================================== */
 
 async function saveFlight(type){
 
-  travelData.flight[type].flight =
+  travelData.flight[type] = {
+
+    flight:
+      document
+      .getElementById(
+        type + "Flight"
+      )
+      .value
+      .trim(),
+
+    time:
+      document
+      .getElementById(
+        type + "Time"
+      )
+      .value
+      .trim(),
+
+    seat:
+      document
+      .getElementById(
+        type + "Seat"
+      )
+      .value
+      .trim()
+
+  };
+
+
+  const success =
+    await saveTravelData();
+
+
+  if(success){
+
     document
     .getElementById(
-      type+"Flight"
+      type + "Edit"
     )
-    .value;
+    .classList
+    .remove("active");
 
-  travelData.flight[type].time =
-    document
-    .getElementById(
-      type+"Time"
-    )
-    .value;
-
-  travelData.flight[type].seat =
-    document
-    .getElementById(
-      type+"Seat"
-    )
-    .value;
-
-  const ok =
-    await saveOnline();
-
-  if(ok){
-    toggleEdit(
-      type+"Edit"
-    );
   }
 
 }
 
 
-/* =============================
-   EXPENSE
-============================= */
+/* ========================================
+   EXPENSE 저장
+======================================== */
 
 async function saveExpenses(){
 
   travelData.expenses.flight =
     Number(
-      flightCost.value
-    );
+      document
+      .getElementById(
+        "flightCost"
+      )
+      .value
+    ) || 0;
+
 
   travelData.expenses.tour =
     Number(
-      tourCost.value
-    );
+      document
+      .getElementById(
+        "tourCost"
+      )
+      .value
+    ) || 0;
+
 
   travelData.expenses.food =
     Number(
-      foodCost.value
-    );
+      document
+      .getElementById(
+        "foodCost"
+      )
+      .value
+    ) || 0;
 
-  const ok =
-    await saveOnline();
 
-  if(ok){
-    toggleEdit(
+  const success =
+    await saveTravelData();
+
+
+  if(success){
+
+    document
+    .getElementById(
       "expenseEdit"
-    );
+    )
+    .classList
+    .remove("active");
+
   }
 
 }
 
 
-/* =============================
+/* ========================================
    CHECKLIST
-============================= */
+======================================== */
 
 async function addChecklist(){
 
   const input =
-    newChecklist;
+    document
+    .getElementById(
+      "newChecklist"
+    );
 
-  const value =
+  const name =
     input.value.trim();
 
-  if(!value) return;
 
-  travelData
-  .checklist
-  .push({
-    name:value,
+  if(!name){
+    return;
+  }
+
+
+  travelData.checklist.push({
+    name:name,
     done:false
   });
 
-  input.value="";
 
-  await saveOnline();
+  input.value = "";
+
+  await saveTravelData();
 
 }
 
@@ -1508,201 +1884,366 @@ async function toggleChecklist(index){
   travelData
   .checklist[index]
   .done =
-  !travelData
-  .checklist[index]
-  .done;
+    !travelData
+    .checklist[index]
+    .done;
 
-  await saveOnline();
+
+  await saveTravelData();
 
 }
 
 
-/* =============================
+/* ========================================
    RENDER
-============================= */
+======================================== */
 
 function renderAll(){
 
+  const hotel =
+    travelData.hotel;
+
+  const flight =
+    travelData.flight;
+
+  const expenses =
+    travelData.expenses;
+
+
+  /* HOME */
+
+  document
+  .getElementById(
+    "homeHotelName"
+  )
+  .textContent =
+    hotel.name;
+
+
+  document
+  .getElementById(
+    "homeHotelDate"
+  )
+  .textContent =
+    hotel.checkin +
+    " → " +
+    hotel.checkout;
+
+
+  document
+  .getElementById(
+    "homeHotelMemo"
+  )
+  .textContent =
+    hotel.memo;
+
+
   /* HOTEL */
 
-  homeHotelName.innerText =
-    travelData.hotel.name;
-
-  homeHotelDate.innerText =
-    travelData.hotel.checkin
-    +" → "+
-    travelData.hotel.checkout;
-
-  homeHotelMemo.innerText =
-    travelData.hotel.memo;
+  document
+  .getElementById(
+    "hotelNameText"
+  )
+  .textContent =
+    hotel.name;
 
 
-  hotelNameText.innerText =
-    travelData.hotel.name;
-
-  hotelDateText.innerText =
-    travelData.hotel.checkin
-    +" → "+
-    travelData.hotel.checkout;
-
-  hotelMemoText.innerText =
-    travelData.hotel.memo;
-
-  hotelPriceText.innerText =
-    won(
-      travelData.hotel.price
-    );
+  document
+  .getElementById(
+    "hotelDateText"
+  )
+  .textContent =
+    hotel.checkin +
+    " → " +
+    hotel.checkout;
 
 
-  hotelNameInput.value =
-    travelData.hotel.name;
+  document
+  .getElementById(
+    "hotelMemoText"
+  )
+  .textContent =
+    hotel.memo;
 
-  hotelCheckinInput.value =
-    travelData.hotel.checkin;
 
-  hotelCheckoutInput.value =
-    travelData.hotel.checkout;
+  document
+  .getElementById(
+    "hotelPriceText"
+  )
+  .textContent =
+    won(hotel.price);
 
-  hotelPriceInput.value =
-    travelData.hotel.price;
 
-  hotelMemoInput.value =
-    travelData.hotel.memo;
+  /* HOTEL INPUT */
+
+  document
+  .getElementById(
+    "hotelNameInput"
+  )
+  .value =
+    hotel.name;
+
+
+  document
+  .getElementById(
+    "hotelCheckinInput"
+  )
+  .value =
+    hotel.checkin;
+
+
+  document
+  .getElementById(
+    "hotelCheckoutInput"
+  )
+  .value =
+    hotel.checkout;
+
+
+  document
+  .getElementById(
+    "hotelPriceInput"
+  )
+  .value =
+    hotel.price;
+
+
+  document
+  .getElementById(
+    "hotelMemoInput"
+  )
+  .value =
+    hotel.memo;
 
 
   /* FLIGHT */
 
-  outboundInfo.innerText =
-    travelData.flight.outbound.flight
-    +" · "+
-    travelData.flight.outbound.time
-    +" · 좌석 "+
-    travelData.flight.outbound.seat;
-
-  returnInfo.innerText =
-    travelData.flight.return.flight
-    +" · "+
-    travelData.flight.return.time
-    +" · 좌석 "+
-    travelData.flight.return.seat;
+  document
+  .getElementById(
+    "outboundInfo"
+  )
+  .textContent =
+    flight.outbound.flight +
+    " · " +
+    flight.outbound.time +
+    " · 좌석 " +
+    flight.outbound.seat;
 
 
-  outboundFlight.value =
-    travelData.flight.outbound.flight;
+  document
+  .getElementById(
+    "returnInfo"
+  )
+  .textContent =
+    flight.return.flight +
+    " · " +
+    flight.return.time +
+    " · 좌석 " +
+    flight.return.seat;
 
-  outboundTime.value =
-    travelData.flight.outbound.time;
 
-  outboundSeat.value =
-    travelData.flight.outbound.seat;
+  document
+  .getElementById(
+    "outboundFlight"
+  )
+  .value =
+    flight.outbound.flight;
 
 
-  returnFlight.value =
-    travelData.flight.return.flight;
+  document
+  .getElementById(
+    "outboundTime"
+  )
+  .value =
+    flight.outbound.time;
 
-  returnTime.value =
-    travelData.flight.return.time;
 
-  returnSeat.value =
-    travelData.flight.return.seat;
+  document
+  .getElementById(
+    "outboundSeat"
+  )
+  .value =
+    flight.outbound.seat;
+
+
+  document
+  .getElementById(
+    "returnFlight"
+  )
+  .value =
+    flight.return.flight;
+
+
+  document
+  .getElementById(
+    "returnTime"
+  )
+  .value =
+    flight.return.time;
+
+
+  document
+  .getElementById(
+    "returnSeat"
+  )
+  .value =
+    flight.return.seat;
 
 
   /* EXPENSE */
 
-  expenseHotel.innerText =
-    won(
-      travelData.hotel.price
-    );
-
-  expenseFlight.innerText =
-    won(
-      travelData.expenses.flight
-    );
-
-  expenseTour.innerText =
-    won(
-      travelData.expenses.tour
-    );
-
-  expenseFood.innerText =
-    won(
-      travelData.expenses.food
-    );
+  document
+  .getElementById(
+    "expenseHotel"
+  )
+  .textContent =
+    won(hotel.price);
 
 
-  flightCost.value =
-    travelData.expenses.flight;
+  document
+  .getElementById(
+    "expenseFlight"
+  )
+  .textContent =
+    won(expenses.flight);
 
-  tourCost.value =
-    travelData.expenses.tour;
 
-  foodCost.value =
-    travelData.expenses.food;
+  document
+  .getElementById(
+    "expenseTour"
+  )
+  .textContent =
+    won(expenses.tour);
+
+
+  document
+  .getElementById(
+    "expenseFood"
+  )
+  .textContent =
+    won(expenses.food);
+
+
+  document
+  .getElementById(
+    "flightCost"
+  )
+  .value =
+    expenses.flight;
+
+
+  document
+  .getElementById(
+    "tourCost"
+  )
+  .value =
+    expenses.tour;
+
+
+  document
+  .getElementById(
+    "foodCost"
+  )
+  .value =
+    expenses.food;
 
 
   const total =
-    Number(travelData.hotel.price || 0)
-    +
-    Number(travelData.expenses.flight || 0)
-    +
-    Number(travelData.expenses.tour || 0)
-    +
-    Number(travelData.expenses.food || 0);
+    Number(hotel.price || 0) +
+    Number(expenses.flight || 0) +
+    Number(expenses.tour || 0) +
+    Number(expenses.food || 0);
 
-  totalPrice.innerText =
+
+  document
+  .getElementById(
+    "totalPrice"
+  )
+  .textContent =
     won(total);
 
 
   renderChecklist();
 
-  renderSchedule();
-
 }
 
 
-/* =============================
-   CHECKLIST RENDER
-============================= */
+/* ========================================
+   CHECKLIST 렌더
+======================================== */
 
 function renderChecklist(){
 
-  checklist.innerHTML="";
+  const container =
+    document
+    .getElementById(
+      "checklist"
+    );
+
+
+  container.innerHTML = "";
+
 
   travelData
   .checklist
   .forEach(
-    (item,index)=>{
+    function(item,index){
 
-      const label =
-        document.createElement("label");
+      const row =
+        document
+        .createElement("label");
 
-      label.className =
+      row.className =
         "check-item";
 
-      label.innerHTML=`
 
-        <input
-          type="checkbox"
-          ${item.done ? "checked":""}
-        >
+      const checkbox =
+        document
+        .createElement("input");
 
-        <span>
-          ${escapeHtml(item.name)}
-        </span>
+      checkbox.type =
+        "checkbox";
 
-      `;
+      checkbox.checked =
+        item.done;
 
-      label
-      .querySelector("input")
-      .addEventListener(
+      checkbox.addEventListener(
         "change",
-        ()=>{
+        function(){
+
           toggleChecklist(index);
+
         }
       );
 
-      checklist
-      .appendChild(label);
+
+      const text =
+        document
+        .createElement("span");
+
+      text.textContent =
+        item.name;
+
+
+      if(item.done){
+
+        text.className =
+          "checked-text";
+
+      }
+
+
+      row.appendChild(
+        checkbox
+      );
+
+      row.appendChild(
+        text
+      );
+
+      container.appendChild(
+        row
+      );
 
     }
   );
@@ -1710,100 +2251,51 @@ function renderChecklist(){
 }
 
 
-/* =============================
-   SCHEDULE
-============================= */
-
-function renderSchedule(){
-
-  scheduleList.innerHTML="";
-
-  travelData
-  .schedule
-  .forEach(item=>{
-
-    const div =
-      document.createElement("div");
-
-    div.className=
-      "card schedule-item";
-
-    div.innerHTML=`
-
-      <div class="schedule-top">
-
-        <div class="schedule-date">
-          ${escapeHtml(item.date)}
-        </div>
-
-        <div>
-
-          <div class="schedule-title">
-            ${escapeHtml(item.title)}
-          </div>
-
-          <div class="schedule-desc">
-            ${escapeHtml(item.desc)}
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-
-    scheduleList
-    .appendChild(div);
-
-  });
-
-}
-
-
-/* =============================
+/* ========================================
    PAGE
-============================= */
+======================================== */
 
 function showPage(pageId){
 
   document
   .querySelectorAll(".page")
-  .forEach(page=>{
-    page.classList.remove(
-      "active"
-    );
-  });
+  .forEach(
+    function(page){
 
+      page.classList
+      .remove("active");
 
-  document
-  .getElementById(pageId)
-  .classList.add(
-    "active"
+    }
   );
 
 
   document
-  .querySelectorAll(
-    ".nav-item"
-  )
-  .forEach(item=>{
+  .getElementById(pageId)
+  .classList
+  .add("active");
 
-    item.classList.remove(
-      "active"
-    );
 
-    if(
-      item.dataset.page
-      === pageId
-    ){
+  document
+  .querySelectorAll(".nav-item")
+  .forEach(
+    function(item){
 
-      item.classList.add(
-        "active"
-      );
+      item.classList
+      .remove("active");
+
+
+      if(
+        item.dataset.page ===
+        pageId
+      ){
+
+        item.classList
+        .add("active");
+
+      }
 
     }
-
-  });
+  );
 
 
   window.scrollTo({
@@ -1814,9 +2306,9 @@ function showPage(pageId){
 }
 
 
-/* =============================
+/* ========================================
    EDIT
-============================= */
+======================================== */
 
 function toggleEdit(id){
 
@@ -1828,60 +2320,107 @@ function toggleEdit(id){
 }
 
 
-/* =============================
+/* ========================================
    UTIL
-============================= */
+======================================== */
 
 function won(number){
 
-  return "₩"+
-  Number(
-    number || 0
+  return "₩" +
+    Number(
+      number || 0
+    )
+    .toLocaleString("ko-KR");
+
+}
+
+
+function setSyncStatus(text){
+
+  document
+  .getElementById(
+    "syncStatus"
   )
-  .toLocaleString();
+  .textContent =
+    text;
 
 }
 
 
-function escapeHtml(text){
+function showError(text){
 
-  const div =
-    document.createElement("div");
+  const box =
+    document
+    .getElementById(
+      "errorBox"
+    );
 
-  div.textContent =
-    text || "";
+  box.textContent =
+    text;
 
-  return div.innerHTML;
+  box.style.display =
+    "block";
 
 }
 
 
-/* =============================
-   AUTO SYNC
-============================= */
+function clearError(){
 
-window.addEventListener(
-  "focus",
-  async ()=>{
-    const {
-      data:{
-        session
-      }
-    } =
-    await sb.auth.getSession();
+  const box =
+    document
+    .getElementById(
+      "errorBox"
+    );
 
-    if(session){
-      loadTravelData();
+  box.textContent = "";
+
+  box.style.display =
+    "none";
+
+}
+
+
+/* ========================================
+   시작할 때 로그인 상태 확인
+======================================== */
+
+async function initialize(){
+
+  const {
+    data:{
+      session
     }
+  } =
+  await supabaseClient.auth
+  .getSession();
+
+
+  if(session){
+
+    await openApp();
+
+  }else{
+
+    document
+    .getElementById(
+      "loginScreen"
+    )
+    .style.display =
+      "flex";
+
+    document
+    .getElementById(
+      "mainApp"
+    )
+    .style.display =
+      "none";
+
   }
-);
+
+}
 
 
-/* =============================
-   START
-============================= */
-
-checkSession();
+initialize();
 
 </script>
 
