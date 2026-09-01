@@ -3,611 +3,483 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111827">
 
 <title>OUR TRAVEL</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
+
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
 body{
+  margin:0;
+  background:#f4f4f2;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:#eef1f5;
-  color:#111827;
-}
-
-button,input,textarea{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-  border:none;
+  color:#222;
 }
 
 .app{
   max-width:480px;
   margin:auto;
+  background:#fafaf8;
   min-height:100vh;
-  background:#f8fafc;
-}
-
-/* LOGIN */
-
-#loginScreen{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
-  background:#111827;
-}
-
-.login-box{
-  width:100%;
-  max-width:400px;
-  background:white;
-  padding:30px 22px;
-  border-radius:25px;
-}
-
-.login-logo{
-  font-size:13px;
-  letter-spacing:3px;
-  font-weight:800;
-  color:#6366f1;
-  margin-bottom:8px;
-}
-
-.login-box h1{
-  font-size:31px;
-  margin-bottom:6px;
-}
-
-.login-box>p{
-  color:#6b7280;
-  font-size:14px;
-  margin-bottom:25px;
-}
-
-.login-box label{
-  display:block;
-  font-size:12px;
-  color:#6b7280;
-  margin:14px 0 6px;
-}
-
-.login-box input{
-  width:100%;
-  padding:14px;
-  border:1px solid #d1d5db;
-  border-radius:12px;
-  font-size:15px;
-}
-
-.login-btn{
-  width:100%;
-  padding:14px;
-  margin-top:20px;
-  background:#111827;
-  color:white;
-  border-radius:12px;
-  font-size:15px;
-  font-weight:700;
-}
-
-.login-message{
-  min-height:20px;
-  margin-top:15px;
-  font-size:13px;
-  text-align:center;
-  color:#dc2626;
-}
-
-/* MAIN */
-
-#mainApp{
-  display:none;
   padding-bottom:90px;
 }
+
 
 /* HERO */
 
 .hero{
-  height:280px;
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
+  padding:45px 22px 30px;
+  background:#111;
   color:white;
-
-  background:
-    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.68)),
-    url("https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80");
-
-  background-size:cover;
-  background-position:center;
-  border-radius:0 0 30px 30px;
-}
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
 }
 
 .logo{
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:2px;
-}
-
-.logout-btn{
-  background:rgba(255,255,255,.22);
-  color:white;
-  padding:8px 12px;
-  border-radius:20px;
-  backdrop-filter:blur(8px);
-}
-
-.hero small{
-  letter-spacing:1px;
+  font-size:12px;
+  letter-spacing:4px;
+  opacity:.65;
 }
 
 .hero h1{
-  font-size:40px;
-  margin:5px 0;
+  font-size:42px;
+  margin:12px 0 4px;
+  letter-spacing:-1px;
 }
 
-.hero p{
-  font-size:15px;
+.hero .date{
+  font-size:14px;
+  opacity:.7;
 }
 
-/* SYNC */
-
-.sync-status{
-  display:inline-block;
-  margin-top:8px;
-  padding:5px 9px;
-  border-radius:20px;
-  background:rgba(255,255,255,.2);
-  font-size:11px;
+.hero .days{
+  margin-top:6px;
+  font-size:13px;
+  opacity:.5;
 }
+
 
 /* CONTENT */
 
-.content{
-  padding:22px 18px;
-}
-
-.page{
-  display:none;
-}
-
-.page.active{
-  display:block;
-}
-
-.page-title{
-  margin-bottom:18px;
-}
-
-.page-title h1{
-  font-size:28px;
-}
-
-.page-title p{
-  color:#6b7280;
-  font-size:14px;
-  margin-top:4px;
+section{
+  padding:25px 18px 5px;
 }
 
 .section-title{
-  margin:20px 0 12px;
-  font-size:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
 }
 
-/* CARD */
+.section-title h2{
+  margin:0;
+  font-size:21px;
+}
 
 .card{
   background:white;
-  border-radius:20px;
+  border-radius:18px;
   padding:18px;
-  margin-bottom:15px;
-  box-shadow:0 6px 22px rgba(0,0,0,.06);
+  margin-bottom:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
 }
 
-.card h3{
-  font-size:17px;
+.label{
+  font-size:11px;
+  color:#999;
+  letter-spacing:1px;
   margin-bottom:6px;
 }
 
-.card p{
-  color:#6b7280;
-  font-size:14px;
-  line-height:1.55;
-}
-
-/* QUICK */
-
-.quick-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.quick-card{
-  background:white;
-  padding:18px;
-  border-radius:18px;
-  box-shadow:0 5px 20px rgba(0,0,0,.05);
-  cursor:pointer;
-}
-
-.quick-card .emoji{
-  font-size:26px;
-  margin-bottom:10px;
-}
-
-.quick-card strong{
-  display:block;
-}
-
-.quick-card span{
-  font-size:12px;
-  color:#6b7280;
-}
-
-/* BUTTON */
-
-.edit-btn{
-  background:#eef2ff;
-  color:#4338ca;
-  border-radius:10px;
-  padding:9px 13px;
-  margin-top:14px;
-}
-
-.save-btn{
-  background:#111827;
-  color:white;
-  width:100%;
-  border-radius:12px;
-  padding:13px;
-  margin-top:14px;
+.big{
+  font-size:18px;
   font-weight:700;
 }
 
-/* EDIT */
-
-.edit-box{
-  display:none;
-  margin-top:15px;
-  padding-top:5px;
-}
-
-.edit-box.active{
-  display:block;
-}
-
-.edit-box label{
-  display:block;
-  font-size:12px;
-  color:#6b7280;
-  margin-top:11px;
-}
-
-.edit-box input,
-.edit-box textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #d1d5db;
-  border-radius:12px;
+.sub{
   margin-top:6px;
+  font-size:13px;
+  color:#777;
+  line-height:1.6;
+}
+
+
+/* BUTTON */
+
+.edit{
+  border:0;
+  background:#eee;
+  border-radius:10px;
+  padding:7px 11px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.edit:active{
+  transform:scale(.97);
+}
+
+
+/* ITINERARY */
+
+.day{
+  display:flex;
+  gap:15px;
+}
+
+.day-number{
+  min-width:48px;
+}
+
+.day-number strong{
   font-size:14px;
 }
 
-.edit-box textarea{
-  min-height:80px;
-  resize:vertical;
+.day-number span{
+  display:block;
+  font-size:11px;
+  color:#aaa;
+  margin-top:3px;
 }
 
-/* TIMELINE */
-
-.timeline-item{
-  display:grid;
-  grid-template-columns:52px 1fr;
-  gap:12px;
-  padding:15px 0;
-  border-bottom:1px solid #eee;
+.day-content{
+  flex:1;
 }
 
-.timeline-item:last-child{
-  border-bottom:none;
+.day-content strong{
+  font-size:15px;
 }
 
-.date{
-  color:#4f46e5;
-  font-weight:800;
-}
-
-.timeline-title{
-  font-weight:600;
-}
-
-.timeline-desc{
-  color:#6b7280;
-  font-size:13px;
-  margin-top:4px;
-}
 
 /* FLIGHT */
 
 .flight-route{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  margin:20px 0;
+  align-items:center;
+  margin-top:12px;
 }
 
 .airport{
-  text-align:center;
+  font-size:25px;
+  font-weight:800;
 }
 
-.airport strong{
-  display:block;
-  font-size:28px;
+.arrow{
+  color:#aaa;
 }
 
-.airport span{
-  font-size:12px;
-  color:#6b7280;
-}
-
-.flight-arrow{
-  font-size:24px;
-}
 
 /* HOTEL */
 
-.hotel-photo{
-  width:100%;
-  height:170px;
-  border-radius:16px;
-  object-fit:cover;
-  margin-bottom:15px;
-}
-
-.price{
-  font-size:25px;
-  font-weight:800;
-  margin-top:10px;
-}
-
-.badge{
-  display:inline-block;
-  margin-top:9px;
-  padding:5px 9px;
-  border-radius:20px;
-  background:#ecfdf5;
-  color:#047857;
-  font-size:11px;
-}
-
-/* EXPENSE */
-
-.expense-row{
+.hotel-price{
+  margin-top:15px;
+  padding-top:14px;
+  border-top:1px solid #eee;
   display:flex;
   justify-content:space-between;
-  gap:12px;
-  padding:13px 0;
+}
+
+.hotel-price strong{
+  font-size:18px;
+}
+
+
+/* BUDGET */
+
+.budget-row{
+  display:flex;
+  justify-content:space-between;
+  padding:12px 0;
   border-bottom:1px solid #eee;
 }
 
-.expense-row:last-child{
-  border-bottom:none;
-}
-
-.expense-price{
-  font-weight:700;
+.budget-row:last-child{
+  border:0;
 }
 
 .total{
-  background:#111827;
-  color:white;
-}
-
-.total p{
-  color:#d1d5db;
-}
-
-.total-price{
-  font-size:30px;
+  font-size:21px;
   font-weight:800;
-  margin-top:5px;
 }
+
 
 /* CHECKLIST */
 
 .check-item{
   display:flex;
   align-items:center;
-  gap:11px;
   padding:12px 0;
   border-bottom:1px solid #eee;
+}
+
+.check-item:last-child{
+  border:0;
 }
 
 .check-item input{
   width:20px;
   height:20px;
+  margin-right:12px;
 }
 
-.checked-text{
-  text-decoration:line-through;
-  color:#9ca3af;
-}
 
-.add-row{
-  display:flex;
-  gap:8px;
-  margin-top:15px;
-}
-
-.add-row input{
-  flex:1;
-  min-width:0;
-  padding:12px;
-  border:1px solid #d1d5db;
-  border-radius:12px;
-}
-
-.add-row button{
-  background:#111827;
-  color:white;
-  padding:0 16px;
-  border-radius:12px;
-}
-
-/* NAV */
+/* BOTTOM NAV */
 
 .bottom-nav{
   position:fixed;
   bottom:0;
   left:50%;
   transform:translateX(-50%);
-  width:min(480px,100%);
-  height:74px;
-  background:white;
+  width:100%;
+  max-width:480px;
+  height:72px;
+  background:rgba(255,255,255,.96);
   border-top:1px solid #eee;
+
   display:flex;
   justify-content:space-around;
   align-items:center;
-  z-index:100;
+
+  backdrop-filter:blur(10px);
 }
 
-.nav-item{
-  width:20%;
-  text-align:center;
-  color:#9ca3af;
-  font-size:11px;
+.bottom-nav button{
+  border:0;
+  background:none;
+  font-size:12px;
+  color:#888;
   cursor:pointer;
 }
 
-.nav-item .icon{
-  font-size:22px;
-  margin-bottom:2px;
+.bottom-nav button.active{
+  color:#111;
+  font-weight:700;
 }
 
-.nav-item.active{
-  color:#4f46e5;
-  font-weight:800;
-}
 
-.error-box{
-  background:#fef2f2;
-  color:#b91c1c;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:15px;
-  font-size:13px;
+/* MODAL */
+
+.modal{
   display:none;
+  position:fixed;
+  z-index:100;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.5);
+  align-items:flex-end;
+  justify-content:center;
 }
+
+.modal-box{
+  width:100%;
+  max-width:480px;
+  background:white;
+  padding:25px 20px 35px;
+  border-radius:24px 24px 0 0;
+}
+
+.modal-box h3{
+  margin-top:0;
+}
+
+.modal-box label{
+  display:block;
+  font-size:12px;
+  color:#777;
+  margin-top:15px;
+}
+
+.modal-box input,
+.modal-box textarea{
+  width:100%;
+  margin-top:6px;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font-size:15px;
+}
+
+.modal-box textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.save-btn{
+  width:100%;
+  border:0;
+  background:#111;
+  color:white;
+  padding:15px;
+  margin-top:20px;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:700;
+}
+
+.cancel-btn{
+  width:100%;
+  border:0;
+  background:#eee;
+  padding:13px;
+  margin-top:8px;
+  border-radius:12px;
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-<!-- LOGIN -->
 
-<section id="loginScreen">
+<!-- HERO -->
 
-<div class="login-box">
-
-<div class="login-logo">
-OUR TRAVEL
-</div>
-
-<h1>Welcome 👋</h1>
-
-<p>우리의 여행을 시작해요.</p>
-
-<label>이메일</label>
-<input
-  id="loginEmail"
-  type="email"
-  placeholder="email@example.com"
->
-
-<label>비밀번호</label>
-<input
-  id="loginPassword"
-  type="password"
-  placeholder="비밀번호"
->
-
-<button
-  class="login-btn"
-  onclick="login()"
->
-로그인
-</button>
-
-<div
-  id="loginMessage"
-  class="login-message"
-></div>
-
-</div>
-
-</section>
-
-
-<!-- MAIN APP -->
-
-<section id="mainApp">
-
-<section class="hero">
-
-<div class="topbar">
+<div class="hero">
 
 <div class="logo">
 OUR TRAVEL
 </div>
 
-<button
-  class="logout-btn"
-  onclick="logout()"
->
-로그아웃
+<h1>BOHOL</h1>
+
+<div class="date">
+2027.03.01 — 03.06
+</div>
+
+<div class="days">
+5박 6일 · Philippines
+</div>
+
+</div>
+
+
+
+<!-- ITINERARY -->
+
+<section id="schedule">
+
+<div class="section-title">
+<h2>여행 일정</h2>
+</div>
+
+<div id="scheduleList"></div>
+
+</section>
+
+
+
+<!-- FLIGHT -->
+
+<section id="flight">
+
+<div class="section-title">
+<h2>항공</h2>
+<button class="edit" onclick="editFlight()">수정</button>
+</div>
+
+<div class="card">
+
+<div class="label">
+OUTBOUND
+</div>
+
+<div class="flight-route">
+
+<div>
+<div class="airport">ICN</div>
+<div class="sub" id="outTime"></div>
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div style="text-align:right">
+<div class="airport">TAG</div>
+<div class="sub">BOHOL</div>
+</div>
+
+</div>
+
+<div class="sub" id="outFlight"></div>
+
+</div>
+
+
+<div class="card">
+
+<div class="label">
+RETURN
+</div>
+
+<div class="flight-route">
+
+<div>
+<div class="airport">TAG</div>
+<div class="sub" id="returnTime"></div>
+</div>
+
+<div class="arrow">
+→
+</div>
+
+<div style="text-align:right">
+<div class="airport">ICN</div>
+<div class="sub">SEOUL</div>
+</div>
+
+</div>
+
+<div class="sub" id="returnFlight"></div>
+
+</div>
+
+</section>
+
+
+
+<!-- HOTEL -->
+
+<section id="hotel">
+
+<div class="section-title">
+
+<h2>숙소</h2>
+
+<button class="edit" onclick="editHotel()">
+수정
 </button>
 
 </div>
 
-<div>
 
-<small>
-UPCOMING TRIP
-</small>
+<div class="card">
 
-<h1>BOHOL</h1>
+<div class="label">
+MAIN RESORT
+</div>
 
-<p>
-2027.03.01 — 03.06 · 5박 6일
-</p>
+<div class="big" id="hotelName"></div>
 
-<div
-  id="syncStatus"
-  class="sync-status"
->
-☁️ 연결 중...
+<div class="sub" id="hotelDates"></div>
+
+<div class="sub" id="hotelMemo"></div>
+
+<div class="hotel-price">
+
+<span>
+숙박비
+</span>
+
+<strong id="hotelPrice"></strong>
+
 </div>
 
 </div>
@@ -615,1812 +487,1042 @@ UPCOMING TRIP
 </section>
 
 
-<main class="content">
 
-<div
-  id="errorBox"
-  class="error-box"
-></div>
+<!-- BUDGET -->
 
+<section id="budget">
 
-<!-- HOME -->
+<div class="section-title">
 
-<section
-  id="home"
-  class="page active"
->
+<h2>경비</h2>
 
-<h2 class="section-title">
-여행 한눈에 보기
-</h2>
-
-<div class="quick-grid">
-
-<div
-  class="quick-card"
-  onclick="showPage('schedule')"
->
-<div class="emoji">📅</div>
-<strong>일정</strong>
-<span>5박 6일</span>
-</div>
-
-<div
-  class="quick-card"
-  onclick="showPage('flight')"
->
-<div class="emoji">✈️</div>
-<strong>항공</strong>
-<span>서울 ↔ 보홀</span>
-</div>
-
-<div
-  class="quick-card"
-  onclick="showPage('hotel')"
->
-<div class="emoji">🏨</div>
-<strong>숙소</strong>
-<span>South Palms</span>
-</div>
-
-<div
-  class="quick-card"
-  onclick="showPage('expense')"
->
-<div class="emoji">💰</div>
-<strong>경비</strong>
-<span>자동 계산</span>
-</div>
+<button class="edit" onclick="editBudget()">
+수정
+</button>
 
 </div>
 
-
-<h2 class="section-title">
-🏨 메인 숙소
-</h2>
 
 <div class="card">
 
-<h3 id="homeHotelName">
--
-</h3>
+<div class="budget-row">
 
-<p id="homeHotelDate">
--
-</p>
+<span>항공</span>
 
-<p id="homeHotelMemo">
--
-</p>
-
-<span class="badge">
-메인 리조트
-</span>
+<strong id="budgetFlight"></strong>
 
 </div>
 
 
-<h2 class="section-title">
-☑️ 준비물
-</h2>
+<div class="budget-row">
 
-<div class="card">
+<span>숙소</span>
 
-<div id="checklist"></div>
+<strong id="budgetHotel"></strong>
 
-<div class="add-row">
+</div>
 
-<input
-  id="newChecklist"
-  placeholder="준비물 추가"
->
 
-<button onclick="addChecklist()">
+<div class="budget-row">
+
+<span>투어</span>
+
+<strong id="budgetTour"></strong>
+
+</div>
+
+
+<div class="budget-row">
+
+<span>식비 / 기타</span>
+
+<strong id="budgetFood"></strong>
+
+</div>
+
+
+<div class="budget-row">
+
+<span>총 예상 경비</span>
+
+<span class="total" id="budgetTotal"></span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CHECKLIST -->
+
+<section id="checklist">
+
+<div class="section-title">
+
+<h2>체크리스트</h2>
+
+<button class="edit" onclick="addChecklist()">
 추가
 </button>
 
 </div>
 
-</div>
+<div class="card" id="checklistBox"></div>
 
 </section>
 
 
-<!-- SCHEDULE -->
-
-<section
-  id="schedule"
-  class="page"
->
-
-<div class="page-title">
-<h1>📅 일정</h1>
-<p>보홀 5박 6일</p>
-</div>
-
-<div class="card">
-
-<div class="timeline-item">
-<div class="date">3/1</div>
-<div>
-<div class="timeline-title">
-✈️ 서울 → 보홀
-</div>
-<div class="timeline-desc">
-새벽 도착 · 공항 근처 숙소
-</div>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="date">3/2</div>
-<div>
-<div class="timeline-title">
-🏨 South Palms 체크인
-</div>
-<div class="timeline-desc">
-리조트 휴식 · 해변
-</div>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="date">3/3</div>
-<div>
-<div class="timeline-title">
-🐠 발리카삭 투어
-</div>
-<div class="timeline-desc">
-호핑 · 스노클링
-</div>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="date">3/4</div>
-<div>
-<div class="timeline-title">
-🌴 자유 일정
-</div>
-<div class="timeline-desc">
-리조트 · 마사지 · 맛집
-</div>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="date">3/5</div>
-<div>
-<div class="timeline-title">
-🏖️ 체크아웃
-</div>
-<div class="timeline-desc">
-마지막 가성비 숙소 이동
-</div>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="date">3/6</div>
-<div>
-<div class="timeline-title">
-✈️ 보홀 → 서울
-</div>
-<div class="timeline-desc">
-귀국
-</div>
-</div>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FLIGHT -->
-
-<section
-  id="flight"
-  class="page"
->
-
-<div class="page-title">
-<h1>✈️ 항공</h1>
-<p>항공편 정보</p>
 </div>
 
 
-<div class="card">
 
-<h3>출국</h3>
+<!-- NAV -->
 
-<div class="flight-route">
+<div class="bottom-nav">
 
-<div class="airport">
-<strong>ICN</strong>
-<span>인천</span>
-</div>
-
-<div class="flight-arrow">
-✈️
-</div>
-
-<div class="airport">
-<strong>TAG</strong>
-<span>보홀</span>
-</div>
-
-</div>
-
-<p id="outboundInfo">
--
-</p>
-
-<button
-  class="edit-btn"
-  onclick="toggleEdit('outboundEdit')"
->
-✏️ 수정
+<button onclick="go('schedule')" class="active">
+홈
 </button>
 
-<div
-  id="outboundEdit"
-  class="edit-box"
->
+<button onclick="go('schedule')">
+일정
+</button>
 
-<label>항공사 / 편명</label>
-<input id="outboundFlight">
+<button onclick="go('flight')">
+항공
+</button>
 
-<label>출발 날짜 / 시간</label>
-<input id="outboundTime">
+<button onclick="go('hotel')">
+숙소
+</button>
 
-<label>좌석</label>
-<input id="outboundSeat">
-
-<button
-  class="save-btn"
-  onclick="saveFlight('outbound')"
->
-저장
+<button onclick="go('budget')">
+경비
 </button>
 
 </div>
 
-</div>
 
 
-<div class="card">
+<!-- EDIT MODAL -->
 
-<h3>귀국</h3>
+<div class="modal" id="modal">
 
-<div class="flight-route">
+<div class="modal-box">
 
-<div class="airport">
-<strong>TAG</strong>
-<span>보홀</span>
-</div>
-
-<div class="flight-arrow">
-✈️
-</div>
-
-<div class="airport">
-<strong>ICN</strong>
-<span>인천</span>
-</div>
-
-</div>
-
-<p id="returnInfo">
--
-</p>
-
-<button
-  class="edit-btn"
-  onclick="toggleEdit('returnEdit')"
->
-✏️ 수정
-</button>
-
-<div
-  id="returnEdit"
-  class="edit-box"
->
-
-<label>항공사 / 편명</label>
-<input id="returnFlight">
-
-<label>출발 날짜 / 시간</label>
-<input id="returnTime">
-
-<label>좌석</label>
-<input id="returnSeat">
-
-<button
-  class="save-btn"
-  onclick="saveFlight('return')"
->
-저장
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- HOTEL -->
-
-<section
-  id="hotel"
-  class="page"
->
-
-<div class="page-title">
-<h1>🏨 숙소</h1>
-<p>호텔 예약 정보</p>
-</div>
-
-<div class="card">
-
-<img
-  class="hotel-photo"
-  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
->
-
-<h3 id="hotelNameText">
--
+<h3 id="modalTitle">
+수정
 </h3>
 
-<p id="hotelDateText">
--
-</p>
+<div id="modalContent"></div>
 
-<p id="hotelMemoText">
--
-</p>
-
-<div
-  class="price"
-  id="hotelPriceText"
->
--
-</div>
-
-<span class="badge">
-메인 리조트
-</span>
-
-<br>
-
-<button
-  class="edit-btn"
-  onclick="toggleEdit('hotelEdit')"
->
-✏️ 숙소 수정
-</button>
-
-
-<div
-  id="hotelEdit"
-  class="edit-box"
->
-
-<label>호텔명</label>
-<input id="hotelNameInput">
-
-<label>체크인</label>
-<input
-  id="hotelCheckinInput"
-  type="date"
->
-
-<label>체크아웃</label>
-<input
-  id="hotelCheckoutInput"
-  type="date"
->
-
-<label>가격</label>
-<input
-  id="hotelPriceInput"
-  type="number"
->
-
-<label>메모</label>
-<textarea id="hotelMemoInput"></textarea>
-
-<button
-  class="save-btn"
-  onclick="saveHotel()"
->
+<button class="save-btn" onclick="saveModal()">
 저장
 </button>
 
-</div>
-
-</div>
-
-</section>
-
-
-<!-- EXPENSE -->
-
-<section
-  id="expense"
-  class="page"
->
-
-<div class="page-title">
-<h1>💰 경비</h1>
-<p>여행 비용 자동 계산</p>
-</div>
-
-
-<div class="card">
-
-<div class="expense-row">
-<span>🏨 숙소</span>
-<span
-  class="expense-price"
-  id="expenseHotel"
->
--
-</span>
-</div>
-
-<div class="expense-row">
-<span>✈️ 항공권</span>
-<span
-  class="expense-price"
-  id="expenseFlight"
->
--
-</span>
-</div>
-
-<div class="expense-row">
-<span>🐠 투어</span>
-<span
-  class="expense-price"
-  id="expenseTour"
->
--
-</span>
-</div>
-
-<div class="expense-row">
-<span>🍴 식비</span>
-<span
-  class="expense-price"
-  id="expenseFood"
->
--
-</span>
-</div>
-
-
-<button
-  class="edit-btn"
-  onclick="toggleEdit('expenseEdit')"
->
-✏️ 비용 수정
-</button>
-
-
-<div
-  id="expenseEdit"
-  class="edit-box"
->
-
-<label>항공권 총액</label>
-<input
-  id="flightCost"
-  type="number"
->
-
-<label>투어</label>
-<input
-  id="tourCost"
-  type="number"
->
-
-<label>식비</label>
-<input
-  id="foodCost"
-  type="number"
->
-
-<button
-  class="save-btn"
-  onclick="saveExpenses()"
->
-저장
+<button class="cancel-btn" onclick="closeModal()">
+취소
 </button>
 
 </div>
 
 </div>
 
-
-<div class="card total">
-
-<p>
-현재 예상 여행비
-</p>
-
-<div
-  id="totalPrice"
-  class="total-price"
->
--
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<nav class="bottom-nav">
-
-<div
-  class="nav-item active"
-  data-page="home"
-  onclick="showPage('home')"
->
-<div class="icon">🏠</div>
-홈
-</div>
-
-<div
-  class="nav-item"
-  data-page="schedule"
-  onclick="showPage('schedule')"
->
-<div class="icon">📅</div>
-일정
-</div>
-
-<div
-  class="nav-item"
-  data-page="flight"
-  onclick="showPage('flight')"
->
-<div class="icon">✈️</div>
-항공
-</div>
-
-<div
-  class="nav-item"
-  data-page="hotel"
-  onclick="showPage('hotel')"
->
-<div class="icon">🏨</div>
-숙소
-</div>
-
-<div
-  class="nav-item"
-  data-page="expense"
-  onclick="showPage('expense')"
->
-<div class="icon">💰</div>
-경비
-</div>
-
-</nav>
-
-</section>
-
-</div>
 
 
 <script>
 
-/* ========================================
-   ★★★ 여기 두 줄만 네 것으로 변경 ★★★
-======================================== */
+/* ==========================
+   기본 여행 데이터
+========================== */
 
-const SUPABASE_URL =
-  "여기에_Project_URL";
+const defaultData = {
 
-const SUPABASE_KEY =
-  "여기에_Publishable_Key";
+hotel:{
+  name:"South Palms Resort & Spa Panglao – MGallery Collection",
+  checkin:"2027.03.02",
+  checkout:"2027.03.05",
+  price:1370000,
+  memo:"3박 · 조식 포함 · ALL 공식 예약"
+},
 
-
-/* ======================================== */
-
-const supabaseClient =
-  supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-/* 기본 데이터 */
-
-const DEFAULT_DATA = {
-
-  hotel:{
-    name:
-      "South Palms Resort & Spa Panglao - MGallery",
-
-    checkin:
-      "2027-03-02",
-
-    checkout:
-      "2027-03-05",
-
-    price:
-      1370000,
-
-    memo:
-      "3박 · 조식 포함"
+flight:{
+  outbound:{
+    flight:"항공편 미입력",
+    time:"2027.03.01"
   },
 
-  flight:{
+  return:{
+    flight:"항공편 미입력",
+    time:"2027.03.06"
+  }
+},
 
-    outbound:{
-      flight:"미입력",
-      time:"2027-03-01",
-      seat:"미입력"
-    },
+expenses:{
+  flight:0,
+  tour:0,
+  food:0
+},
 
-    return:{
-      flight:"미입력",
-      time:"2027-03-06",
-      seat:"미입력"
-    }
+schedule:[
 
-  },
+{
+date:"03.01",
+day:"DAY 1",
+title:"SEOUL → BOHOL",
+memo:"보홀 도착 · 공항 근처 가성비 숙소"
+},
 
-  expenses:{
-    flight:0,
-    tour:0,
-    food:0
-  },
+{
+date:"03.02",
+day:"DAY 2",
+title:"SOUTH PALMS",
+memo:"리조트 이동 · 체크인 · 휴식"
+},
 
-  checklist:[
-    {
-      name:"여권",
-      done:false
-    },
-    {
-      name:"항공권",
-      done:false
-    },
-    {
-      name:"수영복",
-      done:false
-    },
-    {
-      name:"선크림",
-      done:false
-    }
-  ]
+{
+date:"03.03",
+day:"DAY 3",
+title:"BALICASAG",
+memo:"발리카삭 호핑 투어"
+},
+
+{
+date:"03.04",
+day:"DAY 4",
+title:"FREE DAY",
+memo:"리조트에서 여유롭게 보내기"
+},
+
+{
+date:"03.05",
+day:"DAY 5",
+title:"CHECK OUT",
+memo:"South Palms 체크아웃 · 마지막 숙소 이동"
+},
+
+{
+date:"03.06",
+day:"DAY 6",
+title:"BOHOL → SEOUL",
+memo:"귀국"
+}
+
+],
+
+checklist:[
+
+{
+name:"여권",
+done:false
+},
+
+{
+name:"항공권",
+done:false
+},
+
+{
+name:"수영복",
+done:false
+},
+
+{
+name:"선크림",
+done:false
+}
+
+]
 
 };
 
 
-let travelData =
-  JSON.parse(
-    JSON.stringify(DEFAULT_DATA)
-  );
 
+/* ==========================
+   저장된 데이터 불러오기
+========================== */
 
-/* ========================================
-   LOGIN
-======================================== */
+let travelData;
 
-async function login(){
+try{
 
-  const email =
-    document
-    .getElementById("loginEmail")
-    .value
-    .trim();
+const saved =
+localStorage.getItem("ourTravelData");
 
-  const password =
-    document
-    .getElementById("loginPassword")
-    .value;
+travelData =
+saved
+? JSON.parse(saved)
+: JSON.parse(JSON.stringify(defaultData));
 
-  const message =
-    document
-    .getElementById("loginMessage");
+}catch(e){
 
-  message.style.color =
-    "#6b7280";
-
-  message.textContent =
-    "로그인 중...";
-
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient.auth
-  .signInWithPassword({
-    email:email,
-    password:password
-  });
-
-
-  if(error){
-
-    console.error(error);
-
-    message.style.color =
-      "#dc2626";
-
-    message.textContent =
-      "로그인 실패: " +
-      error.message;
-
-    return;
-  }
-
-
-  message.textContent = "";
-
-  await openApp();
+travelData =
+JSON.parse(JSON.stringify(defaultData));
 
 }
 
 
-/* ENTER로 로그인 */
 
-document
-.getElementById("loginPassword")
-.addEventListener(
-  "keydown",
-  function(event){
+/* ==========================
+   데이터 저장
+========================== */
 
-    if(event.key === "Enter"){
-      login();
-    }
+function saveData(){
 
-  }
+localStorage.setItem(
+"ourTravelData",
+JSON.stringify(travelData)
 );
 
-
-/* ========================================
-   LOGOUT
-======================================== */
-
-async function logout(){
-
-  await supabaseClient.auth
-  .signOut();
-
-  document
-  .getElementById("mainApp")
-  .style.display =
-    "none";
-
-  document
-  .getElementById("loginScreen")
-  .style.display =
-    "flex";
-
 }
 
 
-/* ========================================
-   OPEN APP
-======================================== */
 
-async function openApp(){
-
-  document
-  .getElementById("loginScreen")
-  .style.display =
-    "none";
-
-  document
-  .getElementById("mainApp")
-  .style.display =
-    "block";
-
-  setSyncStatus(
-    "☁️ 데이터 불러오는 중..."
-  );
-
-  await loadTravelData();
-
-}
-
-
-/* ========================================
-   SUPABASE에서 데이터 불러오기
-======================================== */
-
-async function loadTravelData(){
-
-  clearError();
-
-  const {
-    data:row,
-    error
-  } =
-  await supabaseClient
-  .from("travel_data")
-  .select("id, data")
-  .eq("id",1)
-  .maybeSingle();
-
-
-  if(error){
-
-    console.error(
-      "불러오기 오류:",
-      error
-    );
-
-    showError(
-      "데이터 불러오기 실패: " +
-      error.message
-    );
-
-    setSyncStatus(
-      "⚠️ 불러오기 실패"
-    );
-
-    return;
-  }
-
-
-  /* id=1이 없는 경우 자동 생성 */
-
-  if(!row){
-
-    travelData =
-      JSON.parse(
-        JSON.stringify(
-          DEFAULT_DATA
-        )
-      );
-
-
-    const {
-      error:insertError
-    } =
-    await supabaseClient
-    .from("travel_data")
-    .insert({
-      id:1,
-      data:travelData
-    });
-
-
-    if(insertError){
-
-      console.error(
-        "초기 데이터 생성 오류:",
-        insertError
-      );
-
-      showError(
-        "초기 데이터 생성 실패: " +
-        insertError.message
-      );
-
-      return;
-    }
-
-  }else{
-
-    /*
-      기존 JSON에 일부 항목이
-      빠져있어도 오류 안 나도록 병합
-    */
-
-    const loaded =
-      row.data || {};
-
-    travelData = {
-
-      ...DEFAULT_DATA,
-      ...loaded,
-
-      hotel:{
-        ...DEFAULT_DATA.hotel,
-        ...(loaded.hotel || {})
-      },
-
-      flight:{
-
-        outbound:{
-          ...DEFAULT_DATA.flight.outbound,
-          ...(loaded.flight?.outbound || {})
-        },
-
-        return:{
-          ...DEFAULT_DATA.flight.return,
-          ...(loaded.flight?.return || {})
-        }
-
-      },
-
-      expenses:{
-        ...DEFAULT_DATA.expenses,
-        ...(loaded.expenses || {})
-      },
-
-      checklist:
-        Array.isArray(
-          loaded.checklist
-        )
-        ?
-        loaded.checklist
-        :
-        DEFAULT_DATA.checklist
-
-    };
-
-  }
-
-
-  renderAll();
-
-  setSyncStatus(
-    "☁️ Supabase 연결됨"
-  );
-
-}
-
-
-/* ========================================
-   SUPABASE 저장
-======================================== */
-
-async function saveTravelData(){
-
-  clearError();
-
-  setSyncStatus(
-    "☁️ 저장 중..."
-  );
-
-
-  const {
-    data:savedRows,
-    error
-  } =
-  await supabaseClient
-  .from("travel_data")
-  .update({
-    data:travelData
-  })
-  .eq("id",1)
-  .select();
-
-
-  if(error){
-
-    console.error(
-      "저장 오류:",
-      error
-    );
-
-    showError(
-      "수정 오류: " +
-      error.message
-    );
-
-    setSyncStatus(
-      "⚠️ 저장 실패"
-    );
-
-    return false;
-  }
-
-
-  /*
-    UPDATE가 성공했다고 나왔지만
-    실제 수정된 행이 0개인 경우 확인
-  */
-
-  if(
-    !savedRows ||
-    savedRows.length === 0
-  ){
-
-    showError(
-      "저장할 id=1 데이터가 없습니다."
-    );
-
-    setSyncStatus(
-      "⚠️ 저장 실패"
-    );
-
-    return false;
-  }
-
-
-  renderAll();
-
-  setSyncStatus(
-    "✓ 저장 완료"
-  );
-
-
-  setTimeout(
-    function(){
-
-      setSyncStatus(
-        "☁️ Supabase 연결됨"
-      );
-
-    },
-    1500
-  );
-
-
-  return true;
-
-}
-
-
-/* ========================================
-   HOTEL 저장
-======================================== */
-
-async function saveHotel(){
-
-  const name =
-    document
-    .getElementById(
-      "hotelNameInput"
-    )
-    .value
-    .trim();
-
-  const checkin =
-    document
-    .getElementById(
-      "hotelCheckinInput"
-    )
-    .value;
-
-  const checkout =
-    document
-    .getElementById(
-      "hotelCheckoutInput"
-    )
-    .value;
-
-  const price =
-    Number(
-      document
-      .getElementById(
-        "hotelPriceInput"
-      )
-      .value
-    );
-
-  const memo =
-    document
-    .getElementById(
-      "hotelMemoInput"
-    )
-    .value;
-
-
-  travelData.hotel = {
-    name,
-    checkin,
-    checkout,
-    price,
-    memo
-  };
-
-
-  const success =
-    await saveTravelData();
-
-
-  if(success){
-
-    document
-    .getElementById(
-      "hotelEdit"
-    )
-    .classList
-    .remove("active");
-
-  }
-
-}
-
-
-/* ========================================
-   FLIGHT 저장
-======================================== */
-
-async function saveFlight(type){
-
-  travelData.flight[type] = {
-
-    flight:
-      document
-      .getElementById(
-        type + "Flight"
-      )
-      .value
-      .trim(),
-
-    time:
-      document
-      .getElementById(
-        type + "Time"
-      )
-      .value
-      .trim(),
-
-    seat:
-      document
-      .getElementById(
-        type + "Seat"
-      )
-      .value
-      .trim()
-
-  };
-
-
-  const success =
-    await saveTravelData();
-
-
-  if(success){
-
-    document
-    .getElementById(
-      type + "Edit"
-    )
-    .classList
-    .remove("active");
-
-  }
-
-}
-
-
-/* ========================================
-   EXPENSE 저장
-======================================== */
-
-async function saveExpenses(){
-
-  travelData.expenses.flight =
-    Number(
-      document
-      .getElementById(
-        "flightCost"
-      )
-      .value
-    ) || 0;
-
-
-  travelData.expenses.tour =
-    Number(
-      document
-      .getElementById(
-        "tourCost"
-      )
-      .value
-    ) || 0;
-
-
-  travelData.expenses.food =
-    Number(
-      document
-      .getElementById(
-        "foodCost"
-      )
-      .value
-    ) || 0;
-
-
-  const success =
-    await saveTravelData();
-
-
-  if(success){
-
-    document
-    .getElementById(
-      "expenseEdit"
-    )
-    .classList
-    .remove("active");
-
-  }
-
-}
-
-
-/* ========================================
-   CHECKLIST
-======================================== */
-
-async function addChecklist(){
-
-  const input =
-    document
-    .getElementById(
-      "newChecklist"
-    );
-
-  const name =
-    input.value.trim();
-
-
-  if(!name){
-    return;
-  }
-
-
-  travelData.checklist.push({
-    name:name,
-    done:false
-  });
-
-
-  input.value = "";
-
-  await saveTravelData();
-
-}
-
-
-async function toggleChecklist(index){
-
-  travelData
-  .checklist[index]
-  .done =
-    !travelData
-    .checklist[index]
-    .done;
-
-
-  await saveTravelData();
-
-}
-
-
-/* ========================================
-   RENDER
-======================================== */
-
-function renderAll(){
-
-  const hotel =
-    travelData.hotel;
-
-  const flight =
-    travelData.flight;
-
-  const expenses =
-    travelData.expenses;
-
-
-  /* HOME */
-
-  document
-  .getElementById(
-    "homeHotelName"
-  )
-  .textContent =
-    hotel.name;
-
-
-  document
-  .getElementById(
-    "homeHotelDate"
-  )
-  .textContent =
-    hotel.checkin +
-    " → " +
-    hotel.checkout;
-
-
-  document
-  .getElementById(
-    "homeHotelMemo"
-  )
-  .textContent =
-    hotel.memo;
-
-
-  /* HOTEL */
-
-  document
-  .getElementById(
-    "hotelNameText"
-  )
-  .textContent =
-    hotel.name;
-
-
-  document
-  .getElementById(
-    "hotelDateText"
-  )
-  .textContent =
-    hotel.checkin +
-    " → " +
-    hotel.checkout;
-
-
-  document
-  .getElementById(
-    "hotelMemoText"
-  )
-  .textContent =
-    hotel.memo;
-
-
-  document
-  .getElementById(
-    "hotelPriceText"
-  )
-  .textContent =
-    won(hotel.price);
-
-
-  /* HOTEL INPUT */
-
-  document
-  .getElementById(
-    "hotelNameInput"
-  )
-  .value =
-    hotel.name;
-
-
-  document
-  .getElementById(
-    "hotelCheckinInput"
-  )
-  .value =
-    hotel.checkin;
-
-
-  document
-  .getElementById(
-    "hotelCheckoutInput"
-  )
-  .value =
-    hotel.checkout;
-
-
-  document
-  .getElementById(
-    "hotelPriceInput"
-  )
-  .value =
-    hotel.price;
-
-
-  document
-  .getElementById(
-    "hotelMemoInput"
-  )
-  .value =
-    hotel.memo;
-
-
-  /* FLIGHT */
-
-  document
-  .getElementById(
-    "outboundInfo"
-  )
-  .textContent =
-    flight.outbound.flight +
-    " · " +
-    flight.outbound.time +
-    " · 좌석 " +
-    flight.outbound.seat;
-
-
-  document
-  .getElementById(
-    "returnInfo"
-  )
-  .textContent =
-    flight.return.flight +
-    " · " +
-    flight.return.time +
-    " · 좌석 " +
-    flight.return.seat;
-
-
-  document
-  .getElementById(
-    "outboundFlight"
-  )
-  .value =
-    flight.outbound.flight;
-
-
-  document
-  .getElementById(
-    "outboundTime"
-  )
-  .value =
-    flight.outbound.time;
-
-
-  document
-  .getElementById(
-    "outboundSeat"
-  )
-  .value =
-    flight.outbound.seat;
-
-
-  document
-  .getElementById(
-    "returnFlight"
-  )
-  .value =
-    flight.return.flight;
-
-
-  document
-  .getElementById(
-    "returnTime"
-  )
-  .value =
-    flight.return.time;
-
-
-  document
-  .getElementById(
-    "returnSeat"
-  )
-  .value =
-    flight.return.seat;
-
-
-  /* EXPENSE */
-
-  document
-  .getElementById(
-    "expenseHotel"
-  )
-  .textContent =
-    won(hotel.price);
-
-
-  document
-  .getElementById(
-    "expenseFlight"
-  )
-  .textContent =
-    won(expenses.flight);
-
-
-  document
-  .getElementById(
-    "expenseTour"
-  )
-  .textContent =
-    won(expenses.tour);
-
-
-  document
-  .getElementById(
-    "expenseFood"
-  )
-  .textContent =
-    won(expenses.food);
-
-
-  document
-  .getElementById(
-    "flightCost"
-  )
-  .value =
-    expenses.flight;
-
-
-  document
-  .getElementById(
-    "tourCost"
-  )
-  .value =
-    expenses.tour;
-
-
-  document
-  .getElementById(
-    "foodCost"
-  )
-  .value =
-    expenses.food;
-
-
-  const total =
-    Number(hotel.price || 0) +
-    Number(expenses.flight || 0) +
-    Number(expenses.tour || 0) +
-    Number(expenses.food || 0);
-
-
-  document
-  .getElementById(
-    "totalPrice"
-  )
-  .textContent =
-    won(total);
-
-
-  renderChecklist();
-
-}
-
-
-/* ========================================
-   CHECKLIST 렌더
-======================================== */
-
-function renderChecklist(){
-
-  const container =
-    document
-    .getElementById(
-      "checklist"
-    );
-
-
-  container.innerHTML = "";
-
-
-  travelData
-  .checklist
-  .forEach(
-    function(item,index){
-
-      const row =
-        document
-        .createElement("label");
-
-      row.className =
-        "check-item";
-
-
-      const checkbox =
-        document
-        .createElement("input");
-
-      checkbox.type =
-        "checkbox";
-
-      checkbox.checked =
-        item.done;
-
-      checkbox.addEventListener(
-        "change",
-        function(){
-
-          toggleChecklist(index);
-
-        }
-      );
-
-
-      const text =
-        document
-        .createElement("span");
-
-      text.textContent =
-        item.name;
-
-
-      if(item.done){
-
-        text.className =
-          "checked-text";
-
-      }
-
-
-      row.appendChild(
-        checkbox
-      );
-
-      row.appendChild(
-        text
-      );
-
-      container.appendChild(
-        row
-      );
-
-    }
-  );
-
-}
-
-
-/* ========================================
-   PAGE
-======================================== */
-
-function showPage(pageId){
-
-  document
-  .querySelectorAll(".page")
-  .forEach(
-    function(page){
-
-      page.classList
-      .remove("active");
-
-    }
-  );
-
-
-  document
-  .getElementById(pageId)
-  .classList
-  .add("active");
-
-
-  document
-  .querySelectorAll(".nav-item")
-  .forEach(
-    function(item){
-
-      item.classList
-      .remove("active");
-
-
-      if(
-        item.dataset.page ===
-        pageId
-      ){
-
-        item.classList
-        .add("active");
-
-      }
-
-    }
-  );
-
-
-  window.scrollTo({
-    top:240,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* ========================================
-   EDIT
-======================================== */
-
-function toggleEdit(id){
-
-  document
-  .getElementById(id)
-  .classList
-  .toggle("active");
-
-}
-
-
-/* ========================================
-   UTIL
-======================================== */
+/* ==========================
+   가격 표시
+========================== */
 
 function won(number){
 
-  return "₩" +
-    Number(
-      number || 0
-    )
-    .toLocaleString("ko-KR");
+return "₩" +
+Number(number || 0)
+.toLocaleString("ko-KR");
 
 }
 
 
-function setSyncStatus(text){
 
-  document
-  .getElementById(
-    "syncStatus"
-  )
-  .textContent =
-    text;
+/* ==========================
+   전체 화면 그리기
+========================== */
+
+function render(){
+
+/* HOTEL */
+
+document.getElementById("hotelName")
+.textContent =
+travelData.hotel.name;
+
+document.getElementById("hotelDates")
+.textContent =
+travelData.hotel.checkin +
+" — " +
+travelData.hotel.checkout;
+
+document.getElementById("hotelMemo")
+.textContent =
+travelData.hotel.memo;
+
+document.getElementById("hotelPrice")
+.textContent =
+won(travelData.hotel.price);
+
+
+/* FLIGHT */
+
+document.getElementById("outTime")
+.textContent =
+travelData.flight.outbound.time;
+
+document.getElementById("outFlight")
+.textContent =
+travelData.flight.outbound.flight;
+
+document.getElementById("returnTime")
+.textContent =
+travelData.flight.return.time;
+
+document.getElementById("returnFlight")
+.textContent =
+travelData.flight.return.flight;
+
+
+/* BUDGET */
+
+document.getElementById("budgetFlight")
+.textContent =
+won(travelData.expenses.flight);
+
+document.getElementById("budgetHotel")
+.textContent =
+won(travelData.hotel.price);
+
+document.getElementById("budgetTour")
+.textContent =
+won(travelData.expenses.tour);
+
+document.getElementById("budgetFood")
+.textContent =
+won(travelData.expenses.food);
+
+
+const total =
+Number(travelData.expenses.flight || 0)
++
+Number(travelData.hotel.price || 0)
++
+Number(travelData.expenses.tour || 0)
++
+Number(travelData.expenses.food || 0);
+
+
+document.getElementById("budgetTotal")
+.textContent =
+won(total);
+
+
+renderSchedule();
+
+renderChecklist();
 
 }
 
 
-function showError(text){
 
-  const box =
-    document
-    .getElementById(
-      "errorBox"
-    );
+/* ==========================
+   일정
+========================== */
 
-  box.textContent =
-    text;
+function renderSchedule(){
 
-  box.style.display =
-    "block";
+const box =
+document.getElementById("scheduleList");
+
+box.innerHTML="";
+
+
+travelData.schedule.forEach(
+(item,index)=>{
+
+const card =
+document.createElement("div");
+
+card.className="card";
+
+
+card.innerHTML=`
+
+<div class="day">
+
+<div class="day-number">
+
+<strong>
+${item.date}
+</strong>
+
+<span>
+${item.day}
+</span>
+
+</div>
+
+<div class="day-content">
+
+<strong>
+${item.title}
+</strong>
+
+<div class="sub">
+${item.memo}
+</div>
+
+<div style="margin-top:10px">
+
+<button
+class="edit"
+onclick="editSchedule(${index})">
+
+수정
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+box.appendChild(card);
+
+});
 
 }
 
 
-function clearError(){
 
-  const box =
-    document
-    .getElementById(
-      "errorBox"
-    );
+/* ==========================
+   체크리스트
+========================== */
 
-  box.textContent = "";
+function renderChecklist(){
 
-  box.style.display =
-    "none";
+const box =
+document.getElementById("checklistBox");
+
+box.innerHTML="";
+
+
+travelData.checklist.forEach(
+(item,index)=>{
+
+const row =
+document.createElement("div");
+
+row.className="check-item";
+
+
+const checkbox =
+document.createElement("input");
+
+checkbox.type="checkbox";
+
+checkbox.checked=item.done;
+
+checkbox.onchange=()=>{
+
+travelData.checklist[index].done =
+checkbox.checked;
+
+saveData();
+
+};
+
+
+const text =
+document.createElement("span");
+
+text.textContent=item.name;
+
+text.style.flex="1";
+
+
+const del =
+document.createElement("button");
+
+del.className="edit";
+
+del.textContent="삭제";
+
+del.onclick=()=>{
+
+if(confirm(
+item.name +
+" 항목을 삭제할까요?"
+)){
+
+travelData.checklist.splice(
+index,
+1
+);
+
+saveData();
+
+renderChecklist();
+
+}
+
+};
+
+
+row.appendChild(checkbox);
+
+row.appendChild(text);
+
+row.appendChild(del);
+
+box.appendChild(row);
+
+});
 
 }
 
 
-/* ========================================
-   시작할 때 로그인 상태 확인
-======================================== */
 
-async function initialize(){
+/* ==========================
+   MODAL
+========================== */
 
-  const {
-    data:{
-      session
-    }
-  } =
-  await supabaseClient.auth
-  .getSession();
+let saveAction=null;
 
 
-  if(session){
+function openModal(
+title,
+html,
+callback
+){
 
-    await openApp();
+document.getElementById(
+"modalTitle"
+).textContent=title;
 
-  }else{
+document.getElementById(
+"modalContent"
+).innerHTML=html;
 
-    document
-    .getElementById(
-      "loginScreen"
-    )
-    .style.display =
-      "flex";
+saveAction=callback;
 
-    document
-    .getElementById(
-      "mainApp"
-    )
-    .style.display =
-      "none";
-
-  }
+document.getElementById(
+"modal"
+).style.display="flex";
 
 }
 
 
-initialize();
+function closeModal(){
+
+document.getElementById(
+"modal"
+).style.display="none";
+
+saveAction=null;
+
+}
+
+
+function saveModal(){
+
+if(saveAction){
+
+saveAction();
+
+}
+
+saveData();
+
+render();
+
+closeModal();
+
+}
+
+
+
+/* ==========================
+   숙소 수정
+========================== */
+
+function editHotel(){
+
+openModal(
+
+"숙소 수정",
+
+`
+
+<label>
+숙소명
+</label>
+
+<input
+id="editHotelName"
+value="${escapeValue(travelData.hotel.name)}">
+
+
+<label>
+체크인
+</label>
+
+<input
+id="editCheckin"
+value="${escapeValue(travelData.hotel.checkin)}">
+
+
+<label>
+체크아웃
+</label>
+
+<input
+id="editCheckout"
+value="${escapeValue(travelData.hotel.checkout)}">
+
+
+<label>
+숙박비
+</label>
+
+<input
+id="editHotelPrice"
+type="number"
+value="${travelData.hotel.price}">
+
+
+<label>
+메모
+</label>
+
+<textarea
+id="editHotelMemo">${escapeHTML(travelData.hotel.memo)}</textarea>
+
+`,
+
+()=>{
+
+travelData.hotel.name =
+document.getElementById(
+"editHotelName"
+).value;
+
+travelData.hotel.checkin =
+document.getElementById(
+"editCheckin"
+).value;
+
+travelData.hotel.checkout =
+document.getElementById(
+"editCheckout"
+).value;
+
+travelData.hotel.price =
+Number(
+document.getElementById(
+"editHotelPrice"
+).value
+);
+
+travelData.hotel.memo =
+document.getElementById(
+"editHotelMemo"
+).value;
+
+}
+
+);
+
+}
+
+
+
+/* ==========================
+   항공 수정
+========================== */
+
+function editFlight(){
+
+openModal(
+
+"항공 수정",
+
+`
+
+<label>
+가는 날
+</label>
+
+<input
+id="editOutTime"
+value="${escapeValue(travelData.flight.outbound.time)}">
+
+
+<label>
+가는 편 항공편
+</label>
+
+<input
+id="editOutFlight"
+value="${escapeValue(travelData.flight.outbound.flight)}">
+
+
+<label>
+오는 날
+</label>
+
+<input
+id="editReturnTime"
+value="${escapeValue(travelData.flight.return.time)}">
+
+
+<label>
+오는 편 항공편
+</label>
+
+<input
+id="editReturnFlight"
+value="${escapeValue(travelData.flight.return.flight)}">
+
+`,
+
+()=>{
+
+travelData.flight.outbound.time =
+document.getElementById(
+"editOutTime"
+).value;
+
+travelData.flight.outbound.flight =
+document.getElementById(
+"editOutFlight"
+).value;
+
+travelData.flight.return.time =
+document.getElementById(
+"editReturnTime"
+).value;
+
+travelData.flight.return.flight =
+document.getElementById(
+"editReturnFlight"
+).value;
+
+}
+
+);
+
+}
+
+
+
+/* ==========================
+   일정 수정
+========================== */
+
+function editSchedule(index){
+
+const item =
+travelData.schedule[index];
+
+
+openModal(
+
+"일정 수정",
+
+`
+
+<label>
+날짜
+</label>
+
+<input
+id="editScheduleDate"
+value="${escapeValue(item.date)}">
+
+
+<label>
+DAY
+</label>
+
+<input
+id="editScheduleDay"
+value="${escapeValue(item.day)}">
+
+
+<label>
+제목
+</label>
+
+<input
+id="editScheduleTitle"
+value="${escapeValue(item.title)}">
+
+
+<label>
+내용
+</label>
+
+<textarea
+id="editScheduleMemo">${escapeHTML(item.memo)}</textarea>
+
+`,
+
+()=>{
+
+item.date =
+document.getElementById(
+"editScheduleDate"
+).value;
+
+item.day =
+document.getElementById(
+"editScheduleDay"
+).value;
+
+item.title =
+document.getElementById(
+"editScheduleTitle"
+).value;
+
+item.memo =
+document.getElementById(
+"editScheduleMemo"
+).value;
+
+}
+
+);
+
+}
+
+
+
+/* ==========================
+   경비 수정
+========================== */
+
+function editBudget(){
+
+openModal(
+
+"경비 수정",
+
+`
+
+<label>
+항공
+</label>
+
+<input
+type="number"
+id="editBudgetFlight"
+value="${travelData.expenses.flight}">
+
+
+<label>
+투어
+</label>
+
+<input
+type="number"
+id="editBudgetTour"
+value="${travelData.expenses.tour}">
+
+
+<label>
+식비 / 기타
+</label>
+
+<input
+type="number"
+id="editBudgetFood"
+value="${travelData.expenses.food}">
+
+`,
+
+()=>{
+
+travelData.expenses.flight =
+Number(
+document.getElementById(
+"editBudgetFlight"
+).value
+);
+
+travelData.expenses.tour =
+Number(
+document.getElementById(
+"editBudgetTour"
+).value
+);
+
+travelData.expenses.food =
+Number(
+document.getElementById(
+"editBudgetFood"
+).value
+);
+
+}
+
+);
+
+}
+
+
+
+/* ==========================
+   체크리스트 추가
+========================== */
+
+function addChecklist(){
+
+openModal(
+
+"체크리스트 추가",
+
+`
+
+<label>
+항목
+</label>
+
+<input
+id="newChecklist"
+placeholder="예: 여행자 보험">
+
+`,
+
+()=>{
+
+const name =
+document.getElementById(
+"newChecklist"
+).value.trim();
+
+if(name){
+
+travelData.checklist.push({
+
+name:name,
+done:false
+
+});
+
+}
+
+}
+
+);
+
+}
+
+
+
+/* ==========================
+   메뉴 이동
+========================== */
+
+function go(id){
+
+document.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+
+/* ==========================
+   HTML 안전 처리
+========================== */
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;");
+
+}
+
+
+function escapeValue(value){
+
+return escapeHTML(value)
+.replaceAll('"',"&quot;");
+
+}
+
+
+
+/* ==========================
+   처음 실행
+========================== */
+
+render();
 
 </script>
 
