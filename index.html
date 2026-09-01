@@ -3,53 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b746f">
+<meta name="theme-color" content="#087f79">
 
 <title>OUR TRAVEL · BOHOL</title>
 
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
-/* =========================================================
-   OUR TRAVEL · BOHOL
-   STATIC / GITHUB VERSION
-   SUPABASE 없음
-========================================================= */
-
 :root{
-  --bg:#eef4f2;
+  --bg:#edf3f1;
   --paper:#fbfaf6;
   --card:#ffffff;
 
   --text:#172321;
-  --muted:#7b8581;
+  --muted:#7c8884;
   --line:#e5ebe8;
 
   --ocean:#087f79;
-  --ocean-dark:#075d59;
+  --ocean-dark:#075f5b;
   --ocean-soft:#e1f3ef;
 
-  --sky:#79cfdd;
-  --sand:#e7d2ac;
-  --sand-soft:#f6efe2;
+  --sand:#e9d6b4;
+  --sand-soft:#f7f0e4;
 
-  --shadow:
-    0 12px 35px rgba(23,44,41,.09);
-
-  --hero-image:
-    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Alona%20Beach%2C%20Panglao.jpg");
-
-  --henann-image:
-    url("https://vismin.ph/wp-content/uploads/2023/11/Hennan-4.jpg");
-
-  --beach-image:
-    url("https://www.seaquestdivecenter.com/wp-content/uploads/2024/08/ALONA-BEACH.jpg");
+  --shadow:0 12px 34px rgba(22,43,39,.09);
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
   box-sizing:border-box;
@@ -62,21 +40,9 @@ html{
 body{
   margin:0;
   background:
-    radial-gradient(
-      circle at top,
-      #dff3ef 0,
-      #edf3f1 300px,
-      #e7ecea 100%
-    );
-
+    radial-gradient(circle at top,#dcefeb 0,#edf3f1 320px,#e8edeb 100%);
   color:var(--text);
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Pretendard",
-    "Segoe UI",
-    sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Segoe UI",sans-serif;
 }
 
 button,
@@ -89,28 +55,18 @@ button{
   -webkit-tap-highlight-color:transparent;
 }
 
-
-/* =========================================================
-   APP
-========================================================= */
-
 .app{
-  position:relative;
-
   width:100%;
   max-width:480px;
   min-height:100vh;
-
   margin:0 auto;
+  padding-bottom:112px;
+  overflow:hidden;
 
   background:var(--paper);
 
-  padding-bottom:115px;
-
-  overflow:hidden;
-
   box-shadow:
-    0 0 55px rgba(20,37,34,.08);
+    0 0 50px rgba(24,40,37,.08);
 }
 
 
@@ -121,7 +77,7 @@ button{
 .hero{
   position:relative;
 
-  min-height:445px;
+  min-height:440px;
 
   padding:
     calc(22px + env(safe-area-inset-top))
@@ -132,48 +88,27 @@ button{
   flex-direction:column;
   justify-content:space-between;
 
-  color:#fff;
+  color:white;
 
   background:
     linear-gradient(
       180deg,
-      rgba(0,43,48,.15) 0%,
-      rgba(0,38,43,.08) 35%,
-      rgba(0,31,31,.28) 58%,
-      rgba(3,34,33,.88) 100%
+      rgba(0,37,42,.1),
+      rgba(0,37,42,.05) 34%,
+      rgba(0,25,27,.28) 61%,
+      rgba(0,27,27,.88) 100%
     ),
-    var(--hero-image);
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Alona%20Beach%2C%20Panglao.jpg");
 
   background-size:cover;
   background-position:center;
 }
 
-
-/* 바다 쪽 살짝 청록색 보정 */
-
-.hero::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(0,122,123,.15),
-      transparent 55%
-    );
-}
-
-
-/* 밑부분 자연스럽게 컨텐츠와 연결 */
-
 .hero::after{
   content:"";
 
   position:absolute;
+
   left:0;
   right:0;
   bottom:0;
@@ -190,39 +125,30 @@ button{
     );
 }
 
-
 .hero-top,
 .hero-bottom{
   position:relative;
   z-index:2;
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
 .brand{
   display:inline-flex;
   align-items:center;
-
   gap:10px;
 }
 
 .brand-mark{
-  width:37px;
-  height:37px;
+  width:38px;
+  height:38px;
 
   display:grid;
   place-items:center;
 
   border-radius:50%;
 
-  border:
-    1px solid rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.5);
 
-  background:
-    rgba(255,255,255,.13);
+  background:rgba(255,255,255,.13);
 
   backdrop-filter:blur(12px);
 }
@@ -234,47 +160,34 @@ button{
 
 .logo{
   font-size:11px;
-
-  letter-spacing:4px;
-
   font-weight:800;
 
-  text-shadow:
-    0 2px 10px rgba(0,0,0,.15);
+  letter-spacing:4px;
 }
-
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
 
 .hero-kicker{
   margin-bottom:7px;
 
   font-size:11px;
 
-  letter-spacing:2.5px;
+  letter-spacing:2.4px;
 
   text-transform:uppercase;
 
-  opacity:.83;
+  opacity:.85;
 }
 
 .hero h1{
   margin:0;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  font-family:Georgia,"Times New Roman",serif;
+
+  font-size:62px;
+  line-height:.95;
 
   font-weight:400;
 
-  font-size:62px;
-
   letter-spacing:-3px;
-
-  line-height:.95;
 }
 
 .hero-copy{
@@ -286,10 +199,9 @@ button{
 
   margin-top:11px;
 
-  font-size:13px;
+  color:rgba(255,255,255,.9);
 
-  color:
-    rgba(255,255,255,.9);
+  font-size:13px;
 }
 
 .hero-chip{
@@ -307,18 +219,13 @@ button{
 
   border-radius:999px;
 
-  border:
-    1px solid rgba(255,255,255,.23);
+  background:rgba(255,255,255,.14);
 
-  background:
-    rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.2);
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(12px);
 
   font-size:11px;
-
-  letter-spacing:.25px;
-
   font-weight:750;
 }
 
@@ -329,12 +236,12 @@ button{
 
 
 /* =========================================================
-   TRIP SUMMARY
+   SUMMARY
 ========================================================= */
 
 .trip-summary{
   position:relative;
-  z-index:5;
+  z-index:4;
 
   margin:-34px 17px 0;
 
@@ -342,16 +249,13 @@ button{
 
   display:grid;
 
-  grid-template-columns:
-    repeat(3,1fr);
+  grid-template-columns:repeat(3,1fr);
 
   border-radius:24px;
 
-  background:
-    rgba(255,255,255,.97);
+  background:rgba(255,255,255,.97);
 
-  border:
-    1px solid rgba(255,255,255,.75);
+  border:1px solid rgba(255,255,255,.8);
 
   box-shadow:var(--shadow);
 }
@@ -370,12 +274,12 @@ button{
   position:absolute;
 
   top:10px;
-  bottom:10px;
   right:0;
+  bottom:10px;
 
   width:1px;
 
-  background:#edf0ee;
+  background:#edf1ef;
 }
 
 .summary-icon{
@@ -384,16 +288,14 @@ button{
 
   margin:0 auto 8px;
 
-  border-radius:13px;
-
   display:grid;
   place-items:center;
 
-  background:
-    var(--ocean-soft);
+  border-radius:13px;
 
-  color:
-    var(--ocean);
+  color:var(--ocean);
+
+  background:var(--ocean-soft);
 }
 
 .summary-icon svg{
@@ -405,8 +307,6 @@ button{
   display:block;
 
   font-size:12px;
-
-  letter-spacing:.1px;
 }
 
 .summary-item span{
@@ -414,144 +314,9 @@ button{
 
   margin-top:4px;
 
-  color:var(--muted);
-
   font-size:9px;
-}
 
-
-/* =========================================================
-   PHOTO STORY
-========================================================= */
-
-.travel-story{
-  padding:
-    22px
-    18px
-    3px;
-}
-
-.story-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-
-  margin-bottom:12px;
-}
-
-.story-head strong{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-size:20px;
-
-  font-weight:500;
-}
-
-.story-head span{
   color:var(--muted);
-
-  font-size:10px;
-
-  letter-spacing:1px;
-}
-
-.story-grid{
-  height:205px;
-
-  display:grid;
-
-  grid-template-columns:
-    1.35fr .8fr;
-
-  grid-template-rows:
-    1fr 1fr;
-
-  gap:7px;
-}
-
-.story-photo{
-  position:relative;
-
-  border-radius:18px;
-
-  overflow:hidden;
-
-  background-size:cover;
-  background-position:center;
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.13);
-}
-
-.story-photo::after{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(0,28,27,.58),
-      transparent 65%
-    );
-}
-
-.story-main{
-  grid-row:1 / 3;
-
-  background-image:
-    var(--henann-image);
-
-  background-position:center;
-}
-
-.story-beach{
-  background-image:
-    var(--beach-image);
-}
-
-.story-relax{
-  background:
-    linear-gradient(
-      160deg,
-      rgba(5,116,113,.15),
-      rgba(5,116,113,.02)
-    ),
-    var(--hero-image);
-
-  background-size:cover;
-  background-position:center 60%;
-}
-
-.story-label{
-  position:absolute;
-
-  left:12px;
-  bottom:11px;
-
-  z-index:2;
-
-  color:#fff;
-}
-
-.story-label small{
-  display:block;
-
-  margin-bottom:2px;
-
-  font-size:8px;
-
-  letter-spacing:1.1px;
-
-  opacity:.8;
-}
-
-.story-label strong{
-  font-size:12px;
 }
 
 
@@ -560,29 +325,23 @@ button{
 ========================================================= */
 
 section{
-  padding:
-    28px
-    18px
-    0;
+  padding:28px 18px 0;
 
-  scroll-margin-top:14px;
+  scroll-margin-top:12px;
 }
 
 .section-title{
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
-  gap:12px;
+  gap:10px;
 
   margin-bottom:14px;
 }
 
 .section-heading{
   display:flex;
-
   align-items:center;
 
   gap:10px;
@@ -602,8 +361,8 @@ section{
   background:
     linear-gradient(
       145deg,
-      #e5f5f1,
-      #d8efeb
+      #e8f7f3,
+      #dcefeb
     );
 }
 
@@ -629,14 +388,12 @@ section{
 
   font-size:9px;
 
-  font-weight:600;
+  font-weight:650;
 
-  letter-spacing:.6px;
+  letter-spacing:.5px;
 }
 
 .card{
-  position:relative;
-
   margin-bottom:12px;
 
   padding:18px;
@@ -645,11 +402,10 @@ section{
 
   background:var(--card);
 
-  border:
-    1px solid rgba(222,229,225,.85);
+  border:1px solid rgba(222,229,225,.85);
 
   box-shadow:
-    0 5px 20px rgba(27,42,38,.045);
+    0 5px 20px rgba(25,42,38,.045);
 }
 
 .label{
@@ -664,9 +420,9 @@ section{
 
   font-size:9px;
 
-  letter-spacing:1.2px;
+  letter-spacing:1.15px;
 
-  font-weight:700;
+  font-weight:750;
 }
 
 .label svg{
@@ -687,23 +443,17 @@ section{
 .sub{
   margin-top:6px;
 
-  color:#76817d;
+  color:#74807c;
 
   font-size:12px;
 
   line-height:1.55;
 }
 
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
 .edit{
   display:inline-flex;
 
   align-items:center;
-
   justify-content:center;
 
   gap:5px;
@@ -716,7 +466,7 @@ section{
 
   background:#eff3f1;
 
-  color:#58615e;
+  color:#59645f;
 
   font-size:10px;
 
@@ -736,13 +486,64 @@ section{
 
 
 /* =========================================================
-   ITINERARY
+   SCHEDULE
 ========================================================= */
 
 .schedule-card{
-  overflow:hidden;
-
   padding:0;
+
+  overflow:hidden;
+}
+
+.schedule-photo{
+  height:155px;
+
+  background-size:cover;
+
+  background-position:center;
+
+  position:relative;
+}
+
+.schedule-photo::after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,31,30,.52),
+      transparent 68%
+    );
+}
+
+.schedule-photo-label{
+  position:absolute;
+
+  left:14px;
+  bottom:12px;
+
+  z-index:2;
+
+  color:white;
+}
+
+.schedule-photo-label small{
+  display:block;
+
+  margin-bottom:2px;
+
+  font-size:8px;
+
+  letter-spacing:1px;
+
+  opacity:.8;
+}
+
+.schedule-photo-label strong{
+  font-size:14px;
 }
 
 .schedule-inner{
@@ -760,34 +561,30 @@ section{
 
   flex-direction:column;
 
-  align-items:center;
-
   justify-content:center;
 
+  align-items:center;
+
   padding:16px 8px;
+
+  border-right:1px solid var(--line);
 
   background:
     linear-gradient(
       160deg,
-      #f1eee6,
-      #f8f6f0
+      #f2efe7,
+      #faf8f3
     );
-
-  border-right:
-    1px solid var(--line);
 }
 
 .day-number .date{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:#2f413d;
+  font-family:Georgia,"Times New Roman",serif;
 
   font-size:22px;
 
-  font-weight:600;
+  font-weight:650;
+
+  color:#31443f;
 }
 
 .day-number .day-label{
@@ -797,18 +594,15 @@ section{
 
   font-size:8px;
 
-  letter-spacing:1px;
-
   font-weight:700;
+
+  letter-spacing:1px;
 }
 
 .day-content{
   flex:1;
 
-  padding:
-    16px
-    15px
-    14px;
+  padding:16px 15px 14px;
 }
 
 .day-top{
@@ -852,36 +646,25 @@ section{
   margin-top:11px;
 }
 
-
-/* =========================================================
-   FEATURED HENANN DAY
-========================================================= */
-
 .schedule-card.henann-day{
-  border-color:
-    rgba(6,128,121,.22);
+  border-color:rgba(7,127,121,.22);
 }
 
 .schedule-card.henann-day .day-number{
   background:
     linear-gradient(
-      160deg,
-      #0d8079,
-      #066c67
+      145deg,
+      #0c827c,
+      #066a66
     );
-
-  color:#fff;
 }
 
-.schedule-card.henann-day
-.day-number .date{
-  color:#fff;
+.schedule-card.henann-day .day-number .date{
+  color:white;
 }
 
-.schedule-card.henann-day
-.day-number .day-label{
-  color:
-    rgba(255,255,255,.7);
+.schedule-card.henann-day .day-number .day-label{
+  color:rgba(255,255,255,.7);
 }
 
 
@@ -890,6 +673,8 @@ section{
 ========================================================= */
 
 .flight-card{
+  position:relative;
+
   overflow:hidden;
 }
 
@@ -898,23 +683,21 @@ section{
 
   position:absolute;
 
-  width:95px;
-  height:95px;
+  width:100px;
+  height:100px;
 
-  right:-45px;
-  top:-45px;
+  right:-48px;
+  top:-48px;
 
   border-radius:50%;
 
-  background:
-    var(--ocean-soft);
+  background:var(--ocean-soft);
 }
 
 .flight-route{
   display:grid;
 
-  grid-template-columns:
-    1fr 78px 1fr;
+  grid-template-columns:1fr 90px 1fr;
 
   align-items:center;
 
@@ -922,16 +705,35 @@ section{
 }
 
 .airport{
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  color:#263c38;
+  font-family:Georgia,"Times New Roman",serif;
 
   font-size:30px;
 
   font-weight:700;
+
+  color:#263d38;
+}
+
+.flight-clock{
+  margin-top:4px;
+
+  font-size:17px;
+
+  font-weight:850;
+
+  color:#162b27;
+}
+
+.flight-date{
+  margin-top:2px;
+
+  font-size:9px;
+
+  color:var(--muted);
+}
+
+.route-center{
+  text-align:center;
 }
 
 .route-line{
@@ -949,8 +751,7 @@ section{
   right:7px;
   top:13px;
 
-  border-top:
-    1px dashed #aebbb7;
+  border-top:1px dashed #aebbb7;
 }
 
 .route-plane{
@@ -959,8 +760,7 @@ section{
   left:50%;
   top:50%;
 
-  transform:
-    translate(-50%,-50%);
+  transform:translate(-50%,-50%);
 
   width:29px;
   height:29px;
@@ -972,15 +772,22 @@ section{
 
   color:var(--ocean);
 
-  background:#fff;
+  background:white;
 
-  border:
-    1px solid #dfe7e3;
+  border:1px solid #dfe7e3;
 }
 
 .route-plane svg{
   width:14px;
   height:14px;
+}
+
+.flight-duration{
+  margin-top:4px;
+
+  font-size:9px;
+
+  color:#71807b;
 }
 
 .flight-foot{
@@ -994,12 +801,11 @@ section{
 
   padding-top:13px;
 
-  border-top:
-    1px solid var(--line);
-
-  color:#6c7874;
+  border-top:1px solid var(--line);
 
   font-size:11px;
+
+  color:#6d7874;
 }
 
 .flight-foot svg{
@@ -1014,6 +820,12 @@ section{
    HOTEL
 ========================================================= */
 
+.hotel-stack{
+  display:grid;
+
+  gap:12px;
+}
+
 .hotel-card{
   padding:0;
 
@@ -1021,17 +833,9 @@ section{
 }
 
 .hotel-image{
+  height:190px;
+
   position:relative;
-
-  height:245px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.01),
-      rgba(0,37,35,.18)
-    ),
-    var(--henann-image);
 
   background-size:cover;
 
@@ -1042,82 +846,66 @@ section{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   background:
     linear-gradient(
       to top,
-      rgba(0,31,30,.45),
-      transparent 55%
+      rgba(0,30,29,.5),
+      transparent 65%
     );
 }
 
-.hotel-image-top{
+.hotel-badge{
   position:absolute;
 
   z-index:2;
 
-  top:14px;
-  left:14px;
+  top:13px;
+  left:13px;
 
   padding:7px 9px;
 
   border-radius:999px;
 
-  color:#fff;
+  background:rgba(255,255,255,.9);
 
-  background:
-    rgba(4,69,66,.42);
+  color:#315049;
 
-  border:
-    1px solid rgba(255,255,255,.28);
+  font-size:8px;
 
-  backdrop-filter:blur(9px);
-
-  font-size:9px;
+  font-weight:850;
 
   letter-spacing:1px;
 }
 
-.hotel-image-tag{
+.hotel-nights{
   position:absolute;
 
-  z-index:3;
+  z-index:2;
 
-  left:14px;
-  bottom:14px;
+  right:13px;
+  bottom:13px;
 
-  display:inline-flex;
-  align-items:center;
-
-  gap:6px;
-
-  padding:8px 11px;
+  padding:8px 10px;
 
   border-radius:999px;
 
-  background:
-    rgba(255,255,255,.93);
+  color:white;
 
-  color:#28423d;
+  background:rgba(5,78,74,.5);
 
-  font-size:9px;
-
-  font-weight:850;
+  border:1px solid rgba(255,255,255,.25);
 
   backdrop-filter:blur(10px);
-}
 
-.hotel-image-tag svg{
-  width:13px;
-  height:13px;
+  font-size:10px;
 
-  color:var(--ocean);
+  font-weight:800;
 }
 
 .hotel-body{
-  padding:18px;
+  padding:17px;
 }
 
 .hotel-info-row{
@@ -1127,7 +915,7 @@ section{
 
   gap:7px;
 
-  margin-top:11px;
+  margin-top:10px;
 
   color:#74817c;
 
@@ -1141,66 +929,30 @@ section{
   color:var(--ocean);
 }
 
-.hotel-features{
-  display:flex;
-
-  gap:6px;
-
-  flex-wrap:wrap;
-
-  margin-top:13px;
-}
-
-.hotel-feature{
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:5px;
-
-  padding:7px 8px;
-
-  border-radius:9px;
-
-  color:#56716b;
-
-  background:#f0f7f5;
-
-  font-size:9px;
-
-  font-weight:650;
-}
-
-.hotel-feature svg{
-  width:12px;
-  height:12px;
-}
-
 .hotel-price{
   display:flex;
 
-  align-items:flex-end;
-
   justify-content:space-between;
 
-  margin-top:16px;
+  align-items:flex-end;
 
-  padding-top:14px;
+  margin-top:15px;
 
-  border-top:
-    1px solid var(--line);
+  padding-top:13px;
+
+  border-top:1px solid var(--line);
 }
 
 .hotel-price span{
-  color:var(--muted);
-
   font-size:10px;
+
+  color:var(--muted);
 }
 
 .hotel-price strong{
   color:var(--ocean-dark);
 
-  font-size:20px;
+  font-size:19px;
 }
 
 
@@ -1209,18 +961,17 @@ section{
 ========================================================= */
 
 .budget-row{
+  min-height:54px;
+
   display:flex;
 
   align-items:center;
 
   justify-content:space-between;
 
-  min-height:54px;
-
   padding:10px 0;
 
-  border-bottom:
-    1px solid var(--line);
+  border-bottom:1px solid var(--line);
 
   font-size:12px;
 }
@@ -1261,11 +1012,11 @@ section{
 }
 
 .total{
-  color:var(--ocean);
-
   font-size:21px;
 
   font-weight:900;
+
+  color:var(--ocean);
 }
 
 
@@ -1278,12 +1029,9 @@ section{
 
   align-items:center;
 
-  gap:0;
-
   padding:12px 0;
 
-  border-bottom:
-    1px solid var(--line);
+  border-bottom:1px solid var(--line);
 
   font-size:12px;
 }
@@ -1295,35 +1043,33 @@ section{
 .check-item input{
   appearance:none;
 
-  flex:none;
-
   width:22px;
   height:22px;
 
-  margin:
-    0 12px 0 0;
+  flex:none;
+
+  margin:0 12px 0 0;
 
   display:grid;
   place-items:center;
 
   border-radius:7px;
 
-  border:
-    1.5px solid #bac8c3;
+  border:1.5px solid #bac8c3;
 
   cursor:pointer;
 }
 
 .check-item input:checked{
-  border-color:var(--ocean);
-
   background:var(--ocean);
+
+  border-color:var(--ocean);
 }
 
 .check-item input:checked::after{
   content:"✓";
 
-  color:#fff;
+  color:white;
 
   font-size:13px;
 
@@ -1338,67 +1084,6 @@ section{
 
 
 /* =========================================================
-   FOOTER
-========================================================= */
-
-.footer{
-  padding:
-    34px
-    18px
-    4px;
-
-  text-align:center;
-}
-
-.footer-mark{
-  width:39px;
-  height:39px;
-
-  margin:0 auto 10px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:
-    var(--ocean-soft);
-
-  color:var(--ocean);
-}
-
-.footer-mark svg{
-  width:18px;
-  height:18px;
-}
-
-.footer strong{
-  display:block;
-
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
-
-  font-weight:500;
-
-  font-size:18px;
-}
-
-.footer span{
-  display:block;
-
-  margin-top:5px;
-
-  color:var(--muted);
-
-  font-size:9px;
-
-  letter-spacing:1px;
-}
-
-
-/* =========================================================
    BOTTOM NAV
 ========================================================= */
 
@@ -1409,14 +1094,11 @@ section{
 
   left:50%;
 
-  bottom:
-    calc(12px + env(safe-area-inset-bottom));
+  bottom:calc(12px + env(safe-area-inset-bottom));
 
-  transform:
-    translateX(-50%);
+  transform:translateX(-50%);
 
-  width:
-    calc(100% - 24px);
+  width:calc(100% - 24px);
 
   max-width:456px;
 
@@ -1432,11 +1114,9 @@ section{
 
   border-radius:24px;
 
-  border:
-    1px solid rgba(217,226,222,.92);
+  border:1px solid rgba(217,226,222,.92);
 
-  background:
-    rgba(255,255,255,.94);
+  background:rgba(255,255,255,.94);
 
   box-shadow:
     0 15px 38px rgba(25,42,38,.17);
@@ -1447,9 +1127,9 @@ section{
 .bottom-nav button{
   min-width:54px;
 
-  padding:0;
-
   border:0;
+
+  padding:0;
 
   display:flex;
 
@@ -1459,9 +1139,9 @@ section{
 
   gap:3px;
 
-  color:#8b9793;
-
   background:none;
+
+  color:#8b9793;
 
   font-size:8px;
 
@@ -1489,11 +1169,8 @@ section{
   color:var(--ocean);
 }
 
-.bottom-nav
-button.active
-.nav-icon-wrap{
-  background:
-    var(--ocean-soft);
+.bottom-nav button.active .nav-icon-wrap{
+  background:var(--ocean-soft);
 }
 
 
@@ -1514,10 +1191,7 @@ button.active
 
   justify-content:center;
 
-  padding-top:30px;
-
-  background:
-    rgba(8,28,27,.5);
+  background:rgba(8,28,27,.5);
 
   backdrop-filter:blur(4px);
 }
@@ -1535,25 +1209,16 @@ button.active
     20px
     calc(28px + env(safe-area-inset-bottom));
 
-  border-radius:
-    27px
-    27px
-    0
-    0;
+  border-radius:27px 27px 0 0;
 
-  background:#fff;
-
-  box-shadow:
-    0 -10px 40px rgba(0,0,0,.1);
+  background:white;
 }
 
 .modal-handle{
   width:40px;
   height:4px;
 
-  margin:
-    0 auto
-    18px;
+  margin:0 auto 18px;
 
   border-radius:999px;
 
@@ -1564,8 +1229,6 @@ button.active
   margin:0 0 5px;
 
   font-size:20px;
-
-  letter-spacing:-.4px;
 }
 
 .modal-box label{
@@ -1573,7 +1236,7 @@ button.active
 
   margin-top:15px;
 
-  color:#697672;
+  color:#687570;
 
   font-size:10px;
 
@@ -1586,12 +1249,9 @@ button.active
 
   margin-top:6px;
 
-  padding:
-    13px
-    14px;
+  padding:13px 14px;
 
-  border:
-    1px solid #dce4e0;
+  border:1px solid #dce4e0;
 
   border-radius:12px;
 
@@ -1604,20 +1264,18 @@ button.active
   font-size:14px;
 }
 
-.modal-box input:focus,
-.modal-box textarea:focus{
-  border-color:
-    #68aaa3;
-
-  box-shadow:
-    0 0 0 3px
-    rgba(7,127,121,.08);
-}
-
 .modal-box textarea{
   min-height:90px;
 
   resize:vertical;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus{
+  border-color:#68aaa3;
+
+  box-shadow:
+    0 0 0 3px rgba(7,127,121,.08);
 }
 
 .save-btn,
@@ -1628,9 +1286,9 @@ button.active
 
   border-radius:14px;
 
-  cursor:pointer;
-
   font-weight:800;
+
+  cursor:pointer;
 }
 
 .save-btn{
@@ -1638,7 +1296,7 @@ button.active
 
   padding:15px;
 
-  color:#fff;
+  color:white;
 
   background:
     linear-gradient(
@@ -1658,61 +1316,23 @@ button.active
   background:#eef2f0;
 }
 
-
-/* =========================================================
-   DESKTOP
-========================================================= */
-
 @media (min-width:700px){
-
   body{
     padding:24px 0;
   }
 
   .app{
+    min-height:calc(100vh - 48px);
+
     border-radius:30px;
-
-    min-height:
-      calc(100vh - 48px);
   }
-
-}
-
-
-/* =========================================================
-   SMALL PHONE
-========================================================= */
-
-@media (max-width:360px){
-
-  .hero h1{
-    font-size:54px;
-  }
-
-  .airport{
-    font-size:27px;
-  }
-
-  .flight-route{
-    grid-template-columns:
-      1fr
-      65px
-      1fr;
-  }
-
 }
 </style>
 </head>
 
-
 <body>
 
 <div class="app">
-
-
-<!-- ======================================================
-     HERO
-====================================================== -->
 
 <header class="hero" id="home">
 
@@ -1739,30 +1359,23 @@ button.active
       Philippines · Panglao Island
     </div>
 
-    <h1>
-      BOHOL
-    </h1>
+    <h1>BOHOL</h1>
 
     <div class="hero-copy">
 
-      <span>
-        2027.03.01 — 03.06
-      </span>
+      <span>2027.03.01 — 03.06</span>
 
       <span>·</span>
 
-      <span>
-        5박 6일
-      </span>
+      <span>5박 6일</span>
 
     </div>
-
 
     <div class="hero-chip">
 
       <i data-lucide="palmtree"></i>
 
-      HENANN RESORT ALONA BEACH
+      HENANN · ALONA BEACH
 
     </div>
 
@@ -1770,11 +1383,6 @@ button.active
 
 </header>
 
-
-
-<!-- ======================================================
-     SUMMARY
-====================================================== -->
 
 <div class="trip-summary">
 
@@ -1784,13 +1392,22 @@ button.active
       <i data-lucide="calendar-days"></i>
     </div>
 
-    <strong>
-      6 DAYS
-    </strong>
+    <strong>6 DAYS</strong>
 
-    <span>
-      03.01 — 03.06
-    </span>
+    <span>03.01 — 03.06</span>
+
+  </div>
+
+
+  <div class="summary-item">
+
+    <div class="summary-icon">
+      <i data-lucide="bed-double"></i>
+    </div>
+
+    <strong>3 STAYS</strong>
+
+    <span>1 + 3 + 1 NIGHT</span>
 
   </div>
 
@@ -1801,128 +1418,14 @@ button.active
       <i data-lucide="map-pin"></i>
     </div>
 
-    <strong>
-      BOHOL
-    </strong>
+    <strong>BOHOL</strong>
 
-    <span>
-      Panglao
-    </span>
-
-  </div>
-
-
-  <div class="summary-item">
-
-    <div class="summary-icon">
-      <i data-lucide="hotel"></i>
-    </div>
-
-    <strong>
-      HENANN
-    </strong>
-
-    <span>
-      Alona Beach
-    </span>
+    <span>Panglao</span>
 
   </div>
 
 </div>
 
-
-
-<!-- ======================================================
-     PHOTO STORY
-====================================================== -->
-
-<div class="travel-story">
-
-  <div class="story-head">
-
-    <strong>
-      Tropical days.
-    </strong>
-
-    <span>
-      BOHOL · 2027
-    </span>
-
-  </div>
-
-
-  <div class="story-grid">
-
-
-    <div class="
-      story-photo
-      story-main
-    ">
-
-      <div class="story-label">
-
-        <small>
-          STAY
-        </small>
-
-        <strong>
-          Henann Resort
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="
-      story-photo
-      story-beach
-    ">
-
-      <div class="story-label">
-
-        <small>
-          BEACH
-        </small>
-
-        <strong>
-          Alona
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div class="
-      story-photo
-      story-relax
-    ">
-
-      <div class="story-label">
-
-        <small>
-          MOOD
-        </small>
-
-        <strong>
-          Slow trip
-        </strong>
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-</div>
-
-
-
-<!-- ======================================================
-     ITINERARY
-====================================================== -->
 
 <section id="schedule">
 
@@ -1935,31 +1438,18 @@ button.active
       </div>
 
       <div>
-
-        <h2>
-          여행 일정
-        </h2>
-
-        <small>
-          OUR BOHOL PLAN
-        </small>
-
+        <h2>여행 일정</h2>
+        <small>OUR BOHOL PLAN</small>
       </div>
 
     </div>
 
   </div>
 
-
   <div id="scheduleList"></div>
 
 </section>
 
-
-
-<!-- ======================================================
-     FLIGHT
-====================================================== -->
 
 <section id="flight">
 
@@ -1972,81 +1462,74 @@ button.active
       </div>
 
       <div>
-
-        <h2>
-          항공
-        </h2>
-
-        <small>
-          FLIGHT INFORMATION
-        </small>
-
+        <h2>항공</h2>
+        <small>FLIGHT INFORMATION</small>
       </div>
 
     </div>
 
-
-    <button
-      class="edit"
-      onclick="editFlight()"
-    >
-
+    <button class="edit" onclick="editFlight()">
       <i data-lucide="pencil"></i>
-
       수정
-
     </button>
 
   </div>
 
 
-
-  <div class="
-    card
-    flight-card
-  ">
+  <div class="card flight-card">
 
     <div class="label">
-
       <i data-lucide="sunrise"></i>
-
       OUTBOUND
-
     </div>
-
 
     <div class="flight-route">
 
       <div>
 
-        <div class="airport">
-          ICN
-        </div>
+        <div class="airport">ICN</div>
 
         <div
-          class="sub"
-          id="outTime"
+          class="flight-clock"
+          id="outDeparture"
+        ></div>
+
+        <div
+          class="flight-date"
+          id="outDate"
         ></div>
 
       </div>
 
 
-      <div class="route-line">
+      <div class="route-center">
 
-        <div class="route-plane">
-          <i data-lucide="plane"></i>
+        <div class="route-line">
+
+          <div class="route-plane">
+            <i data-lucide="plane"></i>
+          </div>
+
         </div>
+
+        <div
+          class="flight-duration"
+          id="outDuration"
+        ></div>
 
       </div>
 
 
       <div style="text-align:right">
 
-        <div class="airport">
-          TAG
-        </div>
+        <div class="airport">TAG</div>
 
-        <div class="sub">
+        <div
+          class="flight-clock"
+          id="outArrival"
+        ></div>
+
+        <div class="flight-date">
           BOHOL
         </div>
 
@@ -2066,53 +1549,60 @@ button.active
   </div>
 
 
-
-  <div class="
-    card
-    flight-card
-  ">
+  <div class="card flight-card">
 
     <div class="label">
-
       <i data-lucide="sunset"></i>
-
       RETURN
-
     </div>
-
 
     <div class="flight-route">
 
       <div>
 
-        <div class="airport">
-          TAG
-        </div>
+        <div class="airport">TAG</div>
 
         <div
-          class="sub"
-          id="returnTime"
+          class="flight-clock"
+          id="returnDeparture"
+        ></div>
+
+        <div
+          class="flight-date"
+          id="returnDate"
         ></div>
 
       </div>
 
 
-      <div class="route-line">
+      <div class="route-center">
 
-        <div class="route-plane">
-          <i data-lucide="plane"></i>
+        <div class="route-line">
+
+          <div class="route-plane">
+            <i data-lucide="plane"></i>
+          </div>
+
         </div>
+
+        <div
+          class="flight-duration"
+          id="returnDuration"
+        ></div>
 
       </div>
 
 
       <div style="text-align:right">
 
-        <div class="airport">
-          ICN
-        </div>
+        <div class="airport">ICN</div>
 
-        <div class="sub">
+        <div
+          class="flight-clock"
+          id="returnArrival"
+        ></div>
+
+        <div class="flight-date">
           SEOUL
         </div>
 
@@ -2134,11 +1624,6 @@ button.active
 </section>
 
 
-
-<!-- ======================================================
-     HOTEL
-====================================================== -->
-
 <section id="hotel">
 
   <div class="section-title">
@@ -2146,149 +1631,25 @@ button.active
     <div class="section-heading">
 
       <div class="section-icon">
-        <i data-lucide="palmtree"></i>
+        <i data-lucide="bed-double"></i>
       </div>
 
       <div>
-
-        <h2>
-          숙소
-        </h2>
-
-        <small>
-          STAY IN PANGLAO
-        </small>
-
-      </div>
-
-    </div>
-
-
-    <button
-      class="edit"
-      onclick="editHotel()"
-    >
-
-      <i data-lucide="pencil"></i>
-
-      수정
-
-    </button>
-
-  </div>
-
-
-
-  <div class="
-    card
-    hotel-card
-  ">
-
-
-    <div class="hotel-image">
-
-      <div class="hotel-image-top">
-        PANGLAO · BOHOL
-      </div>
-
-      <div class="hotel-image-tag">
-
-        <i data-lucide="waves"></i>
-
-        ALONA BEACH
-
-      </div>
-
-    </div>
-
-
-
-    <div class="hotel-body">
-
-      <div class="label">
-
-        <i data-lucide="sparkles"></i>
-
-        MAIN RESORT
-
-      </div>
-
-
-      <div
-        class="big"
-        id="hotelName"
-      ></div>
-
-
-      <div class="hotel-info-row">
-
-        <i data-lucide="calendar-check"></i>
-
-        <span id="hotelDates"></span>
-
-      </div>
-
-
-      <div
-        class="sub"
-        id="hotelMemo"
-      ></div>
-
-
-
-      <div class="hotel-features">
-
-        <span class="hotel-feature">
-
-          <i data-lucide="waves"></i>
-
-          Beachfront
-
-        </span>
-
-
-        <span class="hotel-feature">
-
-          <i data-lucide="palmtree"></i>
-
-          Tropical Resort
-
-        </span>
-
-
-        <span class="hotel-feature">
-
-          <i data-lucide="map-pin"></i>
-
-          Alona Beach
-
-        </span>
-
-      </div>
-
-
-
-      <div class="hotel-price">
-
-        <span>
-          숙박비
-        </span>
-
-        <strong id="hotelPrice"></strong>
-
+        <h2>숙소</h2>
+        <small>3 STAYS IN BOHOL</small>
       </div>
 
     </div>
 
   </div>
+
+  <div
+    class="hotel-stack"
+    id="hotelList"
+  ></div>
 
 </section>
 
-
-
-<!-- ======================================================
-     BUDGET
-====================================================== -->
 
 <section id="budget">
 
@@ -2301,37 +1662,21 @@ button.active
       </div>
 
       <div>
-
-        <h2>
-          경비
-        </h2>
-
-        <small>
-          TRAVEL BUDGET
-        </small>
-
+        <h2>경비</h2>
+        <small>TRAVEL BUDGET</small>
       </div>
 
     </div>
 
-
-    <button
-      class="edit"
-      onclick="editBudget()"
-    >
-
+    <button class="edit" onclick="editBudget()">
       <i data-lucide="pencil"></i>
-
       수정
-
     </button>
 
   </div>
 
 
-
   <div class="card">
-
 
     <div class="budget-row">
 
@@ -2341,9 +1686,7 @@ button.active
           <i data-lucide="plane"></i>
         </div>
 
-        <span>
-          항공
-        </span>
+        <span>항공</span>
 
       </div>
 
@@ -2352,25 +1695,21 @@ button.active
     </div>
 
 
-
     <div class="budget-row">
 
       <div class="budget-name">
 
         <div class="budget-mini-icon">
-          <i data-lucide="hotel"></i>
+          <i data-lucide="bed-double"></i>
         </div>
 
-        <span>
-          숙소
-        </span>
+        <span>숙소 전체</span>
 
       </div>
 
       <strong id="budgetHotel"></strong>
 
     </div>
-
 
 
     <div class="budget-row">
@@ -2381,16 +1720,13 @@ button.active
           <i data-lucide="ship-wheel"></i>
         </div>
 
-        <span>
-          투어
-        </span>
+        <span>투어</span>
 
       </div>
 
       <strong id="budgetTour"></strong>
 
     </div>
-
 
 
     <div class="budget-row">
@@ -2401,9 +1737,7 @@ button.active
           <i data-lucide="utensils"></i>
         </div>
 
-        <span>
-          식비 / 기타
-        </span>
+        <span>식비 / 기타</span>
 
       </div>
 
@@ -2412,15 +1746,9 @@ button.active
     </div>
 
 
+    <div class="budget-row total-row">
 
-    <div class="
-      budget-row
-      total-row
-    ">
-
-      <span>
-        총 예상 경비
-      </span>
+      <span>총 예상 경비</span>
 
       <span
         class="total"
@@ -2434,11 +1762,6 @@ button.active
 </section>
 
 
-
-<!-- ======================================================
-     CHECKLIST
-====================================================== -->
-
 <section id="checklist">
 
   <div class="section-title">
@@ -2450,33 +1773,18 @@ button.active
       </div>
 
       <div>
-
-        <h2>
-          체크리스트
-        </h2>
-
-        <small>
-          BEFORE WE GO
-        </small>
-
+        <h2>체크리스트</h2>
+        <small>BEFORE WE GO</small>
       </div>
 
     </div>
 
-
-    <button
-      class="edit"
-      onclick="addChecklist()"
-    >
-
+    <button class="edit" onclick="addChecklist()">
       <i data-lucide="plus"></i>
-
       추가
-
     </button>
 
   </div>
-
 
   <div
     class="card"
@@ -2485,39 +1793,10 @@ button.active
 
 </section>
 
-
-
-<!-- ======================================================
-     FOOTER
-====================================================== -->
-
-<div class="footer">
-
-  <div class="footer-mark">
-    <i data-lucide="palmtree"></i>
-  </div>
-
-  <strong>
-    See you in Bohol.
-  </strong>
-
-  <span>
-    OUR TRAVEL · 2027
-  </span>
-
 </div>
 
-
-</div>
-
-
-
-<!-- ======================================================
-     BOTTOM NAV
-====================================================== -->
 
 <nav class="bottom-nav">
-
 
   <button
     class="active"
@@ -2533,9 +1812,7 @@ button.active
   </button>
 
 
-  <button
-    onclick="go('schedule',this)"
-  >
+  <button onclick="go('schedule',this)">
 
     <span class="nav-icon-wrap">
       <i data-lucide="calendar-days"></i>
@@ -2546,9 +1823,7 @@ button.active
   </button>
 
 
-  <button
-    onclick="go('flight',this)"
-  >
+  <button onclick="go('flight',this)">
 
     <span class="nav-icon-wrap">
       <i data-lucide="plane"></i>
@@ -2559,12 +1834,10 @@ button.active
   </button>
 
 
-  <button
-    onclick="go('hotel',this)"
-  >
+  <button onclick="go('hotel',this)">
 
     <span class="nav-icon-wrap">
-      <i data-lucide="palmtree"></i>
+      <i data-lucide="bed-double"></i>
     </span>
 
     숙소
@@ -2572,9 +1845,7 @@ button.active
   </button>
 
 
-  <button
-    onclick="go('budget',this)"
-  >
+  <button onclick="go('budget',this)">
 
     <span class="nav-icon-wrap">
       <i data-lucide="wallet"></i>
@@ -2584,14 +1855,8 @@ button.active
 
   </button>
 
-
 </nav>
 
-
-
-<!-- ======================================================
-     EDIT MODAL
-====================================================== -->
 
 <div
   class="modal"
@@ -2608,14 +1873,12 @@ button.active
 
     <div id="modalContent"></div>
 
-
     <button
       class="save-btn"
       onclick="saveModal()"
     >
       저장
     </button>
-
 
     <button
       class="cancel-btn"
@@ -2629,57 +1892,144 @@ button.active
 </div>
 
 
-
 <script>
 
 /* =========================================================
-   기본 여행 데이터
+   IMAGE LIBRARY
+
+   일정 제목을 보고 자동으로 이미지 선택
+========================================================= */
+
+const images = {
+
+  bohol:
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Alona%20Beach%2C%20Panglao.jpg",
+
+  henann:
+    "https://www.henann.com/bohol/uploads/slider/pool2.jpg",
+
+  alona:
+    "https://www.seaquestdivecenter.com/wp-content/uploads/2024/08/ALONA-BEACH.jpg",
+
+  balicasag:
+    "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85",
+
+  airport:
+    "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85",
+
+  hotel:
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
+
+  relax:
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85"
+
+};
+
+
+/* =========================================================
+   DEFAULT DATA
 ========================================================= */
 
 const defaultData = {
 
-  hotel:{
-    name:
-      "Henann Resort Alona Beach",
+  hotels:[
 
-    checkin:
-      "2027.03.02",
+    {
+      type:"FIRST NIGHT",
+      name:"첫날 숙소 미입력",
 
-    checkout:
-      "2027.03.05",
+      checkin:"2027.03.01",
+      checkout:"2027.03.02",
 
-    price:0,
+      nights:1,
 
-    memo:
-      "3박 · Panglao · Alona Beach"
-  },
+      price:0,
+
+      memo:"보홀 도착 후 1박"
+    },
+
+
+    {
+      type:"MAIN RESORT",
+
+      name:
+        "Henann Resort Alona Beach",
+
+      checkin:"2027.03.02",
+
+      checkout:"2027.03.05",
+
+      nights:3,
+
+      price:0,
+
+      memo:
+        "3박 · Panglao · Alona Beach"
+    },
+
+
+    {
+      type:"LAST NIGHT",
+
+      name:"마지막 숙소 미입력",
+
+      checkin:"2027.03.05",
+
+      checkout:"2027.03.06",
+
+      nights:1,
+
+      price:0,
+
+      memo:
+        "귀국 전 마지막 1박"
+    }
+
+  ],
 
 
   flight:{
 
     outbound:{
-      flight:
-        "항공편 미입력",
 
-      time:
-        "2027.03.01"
+      flight:"항공편 미입력",
+
+      date:"2027.03.01",
+
+      departure:"",
+
+      arrival:"",
+
+      duration:""
+
     },
 
-    return:{
-      flight:
-        "항공편 미입력",
 
-      time:
-        "2027.03.06"
+    return:{
+
+      flight:"항공편 미입력",
+
+      date:"2027.03.06",
+
+      departure:"",
+
+      arrival:"",
+
+      duration:""
+
     }
 
   },
 
 
   expenses:{
+
     flight:0,
+
     tour:0,
+
     food:0
+
   },
 
 
@@ -2690,11 +2040,10 @@ const defaultData = {
 
       day:"DAY 1",
 
-      title:
-        "SEOUL → BOHOL",
+      title:"SEOUL → BOHOL",
 
       memo:
-        "보홀 도착 · 첫날 일정"
+        "보홀 도착 · 첫날 숙소 체크인"
     },
 
 
@@ -2707,7 +2056,7 @@ const defaultData = {
         "HENANN · ALONA BEACH",
 
       memo:
-        "헤난 리조트 알로나 비치 체크인 · 리조트 휴식"
+        "헤난 리조트 체크인 · 리조트 휴식"
     },
 
 
@@ -2716,8 +2065,7 @@ const defaultData = {
 
       day:"DAY 3",
 
-      title:
-        "BALICASAG",
+      title:"BALICASAG",
 
       memo:
         "발리카삭 호핑 투어"
@@ -2729,8 +2077,7 @@ const defaultData = {
 
       day:"DAY 4",
 
-      title:
-        "FREE DAY",
+      title:"FREE DAY",
 
       memo:
         "알로나 비치 · 리조트에서 여유롭게 보내기"
@@ -2742,11 +2089,10 @@ const defaultData = {
 
       day:"DAY 5",
 
-      title:
-        "CHECK OUT",
+      title:"LAST NIGHT",
 
       memo:
-        "헤난 리조트 체크아웃 · 마지막 일정"
+        "헤난 체크아웃 · 마지막 숙소 이동"
     },
 
 
@@ -2755,11 +2101,9 @@ const defaultData = {
 
       day:"DAY 6",
 
-      title:
-        "BOHOL → SEOUL",
+      title:"BOHOL → SEOUL",
 
-      memo:
-        "귀국"
+      memo:"귀국"
     }
 
   ],
@@ -2798,12 +2142,11 @@ const defaultData = {
 ========================================================= */
 
 const STORAGE_KEY =
-  "ourTravelData";
+  "ourTravelDataV2";
+
 
 let travelData;
 
-
-/* 저장 데이터 불러오기 */
 
 try{
 
@@ -2811,6 +2154,7 @@ try{
     localStorage.getItem(
       STORAGE_KEY
     );
+
 
   travelData =
     saved
@@ -2827,23 +2171,20 @@ try{
 
 
 /* =========================================================
-   예전 South Palms 데이터 자동 수정
+   OLD DATA MIGRATION
+
+   예전 hotel 한 개 구조를 발견하면
+   새 hotels 3개 구조로 변경
 ========================================================= */
 
 if(
-  travelData.hotel &&
-  typeof travelData.hotel.name ===
-    "string" &&
-  travelData.hotel.name
-    .toLowerCase()
-    .includes("south palms")
+  !Array.isArray(
+    travelData.hotels
+  )
 ){
 
-  travelData.hotel =
-    clone(defaultData.hotel);
-
-  travelData.schedule =
-    clone(defaultData.schedule);
+  travelData =
+    clone(defaultData);
 
   saveData();
 
@@ -2852,7 +2193,7 @@ if(
 
 
 /* =========================================================
-   기본 함수
+   UTIL
 ========================================================= */
 
 function clone(value){
@@ -2918,7 +2259,8 @@ function escapeValue(value){
 
   return escapeHTML(
     value
-  ).replaceAll(
+  )
+  .replaceAll(
     '"',
     "&quot;"
   );
@@ -2928,62 +2270,242 @@ function escapeValue(value){
 
 
 /* =========================================================
-   전체 화면 렌더
+   SCHEDULE AUTO IMAGE
+========================================================= */
+
+function scheduleImage(title){
+
+  const t =
+    String(
+      title || ""
+    )
+    .toLowerCase();
+
+
+  if(
+    t.includes("henann")
+  ){
+    return images.henann;
+  }
+
+
+  if(
+    t.includes("balicasag")
+  ){
+    return images.balicasag;
+  }
+
+
+  if(
+    t.includes("alona")
+  ){
+    return images.alona;
+  }
+
+
+  if(
+    t.includes("free")
+  ){
+    return images.relax;
+  }
+
+
+  if(
+    t.includes("last")
+  ){
+    return images.hotel;
+  }
+
+
+  if(
+    t.includes("seoul") ||
+    t.includes("bohol")
+  ){
+    return images.airport;
+  }
+
+
+  return images.bohol;
+
+}
+
+
+function scheduleIcon(title){
+
+  const t =
+    String(
+      title || ""
+    )
+    .toLowerCase();
+
+
+  if(
+    t.includes("henann") ||
+    t.includes("alona")
+  ){
+    return "palmtree";
+  }
+
+
+  if(
+    t.includes("balicasag")
+  ){
+    return "waves";
+  }
+
+
+  if(
+    t.includes("free")
+  ){
+    return "sun";
+  }
+
+
+  if(
+    t.includes("last")
+  ){
+    return "bed-double";
+  }
+
+
+  if(
+    t.includes("seoul") ||
+    t.includes("bohol")
+  ){
+    return "plane";
+  }
+
+
+  return "map-pin";
+
+}
+
+
+
+/* =========================================================
+   HOTEL IMAGE
+========================================================= */
+
+function hotelImage(
+  hotel,
+  index
+){
+
+  const name =
+    String(
+      hotel.name || ""
+    )
+    .toLowerCase();
+
+
+  if(
+    name.includes("henann")
+  ){
+    return images.henann;
+  }
+
+
+  if(index === 0){
+    return images.hotel;
+  }
+
+
+  if(index === 2){
+    return images.alona;
+  }
+
+
+  return images.hotel;
+
+}
+
+
+
+/* =========================================================
+   RENDER
 ========================================================= */
 
 function render(){
 
-  /* HOTEL */
+  renderFlight();
+
+  renderHotels();
+
+  renderBudget();
+
+  renderSchedule();
+
+  renderChecklist();
+
+
+  if(window.lucide){
+
+    lucide.createIcons();
+
+  }
+
+}
+
+
+
+/* =========================================================
+   FLIGHT RENDER
+========================================================= */
+
+function showOrDash(value){
+
+  return value
+    ? value
+    : "--:--";
+
+}
+
+
+function renderFlight(){
+
+  const out =
+    travelData.flight.outbound;
+
+
+  const ret =
+    travelData.flight.return;
+
 
   document
     .getElementById(
-      "hotelName"
+      "outDate"
     )
     .textContent =
-      travelData.hotel.name;
+      out.date;
 
 
   document
     .getElementById(
-      "hotelDates"
+      "outDeparture"
     )
     .textContent =
-
-      travelData.hotel.checkin
-      +
-      " — "
-      +
-      travelData.hotel.checkout;
-
-
-  document
-    .getElementById(
-      "hotelMemo"
-    )
-    .textContent =
-      travelData.hotel.memo;
-
-
-  document
-    .getElementById(
-      "hotelPrice"
-    )
-    .textContent =
-      won(
-        travelData.hotel.price
+      showOrDash(
+        out.departure
       );
 
 
+  document
+    .getElementById(
+      "outArrival"
+    )
+    .textContent =
+      showOrDash(
+        out.arrival
+      );
 
-  /* FLIGHT */
 
   document
     .getElementById(
-      "outTime"
+      "outDuration"
     )
     .textContent =
-      travelData.flight
-      .outbound.time;
+      out.duration ||
+      "비행시간 미입력";
 
 
   document
@@ -2991,17 +2513,45 @@ function render(){
       "outFlight"
     )
     .textContent =
-      travelData.flight
-      .outbound.flight;
+      out.flight;
+
 
 
   document
     .getElementById(
-      "returnTime"
+      "returnDate"
     )
     .textContent =
-      travelData.flight
-      .return.time;
+      ret.date;
+
+
+  document
+    .getElementById(
+      "returnDeparture"
+    )
+    .textContent =
+      showOrDash(
+        ret.departure
+      );
+
+
+  document
+    .getElementById(
+      "returnArrival"
+    )
+    .textContent =
+      showOrDash(
+        ret.arrival
+      );
+
+
+  document
+    .getElementById(
+      "returnDuration"
+    )
+    .textContent =
+      ret.duration ||
+      "비행시간 미입력";
 
 
   document
@@ -3009,12 +2559,228 @@ function render(){
       "returnFlight"
     )
     .textContent =
-      travelData.flight
-      .return.flight;
+      ret.flight;
+
+}
 
 
 
-  /* BUDGET */
+/* =========================================================
+   HOTEL RENDER
+========================================================= */
+
+function renderHotels(){
+
+  const box =
+    document.getElementById(
+      "hotelList"
+    );
+
+
+  box.innerHTML = "";
+
+
+  travelData.hotels
+  .forEach(
+    (
+      hotel,
+      index
+    )=>{
+
+
+      const card =
+        document.createElement(
+          "div"
+        );
+
+
+      card.className =
+        "card hotel-card";
+
+
+      card.innerHTML = `
+
+        <div
+          class="hotel-image"
+
+          style="
+            background-image:
+            linear-gradient(
+              to bottom,
+              rgba(0,0,0,.02),
+              rgba(0,32,30,.18)
+            ),
+            url('${hotelImage(
+              hotel,
+              index
+            )}');
+          "
+        >
+
+          <div class="hotel-badge">
+
+            ${escapeHTML(
+              hotel.type
+            )}
+
+          </div>
+
+
+          <div class="hotel-nights">
+
+            ${Number(
+              hotel.nights || 0
+            )}박
+
+          </div>
+
+        </div>
+
+
+        <div class="hotel-body">
+
+          <div class="label">
+
+            <i data-lucide=
+              "bed-double">
+            </i>
+
+            STAY ${index + 1}
+
+          </div>
+
+
+          <div class="big">
+
+            ${escapeHTML(
+              hotel.name
+            )}
+
+          </div>
+
+
+          <div class=
+            "hotel-info-row"
+          >
+
+            <i data-lucide=
+              "calendar-check">
+            </i>
+
+            <span>
+
+              ${escapeHTML(
+                hotel.checkin
+              )}
+
+              —
+
+              ${escapeHTML(
+                hotel.checkout
+              )}
+
+            </span>
+
+          </div>
+
+
+          <div class="sub">
+
+            ${escapeHTML(
+              hotel.memo
+            )}
+
+          </div>
+
+
+          <div class=
+            "hotel-price"
+          >
+
+            <span>
+              숙박비
+            </span>
+
+            <strong>
+
+              ${won(
+                hotel.price
+              )}
+
+            </strong>
+
+          </div>
+
+
+          <button
+            class="edit"
+
+            style="
+              margin-top:14px
+            "
+
+            onclick="
+              editHotel(
+                ${index}
+              )
+            "
+          >
+
+            <i
+              data-lucide=
+              "pencil"
+            ></i>
+
+            수정
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      box.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   BUDGET
+========================================================= */
+
+function hotelTotal(){
+
+  return travelData.hotels
+    .reduce(
+      (
+        total,
+        hotel
+      )=>
+
+      total
+      +
+      Number(
+        hotel.price || 0
+      ),
+
+      0
+    );
+
+}
+
+
+function renderBudget(){
+
+  const hotels =
+    hotelTotal();
+
 
   document
     .getElementById(
@@ -3031,9 +2797,7 @@ function render(){
       "budgetHotel"
     )
     .textContent =
-      won(
-        travelData.hotel.price
-      );
+      won(hotels);
 
 
   document
@@ -3064,9 +2828,7 @@ function render(){
 
     +
 
-    Number(
-      travelData.hotel.price || 0
-    )
+    hotels
 
     +
 
@@ -3088,82 +2850,12 @@ function render(){
     .textContent =
       won(total);
 
-
-
-  renderSchedule();
-
-  renderChecklist();
-
-
-  if(window.lucide){
-
-    lucide.createIcons();
-
-  }
-
 }
 
 
 
 /* =========================================================
-   일정 아이콘
-========================================================= */
-
-function scheduleIcon(
-  title
-){
-
-  const t =
-    String(
-      title || ""
-    ).toLowerCase();
-
-
-  if(
-    t.includes("seoul") ||
-    t.includes("bohol")
-  ){
-    return "plane";
-  }
-
-
-  if(
-    t.includes("henann") ||
-    t.includes("alona")
-  ){
-    return "palmtree";
-  }
-
-
-  if(
-    t.includes("balicasag")
-  ){
-    return "waves";
-  }
-
-
-  if(
-    t.includes("free")
-  ){
-    return "sun";
-  }
-
-
-  if(
-    t.includes("check out")
-  ){
-    return "luggage";
-  }
-
-
-  return "map-pin";
-
-}
-
-
-
-/* =========================================================
-   일정 렌더링
+   SCHEDULE
 ========================================================= */
 
 function renderSchedule(){
@@ -3184,6 +2876,7 @@ function renderSchedule(){
       index
     )=>{
 
+
       const card =
         document.createElement(
           "div"
@@ -3202,87 +2895,116 @@ function renderSchedule(){
         .includes("henann")
       ){
 
-        card.classList.add(
-          "henann-day"
-        );
+        card.classList
+          .add(
+            "henann-day"
+          );
 
       }
 
 
       card.innerHTML = `
 
-        <div class="
-          schedule-inner
-        ">
+        <div
+          class="schedule-photo"
 
-          <div class="
-            day-number
-          ">
+          style="
+            background-image:
+            url('${scheduleImage(
+              item.title
+            )}');
+          "
+        >
+
+          <div class=
+            "schedule-photo-label"
+          >
+
+            <small>
+
+              ${escapeHTML(
+                item.day
+              )}
+
+            </small>
+
+            <strong>
+
+              ${escapeHTML(
+                item.title
+              )}
+
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class=
+          "schedule-inner"
+        >
+
+          <div class=
+            "day-number"
+          >
 
             <div class="date">
 
-              ${
-                escapeHTML(
-                  item.date
-                )
-              }
+              ${escapeHTML(
+                item.date
+              )}
 
             </div>
 
-            <div class="
-              day-label
-            ">
+            <div class=
+              "day-label"
+            >
 
-              ${
-                escapeHTML(
-                  item.day
-                )
-              }
+              ${escapeHTML(
+                item.day
+              )}
 
             </div>
 
           </div>
 
 
-          <div class="
-            day-content
-          ">
+          <div class=
+            "day-content"
+          >
 
-            <div class="
-              day-top
-            ">
+            <div class=
+              "day-top"
+            >
 
               <div>
 
-                <div class="
-                  day-title
-                ">
+                <div class=
+                  "day-title"
+                >
 
-                  ${
-                    escapeHTML(
-                      item.title
-                    )
-                  }
+                  ${escapeHTML(
+                    item.title
+                  )}
 
                 </div>
 
 
                 <div class="sub">
 
-                  ${
-                    escapeHTML(
-                      item.memo
-                    )
-                  }
+                  ${escapeHTML(
+                    item.memo
+                  )}
 
                 </div>
 
               </div>
 
 
-              <div class="
-                day-icon
-              ">
+              <div class=
+                "day-icon"
+              >
 
                 <i
                   data-lucide="${
@@ -3297,12 +3019,13 @@ function renderSchedule(){
             </div>
 
 
-            <div class="
-              day-edit
-            ">
+            <div class=
+              "day-edit"
+            >
 
               <button
                 class="edit"
+
                 onclick="
                   editSchedule(
                     ${index}
@@ -3334,13 +3057,6 @@ function renderSchedule(){
 
     }
   );
-
-
-  if(window.lucide){
-
-    lucide.createIcons();
-
-  }
 
 }
 
@@ -3443,7 +3159,6 @@ function renderChecklist(){
 
 
       del.innerHTML =
-
         '<i data-lucide="trash-2"></i> 삭제';
 
 
@@ -3479,9 +3194,11 @@ function renderChecklist(){
         checkbox
       );
 
+
       row.appendChild(
         text
       );
+
 
       row.appendChild(
         del
@@ -3586,10 +3303,14 @@ function saveModal(){
 
 
 /* =========================================================
-   호텔 수정
+   HOTEL EDIT
 ========================================================= */
 
-function editHotel(){
+function editHotel(index){
+
+  const hotel =
+    travelData.hotels[index];
+
 
   openModal(
 
@@ -3598,14 +3319,30 @@ function editHotel(){
     `
 
     <label>
+      숙소 구분
+    </label>
+
+    <input
+      id="editHotelType"
+
+      value="${
+        escapeValue(
+          hotel.type
+        )
+      }"
+    >
+
+
+    <label>
       숙소명
     </label>
 
     <input
       id="editHotelName"
+
       value="${
         escapeValue(
-          travelData.hotel.name
+          hotel.name
         )
       }"
     >
@@ -3616,10 +3353,11 @@ function editHotel(){
     </label>
 
     <input
-      id="editCheckin"
+      id="editHotelCheckin"
+
       value="${
         escapeValue(
-          travelData.hotel.checkin
+          hotel.checkin
         )
       }"
     >
@@ -3630,11 +3368,27 @@ function editHotel(){
     </label>
 
     <input
-      id="editCheckout"
+      id="editHotelCheckout"
+
       value="${
         escapeValue(
-          travelData.hotel.checkout
+          hotel.checkout
         )
+      }"
+    >
+
+
+    <label>
+      숙박 일수
+    </label>
+
+    <input
+      id="editHotelNights"
+
+      type="number"
+
+      value="${
+        hotel.nights
       }"
     >
 
@@ -3645,9 +3399,11 @@ function editHotel(){
 
     <input
       id="editHotelPrice"
+
       type="number"
+
       value="${
-        travelData.hotel.price
+        hotel.price
       }"
     >
 
@@ -3660,7 +3416,7 @@ function editHotel(){
       id="editHotelMemo"
     >${
       escapeHTML(
-        travelData.hotel.memo
+        hotel.memo
       )
     }</textarea>
 
@@ -3668,7 +3424,16 @@ function editHotel(){
 
     ()=>{
 
-      travelData.hotel.name =
+      hotel.type =
+
+        document
+          .getElementById(
+            "editHotelType"
+          )
+          .value;
+
+
+      hotel.name =
 
         document
           .getElementById(
@@ -3677,38 +3442,47 @@ function editHotel(){
           .value;
 
 
-      travelData.hotel.checkin =
+      hotel.checkin =
 
         document
           .getElementById(
-            "editCheckin"
+            "editHotelCheckin"
           )
           .value;
 
 
-      travelData.hotel.checkout =
+      hotel.checkout =
 
         document
           .getElementById(
-            "editCheckout"
+            "editHotelCheckout"
           )
           .value;
 
 
-      travelData.hotel.price =
+      hotel.nights =
 
         Number(
+          document
+            .getElementById(
+              "editHotelNights"
+            )
+            .value
+        );
 
+
+      hotel.price =
+
+        Number(
           document
             .getElementById(
               "editHotelPrice"
             )
             .value
-
         );
 
 
-      travelData.hotel.memo =
+      hotel.memo =
 
         document
           .getElementById(
@@ -3725,10 +3499,18 @@ function editHotel(){
 
 
 /* =========================================================
-   FLIGHT 수정
+   FLIGHT EDIT
 ========================================================= */
 
 function editFlight(){
+
+  const out =
+    travelData.flight.outbound;
+
+
+  const ret =
+    travelData.flight.return;
+
 
   openModal(
 
@@ -3737,17 +3519,15 @@ function editFlight(){
     `
 
     <label>
-      가는 날
+      가는 날 날짜
     </label>
 
     <input
-      id="editOutTime"
+      id="editOutDate"
+
       value="${
         escapeValue(
-          travelData
-          .flight
-          .outbound
-          .time
+          out.date
         )
       }"
     >
@@ -3759,29 +3539,77 @@ function editFlight(){
 
     <input
       id="editOutFlight"
+
       value="${
         escapeValue(
-          travelData
-          .flight
-          .outbound
-          .flight
+          out.flight
         )
       }"
     >
 
 
     <label>
-      오는 날
+      출발 시간
     </label>
 
     <input
-      id="editReturnTime"
+      id="editOutDeparture"
+
       value="${
         escapeValue(
-          travelData
-          .flight
-          .return
-          .time
+          out.departure
+        )
+      }"
+
+      placeholder="예: 20:30"
+    >
+
+
+    <label>
+      도착 시간
+    </label>
+
+    <input
+      id="editOutArrival"
+
+      value="${
+        escapeValue(
+          out.arrival
+        )
+      }"
+
+      placeholder="예: 01:10"
+    >
+
+
+    <label>
+      비행 시간
+    </label>
+
+    <input
+      id="editOutDuration"
+
+      value="${
+        escapeValue(
+          out.duration
+        )
+      }"
+
+      placeholder="예: 4시간 40분"
+    >
+
+
+
+    <label>
+      오는 날 날짜
+    </label>
+
+    <input
+      id="editReturnDate"
+
+      value="${
+        escapeValue(
+          ret.date
         )
       }"
     >
@@ -3793,36 +3621,79 @@ function editFlight(){
 
     <input
       id="editReturnFlight"
+
       value="${
         escapeValue(
-          travelData
-          .flight
-          .return
-          .flight
+          ret.flight
         )
       }"
+    >
+
+
+    <label>
+      출발 시간
+    </label>
+
+    <input
+      id="editReturnDeparture"
+
+      value="${
+        escapeValue(
+          ret.departure
+        )
+      }"
+
+      placeholder="예: 02:10"
+    >
+
+
+    <label>
+      도착 시간
+    </label>
+
+    <input
+      id="editReturnArrival"
+
+      value="${
+        escapeValue(
+          ret.arrival
+        )
+      }"
+
+      placeholder="예: 07:45"
+    >
+
+
+    <label>
+      비행 시간
+    </label>
+
+    <input
+      id="editReturnDuration"
+
+      value="${
+        escapeValue(
+          ret.duration
+        )
+      }"
+
+      placeholder="예: 4시간 35분"
     >
 
     `,
 
     ()=>{
 
-      travelData
-        .flight
-        .outbound
-        .time =
+      out.date =
 
         document
           .getElementById(
-            "editOutTime"
+            "editOutDate"
           )
           .value;
 
 
-      travelData
-        .flight
-        .outbound
-        .flight =
+      out.flight =
 
         document
           .getElementById(
@@ -3831,26 +3702,75 @@ function editFlight(){
           .value;
 
 
-      travelData
-        .flight
-        .return
-        .time =
+      out.departure =
 
         document
           .getElementById(
-            "editReturnTime"
+            "editOutDeparture"
           )
           .value;
 
 
-      travelData
-        .flight
-        .return
-        .flight =
+      out.arrival =
+
+        document
+          .getElementById(
+            "editOutArrival"
+          )
+          .value;
+
+
+      out.duration =
+
+        document
+          .getElementById(
+            "editOutDuration"
+          )
+          .value;
+
+
+
+      ret.date =
+
+        document
+          .getElementById(
+            "editReturnDate"
+          )
+          .value;
+
+
+      ret.flight =
 
         document
           .getElementById(
             "editReturnFlight"
+          )
+          .value;
+
+
+      ret.departure =
+
+        document
+          .getElementById(
+            "editReturnDeparture"
+          )
+          .value;
+
+
+      ret.arrival =
+
+        document
+          .getElementById(
+            "editReturnArrival"
+          )
+          .value;
+
+
+      ret.duration =
+
+        document
+          .getElementById(
+            "editReturnDuration"
           )
           .value;
 
@@ -3863,16 +3783,13 @@ function editFlight(){
 
 
 /* =========================================================
-   일정 수정
+   SCHEDULE EDIT
 ========================================================= */
 
-function editSchedule(
-  index
-){
+function editSchedule(index){
 
   const item =
-    travelData
-      .schedule[index];
+    travelData.schedule[index];
 
 
   openModal(
@@ -3887,6 +3804,7 @@ function editSchedule(
 
     <input
       id="editScheduleDate"
+
       value="${
         escapeValue(
           item.date
@@ -3901,6 +3819,7 @@ function editSchedule(
 
     <input
       id="editScheduleDay"
+
       value="${
         escapeValue(
           item.day
@@ -3915,6 +3834,7 @@ function editSchedule(
 
     <input
       id="editScheduleTitle"
+
       value="${
         escapeValue(
           item.title
@@ -3983,7 +3903,7 @@ function editSchedule(
 
 
 /* =========================================================
-   경비 수정
+   BUDGET EDIT
 ========================================================= */
 
 function editBudget(){
@@ -4000,11 +3920,11 @@ function editBudget(){
 
     <input
       type="number"
+
       id="editBudgetFlight"
+
       value="${
-        travelData
-          .expenses
-          .flight
+        travelData.expenses.flight
       }"
     >
 
@@ -4015,11 +3935,11 @@ function editBudget(){
 
     <input
       type="number"
+
       id="editBudgetTour"
+
       value="${
-        travelData
-          .expenses
-          .tour
+        travelData.expenses.tour
       }"
     >
 
@@ -4030,11 +3950,11 @@ function editBudget(){
 
     <input
       type="number"
+
       id="editBudgetFood"
+
       value="${
-        travelData
-          .expenses
-          .food
+        travelData.expenses.food
       }"
     >
 
@@ -4042,48 +3962,36 @@ function editBudget(){
 
     ()=>{
 
-      travelData
-        .expenses
-        .flight =
+      travelData.expenses.flight =
 
         Number(
-
           document
             .getElementById(
               "editBudgetFlight"
             )
             .value
-
         );
 
 
-      travelData
-        .expenses
-        .tour =
+      travelData.expenses.tour =
 
         Number(
-
           document
             .getElementById(
               "editBudgetTour"
             )
             .value
-
         );
 
 
-      travelData
-        .expenses
-        .food =
+      travelData.expenses.food =
 
         Number(
-
           document
             .getElementById(
               "editBudgetFood"
             )
             .value
-
         );
 
     }
@@ -4095,7 +4003,7 @@ function editBudget(){
 
 
 /* =========================================================
-   체크리스트 추가
+   CHECKLIST ADD
 ========================================================= */
 
 function addChecklist(){
@@ -4112,7 +4020,9 @@ function addChecklist(){
 
     <input
       id="newChecklist"
-      placeholder="예: 여행자 보험"
+
+      placeholder=
+        "예: 여행자 보험"
     >
 
     `,
@@ -4152,7 +4062,7 @@ function addChecklist(){
 
 
 /* =========================================================
-   메뉴 이동
+   NAVIGATION
 ========================================================= */
 
 function go(
@@ -4171,11 +4081,9 @@ function go(
 
     target.scrollIntoView({
 
-      behavior:
-        "smooth",
+      behavior:"smooth",
 
-      block:
-        "start"
+      block:"start"
 
     });
 
@@ -4188,7 +4096,7 @@ function go(
     )
     .forEach(
 
-      btn=>
+      btn =>
         btn.classList
         .remove(
           "active"
@@ -4211,7 +4119,7 @@ function go(
 
 
 /* =========================================================
-   MODAL 바깥 클릭
+   MODAL CLOSE
 ========================================================= */
 
 document
@@ -4234,11 +4142,6 @@ document
     }
   );
 
-
-
-/* =========================================================
-   ESC 키로 닫기
-========================================================= */
 
 document
   .addEventListener(
@@ -4264,13 +4167,6 @@ document
 ========================================================= */
 
 render();
-
-
-if(window.lucide){
-
-  lucide.createIcons();
-
-}
 
 </script>
 
