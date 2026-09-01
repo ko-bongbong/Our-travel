@@ -5,20 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OUR TRAVEL · BOHOL</title>
 
-<!-- Lucide Icons -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
 :root{
-  --bg:#f8f6f2; /* 배경색을 아주 미세하게 더 밝고 깨끗하게 조정 */
+  --bg:#f4f1eb;
   --paper:#fbfaf6;
   --card:#ffffff;
-  --text:#1c1c1a; /* 텍스트 색상을 약간 더 깊게 */
-  --muted:#949289; /* 뮤트 색상을 약간 더 선명하게 */
+  --text:#20201d;
+  --muted:#8a887f;
   --line:#ebe7df;
   --accent:#2f726a;
-  --accent-soft:#eef5f3; /* 엑센트 소프트 색상을 약간 더 맑게 */
-  --shadow:0 8px 24px rgba(36,35,31,0.06); /* 그림자를 더 얕고 부드럽게 (Soft Modern) */
+  --accent-soft:#e4f0ed;
+  --shadow:0 10px 30px rgba(36,35,31,.08);
 }
 
 *{box-sizing:border-box}
@@ -29,7 +28,6 @@ body{
   background:var(--bg);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Pretendard",sans-serif;
   color:var(--text);
-  -webkit-font-smoothing: antialiased; /* 글자 깨짐 방지 */
 }
 
 button,input,textarea{font:inherit}
@@ -41,14 +39,13 @@ button,input,textarea{font:inherit}
   min-height:100vh;
   padding-bottom:104px;
   overflow:hidden;
-  box-shadow: 0 0 40px rgba(0,0,0,0.03); /* 앱 컨테이너에 아주 옅은 그림자 */
 }
 
 /* HERO */
 
 .hero{
   position:relative;
-  min-height:400px; /* 약간 높임 */
+  min-height:390px;
   padding:24px 22px 30px;
   color:white;
   display:flex;
@@ -58,11 +55,10 @@ button,input,textarea{font:inherit}
   background:
     linear-gradient(
       to bottom,
-      rgba(13,25,25,0.05), /* 상단 그라데이션을 더 투명하게 */
-      rgba(13,25,25,0.15) 40%,
-      rgba(10,18,18,0.75) /* 하단 그라데이션을 약간 더 투명하게 */
+      rgba(13,25,25,.12),
+      rgba(13,25,25,.18) 40%,
+      rgba(10,18,18,.82)
     ),
-    /* [정말 확실하게 수정 완료] 메인 히로 이미지 교체 (Unsplash - 보홀 해변) */
     url("https://images.unsplash.com/photo-1544550285-f813152fb2fd?auto=format&fit=crop&w=1200&q=85")
     center/cover no-repeat;
 }
@@ -73,7 +69,7 @@ button,input,textarea{font:inherit}
   left:0;
   right:0;
   bottom:0;
-  height:90px; /* 그라데이션 영역을 약간 넓힘 */
+  height:80px;
   background:linear-gradient(to bottom,transparent,var(--paper));
 }
 
@@ -90,63 +86,59 @@ button,input,textarea{font:inherit}
 }
 
 .brand-mark{
-  width:36px; /* 약간 키움 */
-  height:36px;
-  border:1px solid rgba(255,255,255,0.7);
+  width:34px;
+  height:34px;
+  border:1px solid rgba(255,255,255,.6);
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:rgba(255,255,255,0.15);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);
 }
 
 .brand-mark svg{
-  width:18px; /* 아이콘 비율 조정 */
+  width:17px;
 }
 
 .logo{
   font-size:11px;
   letter-spacing:4px;
   font-weight:700;
-  opacity: 0.9;
 }
 
 .hero-kicker{
   margin-top:80px;
   font-size:12px;
   letter-spacing:2px;
-  opacity:.85;
+  opacity:.78;
 }
 
 .hero h1{
-  margin:8px 0 6px; /* 마진 미세 조정 */
+  margin:7px 0 6px;
   font-family:Georgia,"Times New Roman",serif;
-  font-size:60px; /* 더 크게 */
+  font-size:55px;
   font-weight:500;
   letter-spacing:-2px;
-  line-height: 1.1; /* 줄간격 조정 */
 }
 
 .hero-copy{
   display:flex;
   gap:8px;
   font-size:13px;
-  color:rgba(255,255,255,0.9);
-  opacity: 0.85;
+  color:rgba(255,255,255,.86);
 }
 
 .hero-chip{
-  margin-top:16px; /* 약간 띄움 */
+  margin-top:14px;
   display:inline-flex;
   align-items:center;
-  gap:8px; /* 갭 키움 */
-  padding:10px 14px; /* 패딩 키움 */
+  gap:7px;
+  padding:9px 12px;
   border-radius:999px;
-  background:rgba(255,255,255,0.18);
-  border:1px solid rgba(255,255,255,0.22);
-  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(10px);
   font-size:12px;
-  font-weight: 600; /* 약간 굵게 */
 }
 
 /* SUMMARY */
@@ -154,14 +146,14 @@ button,input,textarea{font:inherit}
 .trip-summary{
   position:relative;
   z-index:3;
-  margin:-34px 20px 6px; /* 마진, 위치 미세 조정 */
-  padding:18px; /* 패딩 키움 */
-  border-radius:24px; /* 라운딩 키움 */
+  margin:-30px 18px 4px;
+  padding:16px;
+  border-radius:22px;
   background:white;
   box-shadow:var(--shadow);
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px; /* 갭 키움 */
+  gap:8px;
 }
 
 .summary-item{
@@ -169,10 +161,10 @@ button,input,textarea{font:inherit}
 }
 
 .summary-icon{
-  width:38px; /* 약간 키움 */
-  height:38px;
-  margin:0 auto 8px; /* 마진 조정 */
-  border-radius:14px; /* 라운딩 키움 */
+  width:34px;
+  height:34px;
+  margin:0 auto 7px;
+  border-radius:12px;
   background:var(--accent-soft);
   color:var(--accent);
   display:grid;
@@ -180,26 +172,25 @@ button,input,textarea{font:inherit}
 }
 
 .summary-icon svg{
-  width:18px; /* 아이콘 키움 */
+  width:17px;
 }
 
 .summary-item strong{
   display:block;
   font-size:13px;
-  font-weight: 700;
 }
 
 .summary-item span{
   display:block;
-  margin-top:4px;
-  font-size:11px; /* 약간 키움 */
+  margin-top:3px;
+  font-size:10px;
   color:var(--muted);
 }
 
 /* COMMON */
 
 section{
-  padding:32px 20px 0; /* 패딩 키움 */
+  padding:28px 18px 0;
   scroll-margin-top:12px;
 }
 
@@ -207,19 +198,19 @@ section{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:16px; /* 마진 키움 */
+  margin-bottom:14px;
 }
 
 .section-heading{
   display:flex;
   align-items:center;
-  gap:12px; /* 갭 키움 */
+  gap:10px;
 }
 
 .section-icon{
-  width:40px; /* 키움 */
-  height:40px;
-  border-radius:14px; /* 라운딩 키움 */
+  width:36px;
+  height:36px;
+  border-radius:12px;
   display:grid;
   place-items:center;
   color:var(--accent);
@@ -227,41 +218,38 @@ section{
 }
 
 .section-icon svg{
-  width:20px; /* 아이콘 키움 */
+  width:18px;
 }
 
 .section-title h2{
   margin:0;
-  font-size:21px; /* 약간 키움 */
-  font-weight: 700;
+  font-size:20px;
 }
 
 .section-title small{
   display:block;
-  margin-top:3px;
+  margin-top:2px;
   color:var(--muted);
   font-size:10px;
-  font-weight: 500;
 }
 
 .card{
   background:white;
-  border-radius:22px; /* 라운딩 키움 */
-  padding:20px; /* 패딩 키움 */
-  margin-bottom:14px; /* 마진 키움 */
-  border:1px solid rgba(227,222,213,0.6); /* 보더 색상을 더 연하게 */
-  box-shadow:0 6px 20px rgba(34,33,29,0.04); /* 그림자를 더 얕고 부드럽게 */
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:12px;
+  border:1px solid rgba(227,222,213,.75);
+  box-shadow:0 5px 18px rgba(34,33,29,.045);
 }
 
 .label{
   display:flex;
   align-items:center;
-  gap:7px;
+  gap:6px;
   font-size:10px;
-  font-weight: 600; /* 약간 굵게 */
   color:var(--muted);
-  letter-spacing:1.4px;
-  margin-bottom:10px; /* 마진 키움 */
+  letter-spacing:1.3px;
+  margin-bottom:8px;
 }
 
 .label svg{
@@ -269,39 +257,34 @@ section{
 }
 
 .big{
-  font-size:19px; /* 키움 */
+  font-size:18px;
   line-height:1.35;
   font-weight:800;
 }
 
 .sub{
-  margin-top:8px; /* 마진 키움 */
+  margin-top:6px;
   font-size:13px;
-  color:#706d67; /* 뮤트 텍스트 색상을 약간 깊게 */
+  color:#77756f;
   line-height:1.6;
 }
 
 .edit{
   display:inline-flex;
   align-items:center;
-  gap:6px; /* 갭 키움 */
+  gap:5px;
   border:0;
-  color:#52504a; /* 색상 미세 조정 */
+  color:#57554f;
   background:#f0eee9;
   border-radius:999px;
-  padding:8px 12px; /* 패딩 조정 */
+  padding:8px 11px;
   font-size:11px;
   font-weight:700;
   cursor:pointer;
-  transition: background 0.2s; /* 호버 효과 추가 */
-}
-
-.edit:hover{
-  background: #e6e3dd;
 }
 
 .edit svg{
-  width:14px; /* 아이콘 키움 */
+  width:13px;
 }
 
 /* 일정 */
@@ -313,70 +296,63 @@ section{
 
 .schedule-inner{
   display:flex;
-  min-height:120px; /* 약간 높임 */
+  min-height:116px;
 }
 
 .day-number{
-  width:76px; /* 약간 넓힘 */
+  width:72px;
   flex:none;
-  padding:20px 10px; /* 패딩 조정 */
+  padding:18px 10px;
   text-align:center;
   background:#f3f0e9;
   border-right:1px solid var(--line);
-  display:flex;
-  flex-direction:column;
-  justify-content:center; /* 세로 중앙 정렬 추가 */
 }
 
 .day-number .date{
   font-family:Georgia,serif;
-  font-size:24px; /* 키움 */
+  font-size:22px;
   font-weight:700;
-  line-height: 1; /* 줄간격 조정 */
 }
 
 .day-number .day-label{
-  margin-top:6px; /* 마진 키움 */
+  margin-top:5px;
   font-size:9px;
   letter-spacing:1px;
-  font-weight: 600;
   color:var(--muted);
 }
 
 .day-content{
   flex:1;
-  padding:18px 18px; /* 패딩 키움 */
+  padding:17px 16px;
 }
 
 .day-top{
   display:flex;
   justify-content:space-between;
-  gap:12px; /* 갭 키움 */
+  gap:10px;
 }
 
 .day-title{
-  font-size:15px; /* 약간 키움 */
+  font-size:14px;
   font-weight:800;
-  line-height: 1.2;
 }
 
 .day-icon{
-  width:32px; /* 약간 키움 */
-  height:32px;
-  border-radius:11px; /* 라운딩 키움 */
+  width:30px;
+  height:30px;
+  border-radius:10px;
   background:var(--accent-soft);
   color:var(--accent);
   display:grid;
   place-items:center;
-  flex-shrink:0; /* 아이콘 찌그러짐 방지 */
 }
 
 .day-icon svg{
-  width:16px; /* 아이콘 키움 */
+  width:15px;
 }
 
 .day-edit{
-  margin-top:12px; /* 마진 키움 */
+  margin-top:11px;
 }
 
 /* FLIGHT */
@@ -387,30 +363,29 @@ section{
 
 .flight-route{
   display:grid;
-  grid-template-columns:1fr 92px 1fr; /* 중앙 공간 넓힘 */
+  grid-template-columns:1fr 88px 1fr;
   align-items:center;
-  margin-top:16px; /* 마진 키움 */
+  margin-top:14px;
 }
 
 .airport{
   font-family:Georgia,serif;
-  font-size:32px; /* 키움 */
+  font-size:30px;
   font-weight:700;
-  line-height: 1;
 }
 
 .route-line{
   position:relative;
-  height:26px; /* 약간 높임 */
+  height:24px;
 }
 
 .route-line::before{
   content:"";
   position:absolute;
-  left:10px;
-  right:10px;
-  top:12px; /* 위치 중앙 조정 */
-  border-top:1.5px dashed #b7b3aa; /* dashed 굵기 조정 */
+  left:8px;
+  right:8px;
+  top:11px;
+  border-top:1px dashed #b7b3aa;
 }
 
 .route-plane{
@@ -418,30 +393,28 @@ section{
   left:50%;
   top:50%;
   transform:translate(-50%,-50%);
-  width:30px; /* 약간 키움 */
-  height:30px;
+  width:28px;
+  height:28px;
   border-radius:50%;
   background:white;
-  border:1px solid rgba(227,222,213,0.8);
+  border:1px solid var(--line);
   display:grid;
   place-items:center;
   color:var(--accent);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.04); /* 아이콘에 얕은 그림자 */
 }
 
 .route-plane svg{
-  width:15px; /* 아이콘 키움 */
+  width:14px;
 }
 
 .flight-foot{
-  margin-top:16px; /* 마진 키움 */
-  padding-top:14px; /* 패딩 키움 */
+  margin-top:14px;
+  padding-top:13px;
   border-top:1px solid var(--line);
   display:flex;
-  gap:8px; /* 갭 키움 */
-  color:#66635d; /* 색상 미세 조정 */
+  gap:7px;
+  color:#6f6c65;
   font-size:12px;
-  font-weight: 500; /* 약간 굵게 */
 }
 
 /* HOTEL */
@@ -453,45 +426,42 @@ section{
 
 .hotel-image{
   position:relative;
-  height:210px; /* 약간 높임 */
+  height:205px;
 
   background:
     linear-gradient(
       to bottom,
-      rgba(0,0,0,0.03),
-      rgba(0,0,0,0.25) /* 하단 그라데이션 약간 진하게 */
+      rgba(0,0,0,.04),
+      rgba(0,0,0,.20)
     ),
-    /* [정말 확실하게 수정 완료] 숙소 이미지 교체 (Unsplash - 실제 헤난 리조트 알로나 비치 풍경) */
     url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85")
     center/cover no-repeat;
 }
 
 .hotel-image-tag{
   position:absolute;
-  left:16px;
-  bottom:16px; /* 패딩 조정 */
+  left:14px;
+  bottom:14px;
   display:inline-flex;
   align-items:center;
-  gap:7px; /* 갭 키움 */
-  padding:9px 12px; /* 패딩 키움 */
+  gap:6px;
+  padding:8px 10px;
   border-radius:999px;
-  background:rgba(255,255,255,0.94); /* 더 선명하게 */
+  background:rgba(255,255,255,.92);
   font-size:10px;
   font-weight:800;
-  color: #1a1a18; /* 텍스트 색상 */
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* 태그에 입체감 */
 }
 
 .hotel-body{
-  padding:20px; /* 패딩 키움 */
+  padding:18px;
 }
 
 .hotel-info-row{
   display:flex;
   align-items:center;
-  gap:8px; /* 갭 키움 */
-  margin-top:12px; /* 마진 키움 */
-  color:#706d67;
+  gap:7px;
+  margin-top:10px;
+  color:#77756f;
   font-size:12px;
 }
 
@@ -501,23 +471,20 @@ section{
 }
 
 .hotel-price{
-  margin-top:18px; /* 마진 키움 */
-  padding-top:16px; /* 패딩 키움 */
+  margin-top:16px;
+  padding-top:14px;
   border-top:1px solid var(--line);
   display:flex;
   justify-content:space-between;
-  align-items: center; /* 세로 중앙 정렬 */
 }
 
 .hotel-price span{
   font-size:11px;
   color:var(--muted);
-  font-weight: 500;
 }
 
 .hotel-price strong{
-  font-size:22px; /* 키움 */
-  font-weight: 800;
+  font-size:20px;
 }
 
 /* BUDGET */
@@ -526,46 +493,35 @@ section{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:14px 0; /* 패딩 키움 */
+  padding:12px 0;
   border-bottom:1px solid var(--line);
 }
 
 .budget-row:last-child{
   border:0;
-  padding-bottom: 0; /* 마지막 로우 하단 패딩 제거 */
 }
 
 .budget-name{
   display:flex;
   align-items:center;
-  gap:12px; /* 갭 키움 */
+  gap:10px;
 }
 
 .budget-mini-icon{
-  width:32px; /* 약간 키움 */
-  height:32px;
-  border-radius:11px; /* 라운딩 키움 */
+  width:30px;
+  height:30px;
+  border-radius:10px;
   background:#f3f0e9;
   display:grid;
   place-items:center;
 }
 
 .budget-mini-icon svg{
-  width:16px; /* 아이콘 키움 */
-}
-
-.budget-name span{
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.budget-row strong{
-  font-size: 15px;
-  font-weight: 700;
+  width:15px;
 }
 
 .total{
-  font-size:22px; /* 키움 */
+  font-size:21px;
   font-weight:900;
   color:var(--accent);
 }
@@ -575,32 +531,23 @@ section{
 .check-item{
   display:flex;
   align-items:center;
-  padding:14px 0; /* 패딩 키움 */
+  padding:12px 0;
   border-bottom:1px solid var(--line);
 }
 
 .check-item:last-child{
   border:0;
-  padding-bottom: 0;
 }
 
 .check-item input{
-  width:22px; /* 약간 키움 */
-  height:22px;
-  margin-right:14px; /* 마진 키움 */
-  cursor: pointer;
-}
-
-.check-item span{
-  font-size: 14px;
-  font-weight: 500;
-  flex: 1;
+  width:20px;
+  height:20px;
+  margin-right:12px;
 }
 
 .check-item.done span{
   text-decoration:line-through;
-  color:#b7b3aa; /* 뮤트 색상 조정 */
-  opacity: 0.8;
+  color:#aaa;
 }
 
 /* NAV */
@@ -608,19 +555,19 @@ section{
 .bottom-nav{
   position:fixed;
   z-index:50;
-  bottom:14px; /* 약간 올림 */
+  bottom:12px;
   left:50%;
   transform:translateX(-50%);
-  width:calc(100% - 28px); /* 약간 넓힘 */
-  max-width:452px;
-  height:72px; /* 약간 높임 */
-  padding:8px; /* 패딩 조정 */
+  width:calc(100% - 24px);
+  max-width:456px;
+  height:70px;
+  padding:7px 6px;
 
-  background:rgba(255,255,255,0.96); /* 더 선명하게 */
-  border:1px solid rgba(225,221,213,0.8);
-  border-radius:26px; /* 라운딩 키움 */
+  background:rgba(255,255,255,.94);
+  border:1px solid #e1ddd5;
+  border-radius:23px;
 
-  box-shadow:0 14px 40px rgba(31,30,27,0.12); /* 그림자 더 크고 부드럽게 */
+  box-shadow:0 12px 34px rgba(31,30,27,.14);
 
   display:flex;
   justify-content:space-around;
@@ -630,19 +577,19 @@ section{
 }
 
 .bottom-nav button{
-  min-width:60px; /* 약간 넓힘 */
+  min-width:56px;
   border:0;
   background:none;
-  color:#9c9991; /* 색상 미세 조정 */
+  color:#969289;
   cursor:pointer;
 
-  font-size:10px; /* 약간 키움 */
+  font-size:9px;
   font-weight:700;
 
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:5px; /* 갭 키움 */
+  gap:4px;
 }
 
 .bottom-nav button svg{
@@ -650,16 +597,11 @@ section{
 }
 
 .nav-icon-wrap{
-  width:38px; /* 약간 키움 */
-  height:32px;
+  width:36px;
+  height:30px;
   border-radius:12px;
   display:grid;
   place-items:center;
-  transition: background 0.2s; /* 호버 효과 */
-}
-
-.bottom-nav button:hover .nav-icon-wrap:not(.active){
-    background: #f5f3f0;
 }
 
 .bottom-nav button.active{
@@ -677,10 +619,9 @@ section{
   position:fixed;
   z-index:100;
   inset:0;
-  background:rgba(19,19,17,0.55); /* 약간 더 어둡게 */
+  background:rgba(19,19,17,.48);
   align-items:flex-end;
   justify-content:center;
-  backdrop-filter: blur(3px); /* 모달 배경 블러 효과 */
 }
 
 .modal-box{
@@ -689,55 +630,35 @@ section{
   max-height:88vh;
   overflow:auto;
   background:white;
-  padding:24px 22px 34px; /* 패딩 키움 */
-  border-radius:28px 28px 0 0; /* 라운딩 키움 */
-  box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
-  animation: slideUp 0.3s ease-out; /* 슬라이드 업 애니메이션 */
-}
-
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+  padding:20px 20px 30px;
+  border-radius:26px 26px 0 0;
 }
 
 .modal-box h3{
-  margin:0 0 10px; /* 마진 추가 */
-  font-size: 19px;
-  font-weight: 800;
+  margin:0;
 }
 
 .modal-box label{
   display:block;
   font-size:11px;
   color:#77746d;
-  margin-top:16px; /* 마진 키움 */
+  margin-top:15px;
   font-weight:700;
-  letter-spacing: 0.5px;
 }
 
 .modal-box input,
 .modal-box textarea{
   width:100%;
-  margin-top:8px; /* 마진 키움 */
-  padding:14px 16px; /* 패딩 키움 */
+  margin-top:7px;
+  padding:13px 14px;
   border:1px solid #dedad2;
-  border-radius:14px; /* 라운딩 키움 */
+  border-radius:12px;
   background:#fbfaf7;
   font-size:14px;
-  color: var(--text);
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.modal-box input:focus,
-.modal-box textarea:focus{
-  border-color: var(--accent);
-  background: #fff;
-  outline: none;
 }
 
 .modal-box textarea{
-  min-height:100px; /* 높임 */
-  line-height: 1.5;
+  min-height:90px;
 }
 
 .save-btn{
@@ -745,34 +666,19 @@ section{
   border:0;
   background:var(--accent);
   color:white;
-  padding:16px; /* 패딩 키움 */
-  margin-top:24px; /* 마진 키움 */
-  border-radius:16px; /* 라운딩 키움 */
+  padding:15px;
+  margin-top:20px;
+  border-radius:14px;
   font-weight:800;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.save-btn:hover{
-  background: #27615b;
 }
 
 .cancel-btn{
   width:100%;
   border:0;
   background:#f0eee9;
-  color: #52504a;
-  padding:14px; /* 패딩 키움 */
-  margin-top:10px; /* 마진 키움 */
-  border-radius:16px; /* 라운딩 키움 */
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.cancel-btn:hover{
-  background: #e6e3dd;
+  padding:13px;
+  margin-top:8px;
+  border-radius:14px;
 }
 
 </style>
@@ -892,3 +798,1511 @@ HENANN RESORT ALONA BEACH
 <div id="scheduleList"></div>
 
 </section>
+
+
+<!-- 항공 -->
+
+<section id="flight">
+
+<div class="section-title">
+
+<div class="section-heading">
+
+<div class="section-icon">
+<i data-lucide="plane"></i>
+</div>
+
+<div>
+<h2>항공</h2>
+<small>FLIGHT INFORMATION</small>
+</div>
+
+</div>
+
+<button class="edit" onclick="editFlight()">
+<i data-lucide="pencil"></i>
+수정
+</button>
+
+</div>
+
+
+<div class="card flight-card">
+
+<div class="label">
+OUTBOUND
+</div>
+
+<div class="flight-route">
+
+<div>
+<div class="airport">ICN</div>
+<div class="sub" id="outTime"></div>
+</div>
+
+<div class="route-line">
+
+<div class="route-plane">
+<i data-lucide="plane"></i>
+</div>
+
+</div>
+
+<div style="text-align:right">
+
+<div class="airport">
+TAG
+</div>
+
+<div class="sub">
+BOHOL
+</div>
+
+</div>
+
+</div>
+
+<div class="flight-foot">
+
+<i data-lucide="ticket"></i>
+
+<span id="outFlight"></span>
+
+</div>
+
+</div>
+
+
+<div class="card flight-card">
+
+<div class="label">
+RETURN
+</div>
+
+<div class="flight-route">
+
+<div>
+
+<div class="airport">
+TAG
+</div>
+
+<div class="sub" id="returnTime"></div>
+
+</div>
+
+<div class="route-line">
+
+<div class="route-plane">
+<i data-lucide="plane"></i>
+</div>
+
+</div>
+
+<div style="text-align:right">
+
+<div class="airport">
+ICN
+</div>
+
+<div class="sub">
+SEOUL
+</div>
+
+</div>
+
+</div>
+
+<div class="flight-foot">
+
+<i data-lucide="ticket"></i>
+
+<span id="returnFlight"></span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 숙소 -->
+
+<section id="hotel">
+
+<div class="section-title">
+
+<div class="section-heading">
+
+<div class="section-icon">
+<i data-lucide="hotel"></i>
+</div>
+
+<div>
+<h2>숙소</h2>
+<small>STAY IN PANGLAO</small>
+</div>
+
+</div>
+
+<button class="edit" onclick="editHotel()">
+
+<i data-lucide="pencil"></i>
+수정
+
+</button>
+
+</div>
+
+
+<div class="card hotel-card">
+
+<div class="hotel-image">
+
+<div class="hotel-image-tag">
+
+<i data-lucide="waves"></i>
+
+ALONA BEACH
+
+</div>
+
+</div>
+
+
+<div class="hotel-body">
+
+<div class="label">
+MAIN RESORT
+</div>
+
+<div class="big" id="hotelName"></div>
+
+
+<div class="hotel-info-row">
+
+<i data-lucide="calendar-check"></i>
+
+<span id="hotelDates"></span>
+
+</div>
+
+
+<div class="sub" id="hotelMemo"></div>
+
+
+<div class="hotel-price">
+
+<span>
+숙박비
+</span>
+
+<strong id="hotelPrice"></strong>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 경비 -->
+
+<section id="budget">
+
+<div class="section-title">
+
+<div class="section-heading">
+
+<div class="section-icon">
+<i data-lucide="wallet-cards"></i>
+</div>
+
+<div>
+<h2>경비</h2>
+<small>TRAVEL BUDGET</small>
+</div>
+
+</div>
+
+
+<button class="edit" onclick="editBudget()">
+
+<i data-lucide="pencil"></i>
+수정
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+
+<div class="budget-row">
+
+<div class="budget-name">
+
+<div class="budget-mini-icon">
+<i data-lucide="plane"></i>
+</div>
+
+<span>항공</span>
+
+</div>
+
+<strong id="budgetFlight"></strong>
+
+</div>
+
+
+<div class="budget-row">
+
+<div class="budget-name">
+
+<div class="budget-mini-icon">
+<i data-lucide="hotel"></i>
+</div>
+
+<span>숙소</span>
+
+</div>
+
+<strong id="budgetHotel"></strong>
+
+</div>
+
+
+<div class="budget-row">
+
+<div class="budget-name">
+
+<div class="budget-mini-icon">
+<i data-lucide="ship-wheel"></i>
+</div>
+
+<span>투어</span>
+
+</div>
+
+<strong id="budgetTour"></strong>
+
+</div>
+
+
+<div class="budget-row">
+
+<div class="budget-name">
+
+<div class="budget-mini-icon">
+<i data-lucide="utensils"></i>
+</div>
+
+<span>식비 / 기타</span>
+
+</div>
+
+<strong id="budgetFood"></strong>
+
+</div>
+
+
+<div class="budget-row">
+
+<span>
+총 예상 경비
+</span>
+
+<span class="total" id="budgetTotal"></span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 체크리스트 -->
+
+<section id="checklist">
+
+<div class="section-title">
+
+<div class="section-heading">
+
+<div class="section-icon">
+<i data-lucide="list-checks"></i>
+</div>
+
+<div>
+<h2>체크리스트</h2>
+<small>BEFORE WE GO</small>
+</div>
+
+</div>
+
+
+<button class="edit" onclick="addChecklist()">
+
+<i data-lucide="plus"></i>
+추가
+
+</button>
+
+</div>
+
+<div class="card" id="checklistBox"></div>
+
+</section>
+
+</div>
+
+
+<!-- NAV -->
+
+<nav class="bottom-nav">
+
+<button onclick="go('home',this)" class="active">
+
+<span class="nav-icon-wrap">
+<i data-lucide="home"></i>
+</span>
+
+홈
+
+</button>
+
+
+<button onclick="go('schedule',this)">
+
+<span class="nav-icon-wrap">
+<i data-lucide="calendar-days"></i>
+</span>
+
+일정
+
+</button>
+
+
+<button onclick="go('flight',this)">
+
+<span class="nav-icon-wrap">
+<i data-lucide="plane"></i>
+</span>
+
+항공
+
+</button>
+
+
+<button onclick="go('hotel',this)">
+
+<span class="nav-icon-wrap">
+<i data-lucide="hotel"></i>
+</span>
+
+숙소
+
+</button>
+
+
+<button onclick="go('budget',this)">
+
+<span class="nav-icon-wrap">
+<i data-lucide="wallet"></i>
+</span>
+
+경비
+
+</button>
+
+</nav>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<h3 id="modalTitle">
+수정
+</h3>
+
+<div id="modalContent"></div>
+
+<button class="save-btn" onclick="saveModal()">
+저장
+</button>
+
+<button class="cancel-btn" onclick="closeModal()">
+취소
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* 기본 데이터 */
+
+const defaultData = {
+
+hotel:{
+  name:"Henann Resort Alona Beach",
+  checkin:"2027.03.02",
+  checkout:"2027.03.05",
+  price:0,
+  memo:"3박 · Panglao · Alona Beach"
+},
+
+flight:{
+
+  outbound:{
+    flight:"항공편 미입력",
+    time:"2027.03.01"
+  },
+
+  return:{
+    flight:"항공편 미입력",
+    time:"2027.03.06"
+  }
+
+},
+
+expenses:{
+  flight:0,
+  tour:0,
+  food:0
+},
+
+schedule:[
+
+{
+  date:"03.01",
+  day:"DAY 1",
+  title:"SEOUL → BOHOL",
+  memo:"보홀 도착 · 첫날 일정"
+},
+
+{
+  date:"03.02",
+  day:"DAY 2",
+  title:"HENANN · ALONA BEACH",
+  memo:"헤난 리조트 알로나 비치 체크인 · 리조트 휴식"
+},
+
+{
+  date:"03.03",
+  day:"DAY 3",
+  title:"BALICASAG",
+  memo:"발리카삭 호핑 투어"
+},
+
+{
+  date:"03.04",
+  day:"DAY 4",
+  title:"FREE DAY",
+  memo:"알로나 비치 · 리조트에서 여유롭게 보내기"
+},
+
+{
+  date:"03.05",
+  day:"DAY 5",
+  title:"CHECK OUT",
+  memo:"헤난 리조트 체크아웃 · 마지막 일정"
+},
+
+{
+  date:"03.06",
+  day:"DAY 6",
+  title:"BOHOL → SEOUL",
+  memo:"귀국"
+}
+
+],
+
+checklist:[
+
+{name:"여권",done:false},
+{name:"항공권",done:false},
+{name:"수영복",done:false},
+{name:"선크림",done:false}
+
+]
+
+};
+
+
+/* 저장 데이터 불러오기 */
+
+let travelData;
+
+try{
+
+const saved =
+localStorage.getItem("ourTravelData");
+
+travelData =
+saved
+? JSON.parse(saved)
+: JSON.parse(JSON.stringify(defaultData));
+
+}catch(e){
+
+travelData =
+JSON.parse(JSON.stringify(defaultData));
+
+}
+
+
+/* 기존 South Palms 데이터 자동 변경 */
+
+if(
+travelData.hotel &&
+typeof travelData.hotel.name === "string" &&
+travelData.hotel.name
+.toLowerCase()
+.includes("south palms")
+){
+
+travelData.hotel.name =
+"Henann Resort Alona Beach";
+
+travelData.hotel.memo =
+"3박 · Panglao · Alona Beach";
+
+travelData.hotel.price = 0;
+
+travelData.schedule =
+defaultData.schedule.map(
+item=>({...item})
+);
+
+saveData();
+
+}
+
+
+/* 저장 */
+
+function saveData(){
+
+localStorage.setItem(
+"ourTravelData",
+JSON.stringify(travelData)
+);
+
+}
+
+
+/* 원화 */
+
+function won(number){
+
+return "₩" +
+Number(number || 0)
+.toLocaleString("ko-KR");
+
+}
+
+
+/* 화면 렌더링 */
+
+function render(){
+
+document
+.getElementById("hotelName")
+.textContent =
+travelData.hotel.name;
+
+
+document
+.getElementById("hotelDates")
+.textContent =
+travelData.hotel.checkin +
+" — " +
+travelData.hotel.checkout;
+
+
+document
+.getElementById("hotelMemo")
+.textContent =
+travelData.hotel.memo;
+
+
+document
+.getElementById("hotelPrice")
+.textContent =
+won(travelData.hotel.price);
+
+
+/* 항공 */
+
+document
+.getElementById("outTime")
+.textContent =
+travelData.flight.outbound.time;
+
+
+document
+.getElementById("outFlight")
+.textContent =
+travelData.flight.outbound.flight;
+
+
+document
+.getElementById("returnTime")
+.textContent =
+travelData.flight.return.time;
+
+
+document
+.getElementById("returnFlight")
+.textContent =
+travelData.flight.return.flight;
+
+
+/* 경비 */
+
+document
+.getElementById("budgetFlight")
+.textContent =
+won(travelData.expenses.flight);
+
+
+document
+.getElementById("budgetHotel")
+.textContent =
+won(travelData.hotel.price);
+
+
+document
+.getElementById("budgetTour")
+.textContent =
+won(travelData.expenses.tour);
+
+
+document
+.getElementById("budgetFood")
+.textContent =
+won(travelData.expenses.food);
+
+
+const total =
+
+Number(travelData.expenses.flight || 0)
+
++
+
+Number(travelData.hotel.price || 0)
+
++
+
+Number(travelData.expenses.tour || 0)
+
++
+
+Number(travelData.expenses.food || 0);
+
+
+document
+.getElementById("budgetTotal")
+.textContent =
+won(total);
+
+
+renderSchedule();
+
+renderChecklist();
+
+
+if(window.lucide){
+
+lucide.createIcons();
+
+}
+
+}
+
+
+/* 일정 아이콘 */
+
+function scheduleIcon(title){
+
+const t =
+String(title || "")
+.toLowerCase();
+
+
+if(
+t.includes("seoul") ||
+t.includes("bohol")
+)
+return "plane";
+
+
+if(
+t.includes("henann") ||
+t.includes("alona")
+)
+return "hotel";
+
+
+if(t.includes("balicasag"))
+return "waves";
+
+
+if(t.includes("free"))
+return "palmtree";
+
+
+if(t.includes("check out"))
+return "luggage";
+
+
+return "map-pin";
+
+}
+
+
+/* 일정 */
+
+function renderSchedule(){
+
+const box =
+document.getElementById(
+"scheduleList"
+);
+
+box.innerHTML="";
+
+
+travelData.schedule.forEach(
+(item,index)=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"card schedule-card";
+
+
+card.innerHTML=`
+
+<div class="schedule-inner">
+
+<div class="day-number">
+
+<div class="date">
+${escapeHTML(item.date)}
+</div>
+
+<div class="day-label">
+${escapeHTML(item.day)}
+</div>
+
+</div>
+
+
+<div class="day-content">
+
+<div class="day-top">
+
+<div>
+
+<div class="day-title">
+${escapeHTML(item.title)}
+</div>
+
+<div class="sub">
+${escapeHTML(item.memo)}
+</div>
+
+</div>
+
+
+<div class="day-icon">
+
+<i data-lucide="${scheduleIcon(item.title)}"></i>
+
+</div>
+
+</div>
+
+
+<div class="day-edit">
+
+<button
+class="edit"
+onclick="editSchedule(${index})">
+
+<i data-lucide="pencil"></i>
+
+수정
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+
+box.appendChild(card);
+
+});
+
+}
+
+
+/* 체크리스트 */
+
+function renderChecklist(){
+
+const box =
+document.getElementById(
+"checklistBox"
+);
+
+box.innerHTML="";
+
+
+travelData.checklist.forEach(
+(item,index)=>{
+
+const row =
+document.createElement("div");
+
+
+row.className =
+"check-item" +
+(item.done ? " done" : "");
+
+
+const checkbox =
+document.createElement("input");
+
+checkbox.type="checkbox";
+
+checkbox.checked=item.done;
+
+
+checkbox.onchange=()=>{
+
+travelData.checklist[index].done =
+checkbox.checked;
+
+saveData();
+
+renderChecklist();
+
+};
+
+
+const text =
+document.createElement("span");
+
+text.textContent=item.name;
+
+text.style.flex="1";
+
+
+const del =
+document.createElement("button");
+
+del.className="edit";
+
+del.innerHTML =
+'<i data-lucide="trash-2"></i> 삭제';
+
+
+del.onclick=()=>{
+
+if(confirm(
+item.name +
+" 항목을 삭제할까요?"
+)){
+
+travelData.checklist.splice(
+index,
+1
+);
+
+saveData();
+
+renderChecklist();
+
+}
+
+};
+
+
+row.appendChild(checkbox);
+
+row.appendChild(text);
+
+row.appendChild(del);
+
+box.appendChild(row);
+
+});
+
+
+if(window.lucide){
+
+lucide.createIcons();
+
+}
+
+}
+
+
+/* MODAL */
+
+let saveAction=null;
+
+
+function openModal(
+title,
+html,
+callback
+){
+
+document
+.getElementById("modalTitle")
+.textContent=title;
+
+
+document
+.getElementById("modalContent")
+.innerHTML=html;
+
+
+saveAction=callback;
+
+
+document
+.getElementById("modal")
+.style.display="flex";
+
+}
+
+
+function closeModal(){
+
+document
+.getElementById("modal")
+.style.display="none";
+
+saveAction=null;
+
+}
+
+
+function saveModal(){
+
+if(saveAction){
+
+saveAction();
+
+}
+
+saveData();
+
+render();
+
+closeModal();
+
+}
+
+
+/* 숙소 수정 */
+
+function editHotel(){
+
+openModal(
+
+"숙소 수정",
+
+`
+
+<label>
+숙소명
+</label>
+
+<input
+id="editHotelName"
+value="${escapeValue(travelData.hotel.name)}">
+
+
+<label>
+체크인
+</label>
+
+<input
+id="editCheckin"
+value="${escapeValue(travelData.hotel.checkin)}">
+
+
+<label>
+체크아웃
+</label>
+
+<input
+id="editCheckout"
+value="${escapeValue(travelData.hotel.checkout)}">
+
+
+<label>
+숙박비
+</label>
+
+<input
+id="editHotelPrice"
+type="number"
+value="${travelData.hotel.price}">
+
+
+<label>
+메모
+</label>
+
+<textarea
+id="editHotelMemo">${escapeHTML(travelData.hotel.memo)}</textarea>
+
+`,
+
+()=>{
+
+travelData.hotel.name =
+
+document
+.getElementById("editHotelName")
+.value;
+
+
+travelData.hotel.checkin =
+
+document
+.getElementById("editCheckin")
+.value;
+
+
+travelData.hotel.checkout =
+
+document
+.getElementById("editCheckout")
+.value;
+
+
+travelData.hotel.price =
+
+Number(
+
+document
+.getElementById("editHotelPrice")
+.value
+
+);
+
+
+travelData.hotel.memo =
+
+document
+.getElementById("editHotelMemo")
+.value;
+
+}
+
+);
+
+}
+
+
+/* 항공 수정 */
+
+function editFlight(){
+
+openModal(
+
+"항공 수정",
+
+`
+
+<label>
+가는 날
+</label>
+
+<input
+id="editOutTime"
+value="${escapeValue(travelData.flight.outbound.time)}">
+
+
+<label>
+가는 편 항공편
+</label>
+
+<input
+id="editOutFlight"
+value="${escapeValue(travelData.flight.outbound.flight)}">
+
+
+<label>
+오는 날
+</label>
+
+<input
+id="editReturnTime"
+value="${escapeValue(travelData.flight.return.time)}">
+
+
+<label>
+오는 편 항공편
+</label>
+
+<input
+id="editReturnFlight"
+value="${escapeValue(travelData.flight.return.flight)}">
+
+`,
+
+()=>{
+
+travelData.flight.outbound.time =
+
+document
+.getElementById("editOutTime")
+.value;
+
+
+travelData.flight.outbound.flight =
+
+document
+.getElementById("editOutFlight")
+.value;
+
+
+travelData.flight.return.time =
+
+document
+.getElementById("editReturnTime")
+.value;
+
+
+travelData.flight.return.flight =
+
+document
+.getElementById("editReturnFlight")
+.value;
+
+}
+
+);
+
+}
+
+
+/* 일정 수정 */
+
+function editSchedule(index){
+
+const item =
+travelData.schedule[index];
+
+
+openModal(
+
+"일정 수정",
+
+`
+
+<label>
+날짜
+</label>
+
+<input
+id="editScheduleDate"
+value="${escapeValue(item.date)}">
+
+
+<label>
+DAY
+</label>
+
+<input
+id="editScheduleDay"
+value="${escapeValue(item.day)}">
+
+
+<label>
+제목
+</label>
+
+<input
+id="editScheduleTitle"
+value="${escapeValue(item.title)}">
+
+
+<label>
+내용
+</label>
+
+<textarea
+id="editScheduleMemo">${escapeHTML(item.memo)}</textarea>
+
+`,
+
+()=>{
+
+item.date =
+
+document
+.getElementById("editScheduleDate")
+.value;
+
+
+item.day =
+
+document
+.getElementById("editScheduleDay")
+.value;
+
+
+item.title =
+
+document
+.getElementById("editScheduleTitle")
+.value;
+
+
+item.memo =
+
+document
+.getElementById("editScheduleMemo")
+.value;
+
+}
+
+);
+
+}
+
+
+/* 경비 수정 */
+
+function editBudget(){
+
+openModal(
+
+"경비 수정",
+
+`
+
+<label>
+항공
+</label>
+
+<input
+type="number"
+id="editBudgetFlight"
+value="${travelData.expenses.flight}">
+
+
+<label>
+투어
+</label>
+
+<input
+type="number"
+id="editBudgetTour"
+value="${travelData.expenses.tour}">
+
+
+<label>
+식비 / 기타
+</label>
+
+<input
+type="number"
+id="editBudgetFood"
+value="${travelData.expenses.food}">
+
+`,
+
+()=>{
+
+travelData.expenses.flight =
+
+Number(
+
+document
+.getElementById("editBudgetFlight")
+.value
+
+);
+
+
+travelData.expenses.tour =
+
+Number(
+
+document
+.getElementById("editBudgetTour")
+.value
+
+);
+
+
+travelData.expenses.food =
+
+Number(
+
+document
+.getElementById("editBudgetFood")
+.value
+
+);
+
+}
+
+);
+
+}
+
+
+/* 체크리스트 추가 */
+
+function addChecklist(){
+
+openModal(
+
+"체크리스트 추가",
+
+`
+
+<label>
+항목
+</label>
+
+<input
+id="newChecklist"
+placeholder="예: 여행자 보험">
+
+`,
+
+()=>{
+
+const name =
+
+document
+.getElementById("newChecklist")
+.value
+.trim();
+
+
+if(name){
+
+travelData.checklist.push({
+
+name:name,
+
+done:false
+
+});
+
+}
+
+}
+
+);
+
+}
+
+
+/* 메뉴 이동 */
+
+function go(id,button){
+
+const target =
+document.getElementById(id);
+
+
+if(target){
+
+target.scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
+
+}
+
+
+document
+.querySelectorAll(
+".bottom-nav button"
+)
+.forEach(
+btn=>
+btn.classList.remove("active")
+);
+
+
+if(button){
+
+button.classList.add("active");
+
+}
+
+}
+
+
+/* HTML 안전처리 */
+
+function escapeHTML(value){
+
+return String(value ?? "")
+
+.replaceAll("&","&amp;")
+
+.replaceAll("<","&lt;")
+
+.replaceAll(">","&gt;");
+
+}
+
+
+function escapeValue(value){
+
+return escapeHTML(value)
+
+.replaceAll('"',"&quot;");
+
+}
+
+
+/* 처음 실행 */
+
+render();
+
+
+if(window.lucide){
+
+lucide.createIcons();
+
+}
+
+</script>
+
+</body>
+</html>
