@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#087f79">
 
 <title>OUR TRAVEL · BOHOL</title>
@@ -32,6 +32,7 @@
 html,body{
   margin:0;
   min-height:100%;
+  overscroll-behavior-x:none;
 }
 
 body{
@@ -56,6 +57,7 @@ button{
   padding-bottom:100px;
   background:var(--paper);
   box-shadow:0 0 50px rgba(24,40,37,.08);
+  overflow-x:hidden;
 }
 
 /* =========================================================
@@ -250,7 +252,9 @@ button{
   height:14px;
 }
 
-/* SUMMARY */
+/* =========================================================
+ SUMMARY
+========================================================= */
 
 .home-summary{
   position:relative;
@@ -749,6 +753,7 @@ button{
   overflow-x:auto;
   padding:2px 18px 15px;
   scrollbar-width:none;
+  touch-action:pan-x;
 }
 
 .food-date-tabs::-webkit-scrollbar{
@@ -1438,29 +1443,38 @@ button{
 <div class="home-summary">
 
   <div class="summary-item">
+
     <div class="summary-icon">
       <i data-lucide="calendar-days"></i>
     </div>
+
     <strong>6 DAYS</strong>
     <span>03.01 — 03.06</span>
+
   </div>
 
 
   <div class="summary-item">
+
     <div class="summary-icon">
       <i data-lucide="moon"></i>
     </div>
+
     <strong>4 NIGHTS</strong>
     <span>1 + 3</span>
+
   </div>
 
 
   <div class="summary-item">
+
     <div class="summary-icon">
       <i data-lucide="bed-double"></i>
     </div>
+
     <strong>3 STAYS</strong>
     <span>DAY USE 포함</span>
+
   </div>
 
 </div>
@@ -1496,8 +1510,15 @@ button{
 <div class="home-content">
 
   <div class="home-section-title">
-    <strong>Trip planner</strong>
-    <span>OUR BOHOL · V7.2</span>
+
+    <strong>
+      Trip planner
+    </strong>
+
+    <span>
+      OUR BOHOL · V7.3
+    </span>
+
   </div>
 
 
@@ -1513,7 +1534,9 @@ button{
       </div>
 
       <small>ITINERARY</small>
+
       <strong>일정</strong>
+
       <span>DAY 1 — DAY 6</span>
 
     </div>
@@ -1529,7 +1552,9 @@ button{
       </div>
 
       <small>FLIGHT</small>
+
       <strong>항공</strong>
+
       <span id="homeFlightInfo"></span>
 
     </div>
@@ -1545,7 +1570,9 @@ button{
       </div>
 
       <small>STAYS</small>
+
       <strong>숙소</strong>
+
       <span>3 STAYS</span>
 
     </div>
@@ -1561,7 +1588,9 @@ button{
       </div>
 
       <small>FOOD</small>
+
       <strong>식사</strong>
+
       <span id="homeMealInfo"></span>
 
     </div>
@@ -1577,7 +1606,9 @@ button{
       </div>
 
       <small>BUDGET</small>
+
       <strong>경비</strong>
+
       <span id="homeBudget"></span>
 
     </div>
@@ -1593,7 +1624,9 @@ button{
       </div>
 
       <small>BOOKINGS</small>
+
       <strong>예약 · 메모</strong>
+
       <span id="homeReservationInfo"></span>
 
     </div>
@@ -1803,8 +1836,6 @@ button{
     </div>
 
 
-    <!-- FLIGHT -->
-
     <div
       class="more-section"
       id="flightSection"
@@ -1829,8 +1860,11 @@ button{
           class="edit"
           onclick="editFlight()"
         >
+
           <i data-lucide="pencil"></i>
+
           수정
+
         </button>
 
       </div>
@@ -2012,8 +2046,6 @@ button{
     </div>
 
 
-    <!-- BUDGET -->
-
     <div
       class="more-section"
       id="budgetSection"
@@ -2039,8 +2071,11 @@ button{
           class="edit"
           onclick="editBudget()"
         >
+
           <i data-lucide="pencil"></i>
+
           수정
+
         </button>
 
       </div>
@@ -2151,8 +2186,6 @@ button{
     </div>
 
 
-    <!-- RESERVATION -->
-
     <div
       class="more-section"
       id="reservationSection"
@@ -2178,8 +2211,11 @@ button{
           class="edit"
           onclick="addReservation()"
         >
+
           <i data-lucide="plus"></i>
+
           추가
+
         </button>
 
       </div>
@@ -2214,8 +2250,11 @@ button{
           class="edit"
           onclick="editTripMemo()"
         >
+
           <i data-lucide="pencil"></i>
+
           수정
+
         </button>
 
       </div>
@@ -2359,7 +2398,7 @@ button{
 <script>
 
 /* =========================================================
- SUPABASE V7.2
+ SUPABASE V7.3
 ========================================================= */
 
 const SUPABASE_URL =
@@ -2376,21 +2415,11 @@ let supabaseClient =
 
 
 /* =========================================================
- STORAGE V7.2
+ STORAGE
 ========================================================= */
 
 const STORAGE_KEY =
-  "ourTravelDataV72";
-
-const OLD_STORAGE_KEYS = [
-  "ourTravelDataV71",
-  "ourTravelDataV7",
-  "ourTravelDataV6",
-  "ourTravelDataV5"
-];
-
-const MIGRATION_KEY =
-  "ourTravelV72MigrationDone";
+  "ourTravelDataV73";
 
 
 /* =========================================================
@@ -2662,7 +2691,7 @@ const defaultData = {
 
 
 /* =========================================================
- BASIC UTIL
+ UTIL
 ========================================================= */
 
 function clone(value){
@@ -2673,10 +2702,6 @@ function clone(value){
 
 }
 
-
-/* =========================================================
- NORMALIZE
-========================================================= */
 
 function normalizeData(source){
 
@@ -2711,9 +2736,12 @@ function normalizeData(source){
     const index =
       data.hotels.length;
 
+
     data.hotels.push(
       clone(
-        defaultData.hotels[index]
+        defaultData.hotels[
+          index
+        ]
       )
     );
 
@@ -2884,7 +2912,8 @@ function normalizeData(source){
     )
   ){
 
-    data.reservations = [];
+    data.reservations =
+      [];
 
   }
 
@@ -2894,7 +2923,8 @@ function normalizeData(source){
     "string"
   ){
 
-    data.tripMemo = "";
+    data.tripMemo =
+      "";
 
   }
 
@@ -2903,10 +2933,6 @@ function normalizeData(source){
 
 }
 
-
-/* =========================================================
- CLOUD DATA CHECK
-========================================================= */
 
 function isValidTravelData(value){
 
@@ -2945,76 +2971,21 @@ function isValidTravelData(value){
  LOCAL BACKUP
 ========================================================= */
 
-function getV72LocalBackup(){
+function loadLocalBackup(){
 
-  try{
+  const keys = [
 
-    const value =
-      localStorage.getItem(
-        STORAGE_KEY
-      );
+    "ourTravelDataV73",
+    "ourTravelDataV72",
+    "ourTravelDataV71",
+    "ourTravelDataV7",
+    "ourTravelDataV6"
 
-
-    if(!value){
-      return null;
-    }
-
-
-    const parsed =
-      JSON.parse(value);
-
-
-    if(
-      isValidTravelData(
-        parsed
-      )
-    ){
-
-      return normalizeData(
-        parsed
-      );
-
-    }
-
-  }catch(error){
-
-    console.warn(
-      "V7.2 local backup load error",
-      error
-    );
-
-  }
-
-
-  return null;
-
-}
-
-
-/* =========================================================
- OLD DATA MIGRATION
-========================================================= */
-
-function getOldLocalData(){
-
-  const migrationDone =
-    localStorage.getItem(
-      MIGRATION_KEY
-    );
-
-
-  if(
-    migrationDone === "1"
-  ){
-
-    return null;
-
-  }
+  ];
 
 
   for(
-    const key of
-    OLD_STORAGE_KEYS
+    const key of keys
   ){
 
     try{
@@ -3031,7 +3002,9 @@ function getOldLocalData(){
 
 
       const parsed =
-        JSON.parse(value);
+        JSON.parse(
+          value
+        );
 
 
       if(
@@ -3049,8 +3022,7 @@ function getOldLocalData(){
     }catch(error){
 
       console.warn(
-        "Old local data error",
-        key,
+        "local backup error",
         error
       );
 
@@ -3059,28 +3031,16 @@ function getOldLocalData(){
   }
 
 
-  return null;
+  return normalizeData(
+    clone(defaultData)
+  );
 
 }
 
 
-/* =========================================================
- DEFAULT START DATA
-========================================================= */
-
 let travelData =
-  getV72LocalBackup()
-  ||
-  getOldLocalData()
-  ||
-  normalizeData(
-    clone(defaultData)
-  );
+  loadLocalBackup();
 
-
-/* =========================================================
- LOCAL SAVE
-========================================================= */
 
 function saveLocalBackup(){
 
@@ -3096,42 +3056,7 @@ function saveLocalBackup(){
   }catch(error){
 
     console.warn(
-      "local backup save error",
-      error
-    );
-
-  }
-
-}
-
-
-/* =========================================================
- OLD STORAGE CLEANUP
-========================================================= */
-
-function finishMigration(){
-
-  try{
-
-    localStorage.setItem(
-      MIGRATION_KEY,
-      "1"
-    );
-
-
-    OLD_STORAGE_KEYS
-    .forEach(key=>{
-
-      localStorage.removeItem(
-        key
-      );
-
-    });
-
-  }catch(error){
-
-    console.warn(
-      "migration cleanup error",
+      "local save error",
       error
     );
 
@@ -3277,7 +3202,7 @@ function getErrorDetail(
 
 
 /* =========================================================
- SUPABASE CLIENT
+ SUPABASE
 ========================================================= */
 
 function createSupabaseClient(){
@@ -3303,28 +3228,17 @@ function createSupabaseClient(){
 
 
 /* =========================================================
- CLOUD SAVE
+ SAVE
 ========================================================= */
 
 let saveTimer =
   null;
 
-let saveSequence =
-  0;
-
 
 function saveData(){
 
-  /*
-    수정 즉시 로컬 백업
-  */
-
   saveLocalBackup();
 
-
-  /*
-    이후 Supabase 저장
-  */
 
   setSyncStatus(
     "syncing",
@@ -3337,28 +3251,16 @@ function saveData(){
   );
 
 
-  const sequence =
-    ++saveSequence;
-
-
   saveTimer =
     setTimeout(
-      ()=>{
-
-        saveToSupabase(
-          sequence
-        );
-
-      },
+      saveToSupabase,
       250
     );
 
 }
 
 
-async function saveToSupabase(
-  sequence = saveSequence
-){
+async function saveToSupabase(){
 
   if(
     !supabaseClient
@@ -3393,7 +3295,8 @@ async function saveToSupabase(
             travelData
         },
         {
-          onConflict:"id"
+          onConflict:
+            "id"
         }
       );
 
@@ -3405,27 +3308,13 @@ async function saveToSupabase(
     }
 
 
-    /*
-      최신 저장 요청만
-      완료 상태 표시
-    */
-
-    if(
-      sequence ===
-      saveSequence
-    ){
-
-      setSyncStatus(
-        "success",
-        "Supabase 동기화 완료"
-      );
-
-    }
-
-
     saveLocalBackup();
 
-    finishMigration();
+
+    setSyncStatus(
+      "success",
+      "Supabase 동기화 완료"
+    );
 
 
     return true;
@@ -3433,27 +3322,14 @@ async function saveToSupabase(
 
   }catch(error){
 
-    console.error(
-      "Supabase save error",
-      error
+    setSyncStatus(
+      "offline",
+      "Supabase 저장 실패 · 로컬에는 저장됨",
+      getErrorDetail(
+        "travel_data 저장",
+        error
+      )
     );
-
-
-    if(
-      sequence ===
-      saveSequence
-    ){
-
-      setSyncStatus(
-        "offline",
-        "Supabase 저장 실패 · 로컬에는 저장됨",
-        getErrorDetail(
-          "travel_data 저장",
-          error
-        )
-      );
-
-    }
 
 
     return false;
@@ -3469,10 +3345,6 @@ async function saveToSupabase(
 
 async function initializeApp(){
 
-  /*
-    먼저 로컬 백업으로 즉시 화면 표시
-  */
-
   travelData =
     normalizeData(
       travelData
@@ -3487,10 +3359,6 @@ async function initializeApp(){
     "Supabase 연결 중..."
   );
 
-
-  /*
-    Supabase client 생성
-  */
 
   try{
 
@@ -3511,10 +3379,6 @@ async function initializeApp(){
 
   }
 
-
-  /*
-    Supabase가 V7.2의 진짜 원본
-  */
 
   try{
 
@@ -3543,11 +3407,6 @@ async function initializeApp(){
     }
 
 
-    /*
-      클라우드에 정상 데이터가 있으면
-      무조건 클라우드 우선
-    */
-
     if(
       data &&
       isValidTravelData(
@@ -3562,8 +3421,6 @@ async function initializeApp(){
 
 
       saveLocalBackup();
-
-      finishMigration();
 
 
       selectedMealDate =
@@ -3586,39 +3443,10 @@ async function initializeApp(){
     }
 
 
-    /*
-      Supabase data가 {}
-      또는 비정상일 때만
-      로컬/구버전 데이터를 최초 업로드
-    */
-
-    setSyncStatus(
-      "syncing",
-      "Supabase 초기 데이터 업로드 중..."
-    );
-
-
-    const success =
-      await saveToSupabase();
-
-
-    if(success){
-
-      setSyncStatus(
-        "success",
-        "Supabase 동기화 완료"
-      );
-
-    }
+    await saveToSupabase();
 
 
   }catch(error){
-
-    console.error(
-      "Supabase initial load error",
-      error
-    );
-
 
     setSyncStatus(
       "offline",
@@ -3635,7 +3463,7 @@ async function initializeApp(){
 
 
 /* =========================================================
- UTIL
+ GENERAL UTIL
 ========================================================= */
 
 function won(number){
@@ -3812,9 +3640,16 @@ function showMoreSection(section){
   setTimeout(()=>{
 
     const map = {
-      flight:"flightSection",
-      budget:"budgetSection",
-      reservation:"reservationSection"
+
+      flight:
+        "flightSection",
+
+      budget:
+        "budgetSection",
+
+      reservation:
+        "reservationSection"
+
     };
 
 
@@ -3851,6 +3686,330 @@ function scrollMore(id){
   }
 
 }
+
+
+/* =========================================================
+ V7.3 SWIPE TAB
+========================================================= */
+
+const swipePages = [
+  "home",
+  "schedule",
+  "hotel",
+  "food",
+  "more"
+];
+
+let swipeStartX =
+  0;
+
+let swipeStartY =
+  0;
+
+let swipeStartTime =
+  0;
+
+let swipeEnabled =
+  false;
+
+
+/*
+  스와이프를 막아야 하는 영역
+*/
+
+function shouldIgnoreSwipe(target){
+
+  if(!target){
+    return true;
+  }
+
+
+  return !!target.closest(
+    [
+      ".modal",
+      ".food-date-tabs",
+      "input",
+      "textarea",
+      "select",
+      "button",
+      "a"
+    ].join(",")
+  );
+
+}
+
+
+/*
+  현재 페이지 이름
+*/
+
+function getCurrentPageName(){
+
+  const page =
+    document.querySelector(
+      ".page.active"
+    );
+
+
+  if(!page){
+    return "home";
+  }
+
+
+  return page.id.replace(
+    "page-",
+    ""
+  );
+
+}
+
+
+/*
+  touch start
+*/
+
+document.addEventListener(
+  "touchstart",
+  event=>{
+
+    if(
+      event.touches.length !==
+      1
+    ){
+
+      swipeEnabled =
+        false;
+
+      return;
+
+    }
+
+
+    if(
+      shouldIgnoreSwipe(
+        event.target
+      )
+    ){
+
+      swipeEnabled =
+        false;
+
+      return;
+
+    }
+
+
+    const touch =
+      event.touches[0];
+
+
+    swipeStartX =
+      touch.clientX;
+
+
+    swipeStartY =
+      touch.clientY;
+
+
+    swipeStartTime =
+      Date.now();
+
+
+    swipeEnabled =
+      true;
+
+  },
+  {
+    passive:true
+  }
+);
+
+
+/*
+  touch end
+*/
+
+document.addEventListener(
+  "touchend",
+  event=>{
+
+    if(
+      !swipeEnabled
+    ){
+
+      return;
+
+    }
+
+
+    swipeEnabled =
+      false;
+
+
+    if(
+      event.changedTouches.length !==
+      1
+    ){
+
+      return;
+
+    }
+
+
+    const touch =
+      event.changedTouches[0];
+
+
+    const deltaX =
+      touch.clientX -
+      swipeStartX;
+
+
+    const deltaY =
+      touch.clientY -
+      swipeStartY;
+
+
+    const elapsed =
+      Date.now() -
+      swipeStartTime;
+
+
+    /*
+      너무 천천히 움직였으면
+      스와이프로 보지 않음
+    */
+
+    if(
+      elapsed >
+      900
+    ){
+
+      return;
+
+    }
+
+
+    /*
+      최소 좌우 이동 거리
+    */
+
+    if(
+      Math.abs(
+        deltaX
+      ) < 70
+    ){
+
+      return;
+
+    }
+
+
+    /*
+      세로 스크롤 움직임보다
+      가로 움직임이 명확해야 함
+    */
+
+    if(
+      Math.abs(
+        deltaX
+      )
+      <
+      Math.abs(
+        deltaY
+      ) * 1.25
+    ){
+
+      return;
+
+    }
+
+
+    const currentPage =
+      getCurrentPageName();
+
+
+    const currentIndex =
+      swipePages.indexOf(
+        currentPage
+      );
+
+
+    if(
+      currentIndex ===
+      -1
+    ){
+
+      return;
+
+    }
+
+
+    /*
+      왼쪽으로 밀기
+      → 다음 탭
+    */
+
+    if(
+      deltaX < 0
+    ){
+
+      const nextIndex =
+        currentIndex + 1;
+
+
+      if(
+        nextIndex <
+        swipePages.length
+      ){
+
+        showPage(
+          swipePages[
+            nextIndex
+          ]
+        );
+
+      }
+
+
+      return;
+
+    }
+
+
+    /*
+      오른쪽으로 밀기
+      → 이전 탭
+    */
+
+    if(
+      deltaX > 0
+    ){
+
+      const previousIndex =
+        currentIndex - 1;
+
+
+      if(
+        previousIndex >=
+        0
+      ){
+
+        showPage(
+          swipePages[
+            previousIndex
+          ]
+        );
+
+      }
+
+    }
+
+  },
+  {
+    passive:true
+  }
+);
 
 
 /* =========================================================
@@ -4601,6 +4760,7 @@ function renderMeals(){
           </div>
 
           <div>
+
             <small>
               ${info.english}
             </small>
@@ -4608,6 +4768,7 @@ function renderMeals(){
             <strong>
               ${info.label}
             </strong>
+
           </div>
 
         </div>
