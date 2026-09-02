@@ -18,11 +18,9 @@
   --text:#172321;
   --muted:#7b8783;
   --line:#e5ebe8;
-
   --ocean:#087f79;
   --ocean-dark:#075f5b;
   --ocean-soft:#e1f3ef;
-
   --sand:#f5eee2;
   --shadow:0 12px 34px rgba(22,43,39,.09);
 }
@@ -308,7 +306,9 @@ button{
   font-size:8px;
 }
 
-/* SYNC */
+/* =========================================================
+ SYNC
+========================================================= */
 
 .sync-wrap{
   padding:15px 18px 0;
@@ -316,22 +316,26 @@ button{
 
 .sync-status{
   width:100%;
-  min-height:38px;
+  padding:11px 13px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:white;
+}
+
+.sync-main{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:7px;
-  border:1px solid var(--line);
-  border-radius:13px;
-  background:white;
   color:#6d7975;
   font-size:9px;
-  font-weight:750;
+  font-weight:800;
 }
 
 .sync-dot{
   width:7px;
   height:7px;
+  flex:none;
   border-radius:50%;
   background:#aab3b0;
 }
@@ -346,6 +350,22 @@ button{
 
 .sync-status.offline .sync-dot{
   background:#d46c60;
+}
+
+.sync-error{
+  display:none;
+  margin-top:9px;
+  padding-top:9px;
+  border-top:1px solid #edf0ee;
+  color:#9b554f;
+  font-size:9px;
+  line-height:1.55;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.sync-status.offline .sync-error{
+  display:block;
 }
 
 /* HOME CATEGORY */
@@ -1411,38 +1431,27 @@ button{
 <div class="home-summary">
 
   <div class="summary-item">
-
     <div class="summary-icon">
       <i data-lucide="calendar-days"></i>
     </div>
-
     <strong>6 DAYS</strong>
     <span>03.01 — 03.06</span>
-
   </div>
 
-
   <div class="summary-item">
-
     <div class="summary-icon">
       <i data-lucide="moon"></i>
     </div>
-
     <strong>4 NIGHTS</strong>
     <span>1 + 3</span>
-
   </div>
 
-
   <div class="summary-item">
-
     <div class="summary-icon">
       <i data-lucide="bed-double"></i>
     </div>
-
     <strong>3 STAYS</strong>
     <span>DAY USE 포함</span>
-
   </div>
 
 </div>
@@ -1455,11 +1464,20 @@ button{
     id="syncStatus"
   >
 
-    <span class="sync-dot"></span>
+    <div class="sync-main">
 
-    <span id="syncText">
-      Supabase 연결 중...
-    </span>
+      <span class="sync-dot"></span>
+
+      <span id="syncText">
+        Supabase 연결 준비 중...
+      </span>
+
+    </div>
+
+    <div
+      class="sync-error"
+      id="syncError"
+    ></div>
 
   </div>
 
@@ -1470,7 +1488,7 @@ button{
 
   <div class="home-section-title">
     <strong>Trip planner</strong>
-    <span>OUR BOHOL · V7</span>
+    <span>OUR BOHOL · V7.1</span>
   </div>
 
 
@@ -1480,17 +1498,12 @@ button{
       class="category-card"
       onclick="showPage('schedule')"
     >
-
       <div class="category-icon">
         <i data-lucide="calendar-days"></i>
       </div>
-
       <small>ITINERARY</small>
-
       <strong>일정</strong>
-
       <span>DAY 1 — DAY 6</span>
-
     </div>
 
 
@@ -1498,19 +1511,12 @@ button{
       class="category-card"
       onclick="showMoreSection('flight')"
     >
-
       <div class="category-icon">
         <i data-lucide="plane"></i>
       </div>
-
       <small>FLIGHT</small>
-
       <strong>항공</strong>
-
-      <span id="homeFlightInfo">
-        시간 미입력
-      </span>
-
+      <span id="homeFlightInfo">시간 미입력</span>
     </div>
 
 
@@ -1518,17 +1524,12 @@ button{
       class="category-card"
       onclick="showPage('hotel')"
     >
-
       <div class="category-icon">
         <i data-lucide="bed-double"></i>
       </div>
-
       <small>STAYS</small>
-
       <strong>숙소</strong>
-
       <span>3 STAYS</span>
-
     </div>
 
 
@@ -1536,19 +1537,12 @@ button{
       class="category-card"
       onclick="showPage('food')"
     >
-
       <div class="category-icon">
         <i data-lucide="utensils"></i>
       </div>
-
       <small>FOOD</small>
-
       <strong>식사</strong>
-
-      <span id="homeMealInfo">
-        아침 · 점심 · 저녁
-      </span>
-
+      <span id="homeMealInfo">아침 · 점심 · 저녁</span>
     </div>
 
 
@@ -1556,19 +1550,12 @@ button{
       class="category-card"
       onclick="showMoreSection('budget')"
     >
-
       <div class="category-icon">
         <i data-lucide="wallet"></i>
       </div>
-
       <small>BUDGET</small>
-
       <strong>경비</strong>
-
-      <span id="homeBudget">
-        ₩0
-      </span>
-
+      <span id="homeBudget">₩0</span>
     </div>
 
 
@@ -1576,19 +1563,12 @@ button{
       class="category-card"
       onclick="showMoreSection('reservation')"
     >
-
       <div class="category-icon">
         <i data-lucide="bookmark-check"></i>
       </div>
-
       <small>BOOKINGS</small>
-
       <strong>예약 · 메모</strong>
-
-      <span id="homeReservationInfo">
-        예약 0건
-      </span>
-
+      <span id="homeReservationInfo">예약 0건</span>
     </div>
 
   </div>
@@ -1607,15 +1587,10 @@ button{
   <div class="page-header">
 
     <div class="page-brand">
-
       <div class="page-brand-mark">
         <i data-lucide="calendar-days"></i>
       </div>
-
-      <div class="page-logo">
-        OUR TRAVEL
-      </div>
-
+      <div class="page-logo">OUR TRAVEL</div>
     </div>
 
     <div class="page-title">
@@ -1625,10 +1600,7 @@ button{
 
   </div>
 
-  <div
-    class="content"
-    id="scheduleList"
-  ></div>
+  <div class="content" id="scheduleList"></div>
 
 </div>
 
@@ -1642,15 +1614,10 @@ button{
   <div class="page-header">
 
     <div class="page-brand">
-
       <div class="page-brand-mark">
         <i data-lucide="bed-double"></i>
       </div>
-
-      <div class="page-logo">
-        OUR TRAVEL
-      </div>
-
+      <div class="page-logo">OUR TRAVEL</div>
     </div>
 
     <div class="page-title">
@@ -1660,10 +1627,7 @@ button{
 
   </div>
 
-  <div
-    class="content"
-    id="hotelList"
-  ></div>
+  <div class="content" id="hotelList"></div>
 
 </div>
 
@@ -1677,15 +1641,10 @@ button{
   <div class="page-header">
 
     <div class="page-brand">
-
       <div class="page-brand-mark">
         <i data-lucide="utensils"></i>
       </div>
-
-      <div class="page-logo">
-        OUR TRAVEL
-      </div>
-
+      <div class="page-logo">OUR TRAVEL</div>
     </div>
 
     <div class="page-title">
@@ -1695,23 +1654,9 @@ button{
 
   </div>
 
-
-  <div
-    class="food-date-tabs"
-    id="foodDateTabs"
-  ></div>
-
-
-  <div
-    class="food-day-title"
-    id="foodDayTitle"
-  ></div>
-
-
-  <div
-    class="content"
-    id="mealList"
-  ></div>
+  <div class="food-date-tabs" id="foodDateTabs"></div>
+  <div class="food-day-title" id="foodDayTitle"></div>
+  <div class="content" id="mealList"></div>
 
 </div>
 
@@ -1725,15 +1670,10 @@ button{
   <div class="page-header">
 
     <div class="page-brand">
-
       <div class="page-brand-mark">
         <i data-lucide="menu"></i>
       </div>
-
-      <div class="page-logo">
-        OUR TRAVEL
-      </div>
-
+      <div class="page-logo">OUR TRAVEL</div>
     </div>
 
     <div class="page-title">
@@ -1753,14 +1693,11 @@ button{
         class="more-menu-card"
         onclick="scrollMore('flightSection')"
       >
-
         <div class="category-icon">
           <i data-lucide="plane"></i>
         </div>
-
         <strong>항공</strong>
         <span>Flight</span>
-
       </div>
 
 
@@ -1768,14 +1705,11 @@ button{
         class="more-menu-card"
         onclick="scrollMore('budgetSection')"
       >
-
         <div class="category-icon">
           <i data-lucide="wallet"></i>
         </div>
-
         <strong>경비</strong>
         <span>Budget</span>
-
       </div>
 
 
@@ -1783,14 +1717,11 @@ button{
         class="more-menu-card"
         onclick="scrollMore('reservationSection')"
       >
-
         <div class="category-icon">
           <i data-lucide="bookmark-check"></i>
         </div>
-
         <strong>예약 · 메모</strong>
         <span>Bookings</span>
-
       </div>
 
     </div>
@@ -1798,10 +1729,7 @@ button{
 
     <!-- FLIGHT -->
 
-    <div
-      class="more-section"
-      id="flightSection"
-    >
+    <div class="more-section" id="flightSection">
 
       <div class="section-row">
 
@@ -1818,10 +1746,7 @@ button{
 
         </div>
 
-        <button
-          class="edit"
-          onclick="editFlight()"
-        >
+        <button class="edit" onclick="editFlight()">
           <i data-lucide="pencil"></i>
           수정
         </button>
@@ -1832,85 +1757,50 @@ button{
       <div class="card">
 
         <div class="section-heading">
-
           <div class="section-icon">
             <i data-lucide="sunrise"></i>
           </div>
-
           <div>
             <h2>가는 편</h2>
             <small>OUTBOUND</small>
           </div>
-
         </div>
 
 
         <div class="flight-route">
 
           <div>
-
-            <div class="airport">
-              ICN
-            </div>
-
-            <div
-              class="flight-clock"
-              id="outDeparture"
-            ></div>
-
-            <div
-              class="flight-date"
-              id="outDate"
-            ></div>
-
+            <div class="airport">ICN</div>
+            <div class="flight-clock" id="outDeparture"></div>
+            <div class="flight-date" id="outDate"></div>
           </div>
 
 
           <div class="route-center">
 
             <div class="route-line">
-
               <div class="route-plane">
                 <i data-lucide="plane"></i>
               </div>
-
             </div>
 
-            <div
-              class="flight-duration"
-              id="outDuration"
-            ></div>
+            <div class="flight-duration" id="outDuration"></div>
 
           </div>
 
 
           <div style="text-align:right">
-
-            <div class="airport">
-              TAG
-            </div>
-
-            <div
-              class="flight-clock"
-              id="outArrival"
-            ></div>
-
-            <div
-              class="flight-date"
-              id="outArrivalDate"
-            ></div>
-
+            <div class="airport">TAG</div>
+            <div class="flight-clock" id="outArrival"></div>
+            <div class="flight-date" id="outArrivalDate"></div>
           </div>
 
         </div>
 
 
         <div class="flight-foot">
-
           <i data-lucide="ticket"></i>
-
           <span id="outFlight"></span>
-
         </div>
 
       </div>
@@ -1919,85 +1809,50 @@ button{
       <div class="card">
 
         <div class="section-heading">
-
           <div class="section-icon">
             <i data-lucide="sunset"></i>
           </div>
-
           <div>
             <h2>오는 편</h2>
             <small>RETURN</small>
           </div>
-
         </div>
 
 
         <div class="flight-route">
 
           <div>
-
-            <div class="airport">
-              TAG
-            </div>
-
-            <div
-              class="flight-clock"
-              id="returnDeparture"
-            ></div>
-
-            <div
-              class="flight-date"
-              id="returnDate"
-            ></div>
-
+            <div class="airport">TAG</div>
+            <div class="flight-clock" id="returnDeparture"></div>
+            <div class="flight-date" id="returnDate"></div>
           </div>
 
 
           <div class="route-center">
 
             <div class="route-line">
-
               <div class="route-plane">
                 <i data-lucide="plane"></i>
               </div>
-
             </div>
 
-            <div
-              class="flight-duration"
-              id="returnDuration"
-            ></div>
+            <div class="flight-duration" id="returnDuration"></div>
 
           </div>
 
 
           <div style="text-align:right">
-
-            <div class="airport">
-              ICN
-            </div>
-
-            <div
-              class="flight-clock"
-              id="returnArrival"
-            ></div>
-
-            <div
-              class="flight-date"
-              id="returnArrivalDate"
-            ></div>
-
+            <div class="airport">ICN</div>
+            <div class="flight-clock" id="returnArrival"></div>
+            <div class="flight-date" id="returnArrivalDate"></div>
           </div>
 
         </div>
 
 
         <div class="flight-foot">
-
           <i data-lucide="ticket"></i>
-
           <span id="returnFlight"></span>
-
         </div>
 
       </div>
@@ -2007,31 +1862,21 @@ button{
 
     <!-- BUDGET -->
 
-    <div
-      class="more-section"
-      id="budgetSection"
-    >
+    <div class="more-section" id="budgetSection">
 
       <div class="section-row">
 
         <div class="section-heading">
-
           <div class="section-icon">
             <i data-lucide="wallet-cards"></i>
           </div>
-
           <div>
             <h2>경비</h2>
             <small>TRAVEL BUDGET</small>
           </div>
-
         </div>
 
-
-        <button
-          class="edit"
-          onclick="editBudget()"
-        >
+        <button class="edit" onclick="editBudget()">
           <i data-lucide="pencil"></i>
           수정
         </button>
@@ -2042,101 +1887,63 @@ button{
       <div class="card">
 
         <div class="budget-row">
-
           <div class="budget-name">
-
             <div class="budget-mini-icon">
               <i data-lucide="plane"></i>
             </div>
-
             항공
-
           </div>
-
           <strong id="budgetFlight"></strong>
-
         </div>
 
 
         <div class="budget-row">
-
           <div class="budget-name">
-
             <div class="budget-mini-icon">
               <i data-lucide="bed-double"></i>
             </div>
-
             숙소
-
           </div>
-
           <strong id="budgetHotel"></strong>
-
         </div>
 
 
         <div class="budget-row">
-
           <div class="budget-name">
-
             <div class="budget-mini-icon">
               <i data-lucide="utensils"></i>
             </div>
-
             식사
-
           </div>
-
           <strong id="budgetMeals"></strong>
-
         </div>
 
 
         <div class="budget-row">
-
           <div class="budget-name">
-
             <div class="budget-mini-icon">
               <i data-lucide="ship-wheel"></i>
             </div>
-
             투어
-
           </div>
-
           <strong id="budgetTour"></strong>
-
         </div>
 
 
         <div class="budget-row">
-
           <div class="budget-name">
-
             <div class="budget-mini-icon">
               <i data-lucide="shopping-bag"></i>
             </div>
-
             기타
-
           </div>
-
           <strong id="budgetOther"></strong>
-
         </div>
 
 
         <div class="budget-row total-row">
-
-          <span>
-            총 예상 경비
-          </span>
-
-          <span
-            class="total"
-            id="budgetTotal"
-          ></span>
-
+          <span>총 예상 경비</span>
+          <span class="total" id="budgetTotal"></span>
         </div>
 
       </div>
@@ -2144,33 +1951,23 @@ button{
     </div>
 
 
-    <!-- RESERVATIONS -->
+    <!-- RESERVATION -->
 
-    <div
-      class="more-section"
-      id="reservationSection"
-    >
+    <div class="more-section" id="reservationSection">
 
       <div class="section-row">
 
         <div class="section-heading">
-
           <div class="section-icon">
             <i data-lucide="bookmark-check"></i>
           </div>
-
           <div>
             <h2>예약정보</h2>
             <small>RESERVATIONS</small>
           </div>
-
         </div>
 
-
-        <button
-          class="edit"
-          onclick="addReservation()"
-        >
+        <button class="edit" onclick="addReservation()">
           <i data-lucide="plus"></i>
           추가
         </button>
@@ -2178,35 +1975,22 @@ button{
       </div>
 
 
-      <div
-        class="reservation-list"
-        id="reservationList"
-      ></div>
+      <div class="reservation-list" id="reservationList"></div>
 
 
-      <div
-        style="margin-top:26px"
-        class="section-row"
-      >
+      <div style="margin-top:26px" class="section-row">
 
         <div class="section-heading">
-
           <div class="section-icon">
             <i data-lucide="notebook-pen"></i>
           </div>
-
           <div>
             <h2>여행 메모</h2>
             <small>TRIP MEMO</small>
           </div>
-
         </div>
 
-
-        <button
-          class="edit"
-          onclick="editTripMemo()"
-        >
+        <button class="edit" onclick="editTripMemo()">
           <i data-lucide="pencil"></i>
           수정
         </button>
@@ -2215,12 +1999,7 @@ button{
 
 
       <div class="card trip-memo-card">
-
-        <div
-          class="trip-memo-text"
-          id="tripMemo"
-        ></div>
-
+        <div class="trip-memo-text" id="tripMemo"></div>
       </div>
 
     </div>
@@ -2243,13 +2022,10 @@ button{
     data-page="home"
     onclick="showPage('home',this)"
   >
-
     <span class="nav-icon-wrap">
       <i data-lucide="home"></i>
     </span>
-
     홈
-
   </button>
 
 
@@ -2257,13 +2033,10 @@ button{
     data-page="schedule"
     onclick="showPage('schedule',this)"
   >
-
     <span class="nav-icon-wrap">
       <i data-lucide="calendar-days"></i>
     </span>
-
     일정
-
   </button>
 
 
@@ -2271,13 +2044,10 @@ button{
     data-page="hotel"
     onclick="showPage('hotel',this)"
   >
-
     <span class="nav-icon-wrap">
       <i data-lucide="bed-double"></i>
     </span>
-
     숙소
-
   </button>
 
 
@@ -2285,13 +2055,10 @@ button{
     data-page="food"
     onclick="showPage('food',this)"
   >
-
     <span class="nav-icon-wrap">
       <i data-lucide="utensils"></i>
     </span>
-
     식사
-
   </button>
 
 
@@ -2299,13 +2066,10 @@ button{
     data-page="more"
     onclick="showPage('more',this)"
   >
-
     <span class="nav-icon-wrap">
       <i data-lucide="menu"></i>
     </span>
-
     MORE
-
   </button>
 
 </nav>
@@ -2315,10 +2079,7 @@ button{
  MODAL
 ====================================================== -->
 
-<div
-  class="modal"
-  id="modal"
->
+<div class="modal" id="modal">
 
   <div class="modal-box">
 
@@ -2352,7 +2113,7 @@ button{
 <script>
 
 /* =========================================================
- SUPABASE
+ SUPABASE V7.1
 ========================================================= */
 
 const SUPABASE_URL =
@@ -2361,13 +2122,10 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
   "sb_publishable_3-VFzdCdhlSRSEXokDc24A_dECpWgcb";
 
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+const SUPABASE_ROW_ID =
+  1;
 
-const SUPABASE_ROW_ID = 1;
+let supabaseClient = null;
 
 
 /* =========================================================
@@ -2419,7 +2177,7 @@ function emptyMeal(){
 
 
 /* =========================================================
- DEFAULT
+ DEFAULT DATA
 ========================================================= */
 
 const defaultData = {
@@ -2466,15 +2224,11 @@ const defaultData = {
     passengers:2,
 
     outbound:{
-
       flight:"7C2125",
-
       date:"2027.03.01",
       arrivalDate:"2027.03.02",
-
       departure:"20:45",
       arrival:"00:45",
-
       duration:"5시간",
 
       departureAirport:"ICN",
@@ -2488,15 +2242,11 @@ const defaultData = {
     },
 
     return:{
-
       flight:"7C2126",
-
       date:"2027.03.06",
       arrivalDate:"2027.03.06",
-
       departure:"01:45",
       arrival:"07:10",
-
       duration:"4시간 25분",
 
       departureAirport:"TAG",
@@ -2643,13 +2393,13 @@ const defaultData = {
 ========================================================= */
 
 const STORAGE_KEY =
-  "ourTravelDataV7";
+  "ourTravelDataV71";
 
-const PREVIOUS_STORAGE_KEY =
-  "ourTravelDataV6";
-
-let travelData =
-  loadLocalData();
+const PREVIOUS_STORAGE_KEYS = [
+  "ourTravelDataV7",
+  "ourTravelDataV6",
+  "ourTravelDataV5"
+];
 
 
 function clone(value){
@@ -2670,6 +2420,7 @@ function loadLocalData(){
         STORAGE_KEY
       );
 
+
     if(current){
 
       return normalizeData(
@@ -2679,23 +2430,31 @@ function loadLocalData(){
     }
 
 
-    const previous =
-      localStorage.getItem(
-        PREVIOUS_STORAGE_KEY
-      );
+    for(
+      const key of
+      PREVIOUS_STORAGE_KEYS
+    ){
 
-    if(previous){
+      const value =
+        localStorage.getItem(
+          key
+        );
 
-      return normalizeData(
-        JSON.parse(previous)
-      );
+
+      if(value){
+
+        return normalizeData(
+          JSON.parse(value)
+        );
+
+      }
 
     }
 
   }catch(error){
 
     console.warn(
-      "로컬 데이터 불러오기 실패",
+      "localStorage load error",
       error
     );
 
@@ -2709,16 +2468,23 @@ function loadLocalData(){
 }
 
 
+let travelData =
+  loadLocalData();
+
+
 /* =========================================================
- DATA NORMALIZE
+ NORMALIZE
 ========================================================= */
 
 function normalizeData(source){
 
   const data =
     source &&
-    typeof source === "object"
+    typeof source === "object" &&
+    !Array.isArray(source)
+
       ? clone(source)
+
       : clone(defaultData);
 
 
@@ -2729,7 +2495,9 @@ function normalizeData(source){
   ){
 
     data.hotels =
-      clone(defaultData.hotels);
+      clone(
+        defaultData.hotels
+      );
 
   }
 
@@ -2738,10 +2506,14 @@ function normalizeData(source){
     data.hotels.length < 3
   ){
 
+    const index =
+      data.hotels.length;
+
+
     data.hotels.push(
       clone(
         defaultData.hotels[
-          data.hotels.length
+          index
         ]
       )
     );
@@ -2749,7 +2521,8 @@ function normalizeData(source){
   }
 
 
-  data.hotels[2].nights = 0;
+  data.hotels[2].nights =
+    0;
 
 
   if(
@@ -2758,24 +2531,22 @@ function normalizeData(source){
   ){
 
     data.flight =
-      clone(defaultData.flight);
+      clone(
+        defaultData.flight
+      );
 
   }
 
 
-  data.flight.airline =
-    data.flight.airline ||
-    defaultData.flight.airline;
+  data.flight = {
 
-  data.flight.bookingNumber =
-    data.flight.bookingNumber ||
-    defaultData.flight.bookingNumber;
+    ...clone(
+      defaultData.flight
+    ),
 
-  data.flight.passengers =
-    Number(
-      data.flight.passengers ||
-      defaultData.flight.passengers
-    );
+    ...data.flight
+
+  };
 
 
   data.flight.outbound = {
@@ -2842,7 +2613,9 @@ function normalizeData(source){
   ){
 
     data.schedule =
-      clone(defaultData.schedule);
+      clone(
+        defaultData.schedule
+      );
 
   }
 
@@ -2854,55 +2627,56 @@ function normalizeData(source){
   ){
 
     data.meals =
-      clone(defaultData.meals);
+      clone(
+        defaultData.meals
+      );
 
   }
 
 
-  defaultData.meals.forEach(
-    defaultDay=>{
+  defaultData.meals
+  .forEach(defaultDay=>{
 
-      let day =
-        data.meals.find(
-          item=>
-            item.date ===
-            defaultDay.date
-        );
-
-
-      if(!day){
-
-        data.meals.push(
-          clone(defaultDay)
-        );
-
-        return;
-
-      }
+    let day =
+      data.meals.find(
+        item=>
+          item.date ===
+          defaultDay.date
+      );
 
 
-      [
-        "breakfast",
-        "lunch",
-        "dinner"
-      ]
-      .forEach(type=>{
+    if(!day){
 
-        day[type] = {
+      data.meals.push(
+        clone(defaultDay)
+      );
 
-          ...emptyMeal(),
-
-          ...(
-            day[type] ||
-            {}
-          )
-
-        };
-
-      });
+      return;
 
     }
-  );
+
+
+    [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ]
+    .forEach(type=>{
+
+      day[type] = {
+
+        ...emptyMeal(),
+
+        ...(
+          day[type] ||
+          {}
+        )
+
+      };
+
+    });
+
+  });
 
 
   if(
@@ -2932,19 +2706,35 @@ function normalizeData(source){
 
 
 /* =========================================================
- MODERN DATA CHECK
+ SUPABASE DATA CHECK
 ========================================================= */
 
-function isModernTravelData(data){
+function isValidCloudData(value){
 
-  return !!(
-    data &&
-    Array.isArray(data.hotels) &&
-    Array.isArray(data.schedule) &&
-    Array.isArray(data.meals) &&
-    data.flight &&
-    data.flight.outbound &&
-    data.flight.return
+  if(
+    !value ||
+    typeof value !== "object" ||
+    Array.isArray(value)
+  ){
+
+    return false;
+
+  }
+
+
+  return (
+    Array.isArray(
+      value.hotels
+    ) &&
+    Array.isArray(
+      value.schedule
+    ) &&
+    Array.isArray(
+      value.meals
+    ) &&
+    value.flight &&
+    value.flight.outbound &&
+    value.flight.return
   );
 
 }
@@ -2956,7 +2746,8 @@ function isModernTravelData(data){
 
 function setSyncStatus(
   state,
-  text
+  text,
+  detail = ""
 ){
 
   const box =
@@ -2969,8 +2760,17 @@ function setSyncStatus(
       "syncText"
     );
 
+  const errorBox =
+    document.getElementById(
+      "syncError"
+    );
 
-  if(!box || !label){
+
+  if(
+    !box ||
+    !label ||
+    !errorBox
+  ){
     return;
   }
 
@@ -2990,25 +2790,159 @@ function setSyncStatus(
   label.textContent =
     text;
 
+
+  errorBox.textContent =
+    detail;
+
 }
 
 
-/* =========================================================
- SAVE LOCAL
-========================================================= */
+function getErrorDetail(
+  stage,
+  error
+){
 
-function saveLocalData(){
+  const parts = [
+    "단계: " + stage
+  ];
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(travelData)
+
+  if(
+    error?.status
+  ){
+
+    parts.push(
+      "HTTP: " +
+      error.status
+    );
+
+  }
+
+
+  if(
+    error?.code
+  ){
+
+    parts.push(
+      "CODE: " +
+      error.code
+    );
+
+  }
+
+
+  if(
+    error?.message
+  ){
+
+    parts.push(
+      "MESSAGE: " +
+      error.message
+    );
+
+  }
+
+
+  if(
+    error?.details
+  ){
+
+    parts.push(
+      "DETAILS: " +
+      error.details
+    );
+
+  }
+
+
+  if(
+    error?.hint
+  ){
+
+    parts.push(
+      "HINT: " +
+      error.hint
+    );
+
+  }
+
+
+  if(
+    parts.length === 1
+  ){
+
+    parts.push(
+      String(
+        error ||
+        "알 수 없는 오류"
+      )
+    );
+
+  }
+
+
+  return parts.join(
+    "\n"
   );
 
 }
 
 
 /* =========================================================
- SAVE SUPABASE
+ LOCAL SAVE
+========================================================= */
+
+function saveLocalData(){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(
+        travelData
+      )
+    );
+
+  }catch(error){
+
+    console.warn(
+      "localStorage save error",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+ SUPABASE INIT
+========================================================= */
+
+function createSupabaseClient(){
+
+  if(
+    !window.supabase
+  ){
+
+    throw new Error(
+      "Supabase JS 라이브러리를 불러오지 못했습니다."
+    );
+
+  }
+
+
+  supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+}
+
+
+/* =========================================================
+ SUPABASE SAVE
 ========================================================= */
 
 let saveTimer = null;
@@ -3032,9 +2966,7 @@ function saveData(){
 
   saveTimer =
     setTimeout(
-      ()=>{
-        saveToSupabase();
-      },
+      saveToSupabase,
       250
     );
 
@@ -3043,9 +2975,25 @@ function saveData(){
 
 async function saveToSupabase(){
 
+  if(
+    !supabaseClient
+  ){
+
+    setSyncStatus(
+      "offline",
+      "Supabase 연결 실패 · 로컬 저장됨",
+      "단계: 저장\nSupabase client가 생성되지 않았습니다."
+    );
+
+    return false;
+
+  }
+
+
   try{
 
     const {
+      data,
       error
     } =
       await supabaseClient
@@ -3061,8 +3009,12 @@ async function saveToSupabase(){
             travelData
         },
         {
-          onConflict:"id"
+          onConflict:
+            "id"
         }
+      )
+      .select(
+        "id"
       );
 
 
@@ -3079,18 +3031,27 @@ async function saveToSupabase(){
     );
 
 
+    return true;
+
+
   }catch(error){
 
     console.error(
-      "Supabase 저장 실패:",
       error
     );
 
 
     setSyncStatus(
       "offline",
-      "Supabase 저장 실패 · 로컬에는 저장됨"
+      "Supabase 저장 실패 · 로컬에는 저장됨",
+      getErrorDetail(
+        "travel_data 저장",
+        error
+      )
     );
+
+
+    return false;
 
   }
 
@@ -3098,13 +3059,14 @@ async function saveToSupabase(){
 
 
 /* =========================================================
- INITIAL SUPABASE LOAD
+ INITIAL LOAD
 ========================================================= */
 
 async function initializeApp(){
 
   /*
-    우선 로컬 데이터로 즉시 화면 표시
+    먼저 로컬 데이터로
+    화면을 즉시 띄움
   */
 
   travelData =
@@ -3120,7 +3082,41 @@ async function initializeApp(){
 
   setSyncStatus(
     "syncing",
-    "Supabase 데이터 확인 중..."
+    "Supabase 라이브러리 확인 중..."
+  );
+
+
+  /*
+    1. Supabase JS 확인
+  */
+
+  try{
+
+    createSupabaseClient();
+
+  }catch(error){
+
+    setSyncStatus(
+      "offline",
+      "Supabase 연결 실패 · 로컬 데이터 사용 중",
+      getErrorDetail(
+        "Supabase JS 초기화",
+        error
+      )
+    );
+
+    return;
+
+  }
+
+
+  /*
+    2. travel_data 읽기
+  */
+
+  setSyncStatus(
+    "syncing",
+    "Supabase travel_data 확인 중..."
   );
 
 
@@ -3152,40 +3148,19 @@ async function initializeApp(){
 
 
     /*
-      Supabase에 현재 V6/V7 구조의
-      정상 데이터가 이미 있으면 사용
+      id=1 행 없음
+      -> 현재 로컬 데이터 업로드
     */
 
-    if(
-      data &&
-      isModernTravelData(
-        data.data
-      )
-    ){
-
-      travelData =
-        normalizeData(
-          data.data
-        );
-
-
-      saveLocalData();
-
-
-      selectedMealDate =
-        travelData.schedule[0]
-        ?.date ||
-        "03.01";
-
-
-      render();
-
+    if(!data){
 
       setSyncStatus(
-        "success",
-        "Supabase 동기화 완료"
+        "syncing",
+        "Supabase 최초 데이터 생성 중..."
       );
 
+
+      await saveToSupabase();
 
       return;
 
@@ -3193,27 +3168,73 @@ async function initializeApp(){
 
 
     /*
-      기존 Supabase 데이터가
-      예전 버전이거나 행이 없는 경우
-
-      현재 V6/V7 로컬 데이터를
-      Supabase에 최초 업로드
+      data = {}
+      또는 구형 데이터
+      -> 현재 로컬 V7.1 데이터 업로드
     */
 
-    await saveToSupabase();
+    if(
+      !isValidCloudData(
+        data.data
+      )
+    ){
+
+      setSyncStatus(
+        "syncing",
+        "Supabase 초기 데이터 업로드 중..."
+      );
+
+
+      await saveToSupabase();
+
+      return;
+
+    }
+
+
+    /*
+      정상 클라우드 데이터
+      -> 클라우드를 기준으로 화면 갱신
+    */
+
+    travelData =
+      normalizeData(
+        data.data
+      );
+
+
+    saveLocalData();
+
+
+    selectedMealDate =
+      travelData.schedule[0]
+      ?.date ||
+      "03.01";
+
+
+    render();
+
+
+    setSyncStatus(
+      "success",
+      "Supabase 동기화 완료"
+    );
 
 
   }catch(error){
 
     console.error(
-      "Supabase 불러오기 실패:",
       error
     );
 
 
     setSyncStatus(
       "offline",
-      "Supabase 연결 실패 · 로컬 데이터 사용 중"
+      "Supabase 연결 실패 · 로컬 데이터 사용 중",
+      getErrorDetail(
+        "travel_data 읽기",
+        error
+      )
     );
 
   }
@@ -3228,29 +3249,48 @@ async function initializeApp(){
 function won(number){
 
   return "₩" +
-    Number(number || 0)
-    .toLocaleString("ko-KR");
+    Number(
+      number ||
+      0
+    )
+    .toLocaleString(
+      "ko-KR"
+    );
 
 }
 
 
 function escapeHTML(value){
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;");
+  return String(
+    value ??
+    ""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  );
 
 }
 
 
 function escapeValue(value){
 
-  return escapeHTML(value)
-    .replaceAll(
-      '"',
-      "&quot;"
-    );
+  return escapeHTML(
+    value
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  );
 
 }
 
@@ -3266,7 +3306,9 @@ function showOrDash(value){
 
 function refreshIcons(){
 
-  if(window.lucide){
+  if(
+    window.lucide
+  ){
 
     lucide.createIcons();
 
@@ -3378,16 +3420,9 @@ function showMoreSection(section){
   setTimeout(()=>{
 
     const map = {
-
-      flight:
-        "flightSection",
-
-      budget:
-        "budgetSection",
-
-      reservation:
-        "reservationSection"
-
+      flight:"flightSection",
+      budget:"budgetSection",
+      reservation:"reservationSection"
     };
 
 
@@ -3441,41 +3476,31 @@ function scheduleImage(title){
 
 
   if(
-    t.includes(
-      "henann"
-    )
+    t.includes("henann")
   )
     return images.henann;
 
 
   if(
-    t.includes(
-      "balicasag"
-    )
+    t.includes("balicasag")
   )
     return images.balicasag;
 
 
   if(
-    t.includes(
-      "alona"
-    )
+    t.includes("alona")
   )
     return images.alona;
 
 
   if(
-    t.includes(
-      "free"
-    )
+    t.includes("free")
   )
     return images.relax;
 
 
   if(
-    t.includes(
-      "last"
-    )
+    t.includes("last")
   )
     return images.hotel;
 
@@ -3510,25 +3535,19 @@ function scheduleIcon(title){
 
 
   if(
-    t.includes(
-      "balicasag"
-    )
+    t.includes("balicasag")
   )
     return "waves";
 
 
   if(
-    t.includes(
-      "free"
-    )
+    t.includes("free")
   )
     return "sun";
 
 
   if(
-    t.includes(
-      "last"
-    )
+    t.includes("last")
   )
     return "bed-double";
 
@@ -3559,9 +3578,7 @@ function hotelImage(
 
 
   if(
-    name.includes(
-      "henann"
-    )
+    name.includes("henann")
   )
     return images.henann;
 
@@ -3584,23 +3601,14 @@ function hotelImage(
 function render(){
 
   renderSchedule();
-
   renderHotels();
-
   renderFlight();
-
   renderBudget();
-
   renderFoodTabs();
-
   renderMeals();
-
   renderReservations();
-
   renderTripMemo();
-
   renderHome();
-
   refreshIcons();
 
 }
@@ -3760,11 +3768,9 @@ function renderSchedule(){
               <div style="flex:1">
 
                 <div class="day-title">
-
                   ${escapeHTML(
                     item.title
                   )}
-
                 </div>
 
                 <div class="schedule-memo">${escapeHTML(
@@ -3795,11 +3801,8 @@ function renderSchedule(){
                 class="edit"
                 onclick="editSchedule(${index})"
               >
-
                 <i data-lucide="pencil"></i>
-
                 수정
-
               </button>
 
             </div>
@@ -3884,17 +3887,13 @@ function renderHotels(){
         >
 
           <div class="hotel-badge">
-
             ${escapeHTML(
               hotel.type
             )}
-
           </div>
 
           <div class="hotel-nights">
-
             ${nightText}
-
           </div>
 
         </div>
@@ -3903,11 +3902,9 @@ function renderHotels(){
         <div class="hotel-body">
 
           <div class="big">
-
             ${escapeHTML(
               hotel.name
             )}
-
           </div>
 
 
@@ -3929,11 +3926,9 @@ function renderHotels(){
 
 
           <div class="sub">
-
             ${escapeHTML(
               hotel.memo
             )}
-
           </div>
 
 
@@ -3944,11 +3939,9 @@ function renderHotels(){
             </span>
 
             <strong>
-
               ${won(
                 hotel.price
               )}
-
             </strong>
 
           </div>
@@ -3959,11 +3952,8 @@ function renderHotels(){
             style="margin-top:14px"
             onclick="editHotel(${index})"
           >
-
             <i data-lucide="pencil"></i>
-
             수정
-
           </button>
 
         </div>
@@ -4189,23 +4179,12 @@ function renderMeals(){
         <div class="meal-type">
 
           <div class="meal-icon">
-
-            <i
-              data-lucide="${info.icon}"
-            ></i>
-
+            <i data-lucide="${info.icon}"></i>
           </div>
 
           <div>
-
-            <small>
-              ${info.english}
-            </small>
-
-            <strong>
-              ${info.label}
-            </strong>
-
+            <small>${info.english}</small>
+            <strong>${info.label}</strong>
           </div>
 
         </div>
@@ -4246,18 +4225,15 @@ function renderMeals(){
         ? `
 
           <div class="meal-name">
-
             ${escapeHTML(
               meal.name
             )}
-
           </div>
 
 
           <div class="meal-meta">
 
             <div class="meal-chip">
-
               <i data-lucide="clock"></i>
 
               ${
@@ -4266,12 +4242,10 @@ function renderMeals(){
                   "시간 미입력"
                 )
               }
-
             </div>
 
 
             <div class="meal-chip">
-
               <i data-lucide="map-pin"></i>
 
               ${
@@ -4280,7 +4254,6 @@ function renderMeals(){
                   "위치 미입력"
                 )
               }
-
             </div>
 
 
@@ -4288,15 +4261,10 @@ function renderMeals(){
               meal.reservation
 
               ? `
-
                 <div class="meal-chip">
-
                   <i data-lucide="calendar-check"></i>
-
                   예약 완료
-
                 </div>
-
               `
 
               : ""
@@ -4309,11 +4277,9 @@ function renderMeals(){
             meal.memo
 
             ? `
-
               <div class="meal-memo">${escapeHTML(
                 meal.memo
               )}</div>
-
             `
 
             : ""
@@ -4327,11 +4293,9 @@ function renderMeals(){
             </span>
 
             <strong>
-
               ${won(
                 meal.price
               )}
-
             </strong>
 
           </div>
@@ -4339,11 +4303,9 @@ function renderMeals(){
         `
 
         : `
-
           <div class="meal-empty">
             아직 식사 정보가 없습니다.
           </div>
-
         `
       }
 
@@ -4384,9 +4346,7 @@ function countEnteredMeals(){
         )
         .trim()
       ){
-
         count++;
-
       }
 
     });
@@ -4446,370 +4406,304 @@ function renderFlight(){
     flight.return;
 
 
-  document
-    .getElementById(
-      "outDate"
-    )
-    .textContent =
-      out.date;
+  document.getElementById(
+    "outDate"
+  ).textContent =
+    out.date;
 
 
-  document
-    .getElementById(
-      "outArrivalDate"
-    )
-    .textContent =
-      out.arrivalDate;
+  document.getElementById(
+    "outArrivalDate"
+  ).textContent =
+    out.arrivalDate;
 
 
-  document
-    .getElementById(
-      "outDeparture"
-    )
-    .textContent =
-      showOrDash(
-        out.departure
-      );
+  document.getElementById(
+    "outDeparture"
+  ).textContent =
+    showOrDash(
+      out.departure
+    );
 
 
-  document
-    .getElementById(
-      "outArrival"
-    )
-    .textContent =
-      showOrDash(
-        out.arrival
-      );
+  document.getElementById(
+    "outArrival"
+  ).textContent =
+    showOrDash(
+      out.arrival
+    );
 
 
-  document
-    .getElementById(
-      "outDuration"
-    )
-    .textContent =
-      out.duration;
+  document.getElementById(
+    "outDuration"
+  ).textContent =
+    out.duration;
 
 
-  document
-    .getElementById(
-      "outFlight"
-    )
-    .innerHTML = `
+  document.getElementById(
+    "outFlight"
+  ).innerHTML = `
+
+    <div style="width:100%;line-height:1.65">
+
+      <strong
+        style="
+          color:#233d38;
+          font-size:12px;
+        "
+      >
+        ${escapeHTML(
+          flight.airline
+        )}
+
+        ${escapeHTML(
+          out.flight
+        )}
+      </strong>
+
 
       <div
         style="
-          width:100%;
-          line-height:1.65;
+          margin-top:4px;
+          color:#6d7874;
+          font-size:10px;
         "
       >
-
-        <div>
-
-          <strong
-            style="
-              color:#233d38;
-              font-size:12px;
-            "
-          >
-
-            ${escapeHTML(
-              flight.airline
-            )}
-
-            ${escapeHTML(
-              out.flight
-            )}
-
-          </strong>
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:4px;
-            color:#6d7874;
-            font-size:10px;
-          "
-        >
-
-          예약번호
-
-          <strong>
-            ${escapeHTML(
-              flight.bookingNumber
-            )}
-          </strong>
-
-          ·
-
+        예약번호
+        <strong>
           ${escapeHTML(
-            flight.passengers
-          )}명
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:3px;
-            color:#6d7874;
-            font-size:10px;
-          "
-        >
-
-          좌석
-
-          <strong>
-            ${escapeHTML(
-              out.seats
-            )}
-          </strong>
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:6px;
-            color:#74807c;
-            font-size:9px;
-          "
-        >
-
-          ${escapeHTML(
-            out.departureName
+            flight.bookingNumber
           )}
+        </strong>
 
-          ·
+        ·
 
-          ${escapeHTML(
-            out.departureTerminal
-          )}
-
-          →
-
-          ${escapeHTML(
-            out.arrivalName
-          )}
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:2px;
-            color:#87918d;
-            font-size:9px;
-          "
-        >
-
-          ${escapeHTML(
-            out.date
-          )}
-
-          ${escapeHTML(
-            out.departure
-          )}
-
-          →
-
-          ${escapeHTML(
-            out.arrivalDate
-          )}
-
-          ${escapeHTML(
-            out.arrival
-          )}
-
-        </div>
-
+        ${escapeHTML(
+          flight.passengers
+        )}명
       </div>
 
-    `;
-
-
-  document
-    .getElementById(
-      "returnDate"
-    )
-    .textContent =
-      ret.date;
-
-
-  document
-    .getElementById(
-      "returnArrivalDate"
-    )
-    .textContent =
-      ret.arrivalDate;
-
-
-  document
-    .getElementById(
-      "returnDeparture"
-    )
-    .textContent =
-      showOrDash(
-        ret.departure
-      );
-
-
-  document
-    .getElementById(
-      "returnArrival"
-    )
-    .textContent =
-      showOrDash(
-        ret.arrival
-      );
-
-
-  document
-    .getElementById(
-      "returnDuration"
-    )
-    .textContent =
-      ret.duration;
-
-
-  document
-    .getElementById(
-      "returnFlight"
-    )
-    .innerHTML = `
 
       <div
         style="
-          width:100%;
-          line-height:1.65;
+          margin-top:3px;
+          color:#6d7874;
+          font-size:10px;
         "
       >
-
-        <div>
-
-          <strong
-            style="
-              color:#233d38;
-              font-size:12px;
-            "
-          >
-
-            ${escapeHTML(
-              flight.airline
-            )}
-
-            ${escapeHTML(
-              ret.flight
-            )}
-
-          </strong>
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:4px;
-            color:#6d7874;
-            font-size:10px;
-          "
-        >
-
-          예약번호
-
-          <strong>
-            ${escapeHTML(
-              flight.bookingNumber
-            )}
-          </strong>
-
-          ·
-
+        좌석
+        <strong>
           ${escapeHTML(
-            flight.passengers
-          )}명
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:3px;
-            color:#6d7874;
-            font-size:10px;
-          "
-        >
-
-          좌석
-
-          <strong>
-            ${escapeHTML(
-              ret.seats
-            )}
-          </strong>
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:6px;
-            color:#74807c;
-            font-size:9px;
-          "
-        >
-
-          ${escapeHTML(
-            ret.departureName
+            out.seats
           )}
-
-          →
-
-          ${escapeHTML(
-            ret.arrivalName
-          )}
-
-          ·
-
-          ${escapeHTML(
-            ret.arrivalTerminal
-          )}
-
-        </div>
-
-
-        <div
-          style="
-            margin-top:2px;
-            color:#87918d;
-            font-size:9px;
-          "
-        >
-
-          ${escapeHTML(
-            ret.date
-          )}
-
-          ${escapeHTML(
-            ret.departure
-          )}
-
-          →
-
-          ${escapeHTML(
-            ret.arrivalDate
-          )}
-
-          ${escapeHTML(
-            ret.arrival
-          )}
-
-        </div>
-
+        </strong>
       </div>
 
-    `;
+
+      <div
+        style="
+          margin-top:6px;
+          color:#74807c;
+          font-size:9px;
+        "
+      >
+        ${escapeHTML(
+          out.departureName
+        )}
+
+        ·
+
+        ${escapeHTML(
+          out.departureTerminal
+        )}
+
+        →
+
+        ${escapeHTML(
+          out.arrivalName
+        )}
+      </div>
+
+
+      <div
+        style="
+          margin-top:2px;
+          color:#87918d;
+          font-size:9px;
+        "
+      >
+        ${escapeHTML(
+          out.date
+        )}
+
+        ${escapeHTML(
+          out.departure
+        )}
+
+        →
+
+        ${escapeHTML(
+          out.arrivalDate
+        )}
+
+        ${escapeHTML(
+          out.arrival
+        )}
+      </div>
+
+    </div>
+
+  `;
+
+
+  document.getElementById(
+    "returnDate"
+  ).textContent =
+    ret.date;
+
+
+  document.getElementById(
+    "returnArrivalDate"
+  ).textContent =
+    ret.arrivalDate;
+
+
+  document.getElementById(
+    "returnDeparture"
+  ).textContent =
+    showOrDash(
+      ret.departure
+    );
+
+
+  document.getElementById(
+    "returnArrival"
+  ).textContent =
+    showOrDash(
+      ret.arrival
+    );
+
+
+  document.getElementById(
+    "returnDuration"
+  ).textContent =
+    ret.duration;
+
+
+  document.getElementById(
+    "returnFlight"
+  ).innerHTML = `
+
+    <div style="width:100%;line-height:1.65">
+
+      <strong
+        style="
+          color:#233d38;
+          font-size:12px;
+        "
+      >
+        ${escapeHTML(
+          flight.airline
+        )}
+
+        ${escapeHTML(
+          ret.flight
+        )}
+      </strong>
+
+
+      <div
+        style="
+          margin-top:4px;
+          color:#6d7874;
+          font-size:10px;
+        "
+      >
+        예약번호
+        <strong>
+          ${escapeHTML(
+            flight.bookingNumber
+          )}
+        </strong>
+
+        ·
+
+        ${escapeHTML(
+          flight.passengers
+        )}명
+      </div>
+
+
+      <div
+        style="
+          margin-top:3px;
+          color:#6d7874;
+          font-size:10px;
+        "
+      >
+        좌석
+        <strong>
+          ${escapeHTML(
+            ret.seats
+          )}
+        </strong>
+      </div>
+
+
+      <div
+        style="
+          margin-top:6px;
+          color:#74807c;
+          font-size:9px;
+        "
+      >
+        ${escapeHTML(
+          ret.departureName
+        )}
+
+        →
+
+        ${escapeHTML(
+          ret.arrivalName
+        )}
+
+        ·
+
+        ${escapeHTML(
+          ret.arrivalTerminal
+        )}
+      </div>
+
+
+      <div
+        style="
+          margin-top:2px;
+          color:#87918d;
+          font-size:9px;
+        "
+      >
+        ${escapeHTML(
+          ret.date
+        )}
+
+        ${escapeHTML(
+          ret.departure
+        )}
+
+        →
+
+        ${escapeHTML(
+          ret.arrivalDate
+        )}
+
+        ${escapeHTML(
+          ret.arrival
+        )}
+      </div>
+
+    </div>
+
+  `;
 
 }
 
@@ -4842,34 +4736,24 @@ function hotelTotal(){
 function totalBudget(){
 
   return (
-
     Number(
       travelData.expenses.flight ||
       0
     )
-
     +
-
     hotelTotal()
-
     +
-
     mealTotal()
-
     +
-
     Number(
       travelData.expenses.tour ||
       0
     )
-
     +
-
     Number(
       travelData.expenses.other ||
       0
     )
-
   );
 
 }
@@ -4877,64 +4761,52 @@ function totalBudget(){
 
 function renderBudget(){
 
-  document
-    .getElementById(
-      "budgetFlight"
-    )
-    .textContent =
-      won(
-        travelData.expenses.flight
-      );
+  document.getElementById(
+    "budgetFlight"
+  ).textContent =
+    won(
+      travelData.expenses.flight
+    );
 
 
-  document
-    .getElementById(
-      "budgetHotel"
-    )
-    .textContent =
-      won(
-        hotelTotal()
-      );
+  document.getElementById(
+    "budgetHotel"
+  ).textContent =
+    won(
+      hotelTotal()
+    );
 
 
-  document
-    .getElementById(
-      "budgetMeals"
-    )
-    .textContent =
-      won(
-        mealTotal()
-      );
+  document.getElementById(
+    "budgetMeals"
+  ).textContent =
+    won(
+      mealTotal()
+    );
 
 
-  document
-    .getElementById(
-      "budgetTour"
-    )
-    .textContent =
-      won(
-        travelData.expenses.tour
-      );
+  document.getElementById(
+    "budgetTour"
+  ).textContent =
+    won(
+      travelData.expenses.tour
+    );
 
 
-  document
-    .getElementById(
-      "budgetOther"
-    )
-    .textContent =
-      won(
-        travelData.expenses.other
-      );
+  document.getElementById(
+    "budgetOther"
+  ).textContent =
+    won(
+      travelData.expenses.other
+    );
 
 
-  document
-    .getElementById(
-      "budgetTotal"
-    )
-    .textContent =
-      won(
-        totalBudget()
-      );
+  document.getElementById(
+    "budgetTotal"
+  ).textContent =
+    won(
+      totalBudget()
+    );
 
 }
 
@@ -4946,7 +4818,6 @@ function renderBudget(){
 function reservationIcon(type){
 
   const map = {
-
     HOTEL:"hotel",
     FLIGHT:"plane",
     TOUR:"ship-wheel",
@@ -4954,7 +4825,6 @@ function reservationIcon(type){
     MASSAGE:"sparkles",
     RESTAURANT:"utensils",
     OTHER:"bookmark"
-
   };
 
 
@@ -5006,7 +4876,6 @@ function renderReservations(){
       item,
       index
     )=>{
-
 
       const card =
         document.createElement(
@@ -5060,17 +4929,12 @@ function renderReservations(){
             item.company
 
             ? `
-
               <div class="reservation-row">
-
                 <i data-lucide="building-2"></i>
-
                 ${escapeHTML(
                   item.company
                 )}
-
               </div>
-
             `
 
             : ""
@@ -5081,17 +4945,12 @@ function renderReservations(){
             item.dateTime
 
             ? `
-
               <div class="reservation-row">
-
                 <i data-lucide="calendar-clock"></i>
-
                 ${escapeHTML(
                   item.dateTime
                 )}
-
               </div>
-
             `
 
             : ""
@@ -5102,23 +4961,16 @@ function renderReservations(){
             item.number
 
             ? `
-
               <div class="reservation-row">
-
                 <i data-lucide="hash"></i>
-
                 예약번호&nbsp;
 
                 <strong>
-
                   ${escapeHTML(
                     item.number
                   )}
-
                 </strong>
-
               </div>
-
             `
 
             : ""
@@ -5134,15 +4986,11 @@ function renderReservations(){
           ) > 0
 
           ? `
-
             <div class="reservation-price">
-
               ${won(
                 item.price
               )}
-
             </div>
-
           `
 
           : ""
@@ -5153,11 +5001,9 @@ function renderReservations(){
           item.memo
 
           ? `
-
             <div class="reservation-memo">${escapeHTML(
               item.memo
             )}</div>
-
           `
 
           : ""
@@ -5168,33 +5014,19 @@ function renderReservations(){
 
           <button
             class="edit"
-            onclick="
-              editReservation(
-                ${index}
-              )
-            "
+            onclick="editReservation(${index})"
           >
-
             <i data-lucide="pencil"></i>
-
             수정
-
           </button>
 
 
           <button
             class="edit"
-            onclick="
-              deleteReservation(
-                ${index}
-              )
-            "
+            onclick="deleteReservation(${index})"
           >
-
             <i data-lucide="trash-2"></i>
-
             삭제
-
           </button>
 
         </div>
@@ -5259,44 +5091,36 @@ function openModal(
   callback
 ){
 
-  document
-    .getElementById(
-      "modalTitle"
-    )
-    .textContent =
-      title;
+  document.getElementById(
+    "modalTitle"
+  ).textContent =
+    title;
 
 
-  document
-    .getElementById(
-      "modalContent"
-    )
-    .innerHTML =
-      html;
+  document.getElementById(
+    "modalContent"
+  ).innerHTML =
+    html;
 
 
   saveAction =
     callback;
 
 
-  document
-    .getElementById(
-      "modal"
-    )
-    .style.display =
-      "flex";
+  document.getElementById(
+    "modal"
+  ).style.display =
+    "flex";
 
 }
 
 
 function closeModal(){
 
-  document
-    .getElementById(
-      "modal"
-    )
-    .style.display =
-      "none";
+  document.getElementById(
+    "modal"
+  ).style.display =
+    "none";
 
 
   saveAction =
@@ -5393,35 +5217,27 @@ function editSchedule(index){
     ()=>{
 
       item.date =
-        document
-        .getElementById(
+        document.getElementById(
           "editScheduleDate"
-        )
-        .value;
+        ).value;
 
 
       item.day =
-        document
-        .getElementById(
+        document.getElementById(
           "editScheduleDay"
-        )
-        .value;
+        ).value;
 
 
       item.title =
-        document
-        .getElementById(
+        document.getElementById(
           "editScheduleTitle"
-        )
-        .value;
+        ).value;
 
 
       item.memo =
-        document
-        .getElementById(
+        document.getElementById(
           "editScheduleMemo"
-        )
-        .value;
+        ).value;
 
     }
 
@@ -5519,63 +5335,49 @@ function editHotel(index){
     ()=>{
 
       hotel.type =
-        document
-        .getElementById(
+        document.getElementById(
           "editHotelType"
-        )
-        .value;
+        ).value;
 
 
       hotel.name =
-        document
-        .getElementById(
+        document.getElementById(
           "editHotelName"
-        )
-        .value;
+        ).value;
 
 
       hotel.checkin =
-        document
-        .getElementById(
+        document.getElementById(
           "editHotelCheckin"
-        )
-        .value;
+        ).value;
 
 
       hotel.checkout =
-        document
-        .getElementById(
+        document.getElementById(
           "editHotelCheckout"
-        )
-        .value;
+        ).value;
 
 
       hotel.nights =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editHotelNights"
-          )
-          .value
+          ).value
         );
 
 
       hotel.price =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editHotelPrice"
-          )
-          .value
+          ).value
         );
 
 
       hotel.memo =
-        document
-        .getElementById(
+        document.getElementById(
           "editHotelMemo"
-        )
-        .value;
+        ).value;
 
     }
 
@@ -5609,7 +5411,6 @@ function editMeal(
 
   const meal =
     day[type];
-
 
   const info =
     mealTypes[type];
@@ -5701,53 +5502,41 @@ function editMeal(
     ()=>{
 
       meal.name =
-        document
-        .getElementById(
+        document.getElementById(
           "editMealName"
-        )
-        .value;
+        ).value;
 
 
       meal.time =
-        document
-        .getElementById(
+        document.getElementById(
           "editMealTime"
-        )
-        .value;
+        ).value;
 
 
       meal.location =
-        document
-        .getElementById(
+        document.getElementById(
           "editMealLocation"
-        )
-        .value;
+        ).value;
 
 
       meal.price =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editMealPrice"
-          )
-          .value
+          ).value
         );
 
 
       meal.reservation =
-        document
-        .getElementById(
+        document.getElementById(
           "editMealReservation"
-        )
-        .checked;
+        ).checked;
 
 
       meal.memo =
-        document
-        .getElementById(
+        document.getElementById(
           "editMealMemo"
-        )
-        .value;
+        ).value;
 
     }
 
@@ -5757,7 +5546,7 @@ function editMeal(
 
 
 /* =========================================================
- RESERVATION ADD / EDIT
+ RESERVATION
 ========================================================= */
 
 function addReservation(){
@@ -5841,16 +5630,13 @@ function reservationForm(
 
         <option
           value="${value}"
-
           ${
             type === value
               ? "selected"
               : ""
           }
         >
-
           ${value}
-
         </option>
 
       `)
@@ -5865,12 +5651,10 @@ function reservationForm(
 
     <input
       id="reservationName"
-
       value="${escapeValue(
         item.name ||
         ""
       )}"
-
       placeholder="예: Airport Pickup"
     >
 
@@ -5881,12 +5665,10 @@ function reservationForm(
 
     <input
       id="reservationCompany"
-
       value="${escapeValue(
         item.company ||
         ""
       )}"
-
       placeholder="예: Henann Resort"
     >
 
@@ -5897,12 +5679,10 @@ function reservationForm(
 
     <input
       id="reservationDateTime"
-
       value="${escapeValue(
         item.dateTime ||
         ""
       )}"
-
       placeholder="예: 03.05 · 22:30"
     >
 
@@ -5913,12 +5693,10 @@ function reservationForm(
 
     <input
       id="reservationNumber"
-
       value="${escapeValue(
         item.number ||
         ""
       )}"
-
       placeholder="예: ABC123456"
     >
 
@@ -5929,9 +5707,7 @@ function reservationForm(
 
     <input
       type="number"
-
       id="reservationPrice"
-
       value="${Number(
         item.price ||
         0
@@ -5945,7 +5721,6 @@ function reservationForm(
 
     <textarea
       id="reservationMemo"
-
       placeholder="예약 관련 내용을 입력하세요."
     >${escapeHTML(
       item.memo ||
@@ -5962,55 +5737,41 @@ function getReservationFormData(){
   return {
 
     type:
-      document
-      .getElementById(
+      document.getElementById(
         "reservationType"
-      )
-      .value,
+      ).value,
 
     name:
-      document
-      .getElementById(
+      document.getElementById(
         "reservationName"
-      )
-      .value,
+      ).value,
 
     company:
-      document
-      .getElementById(
+      document.getElementById(
         "reservationCompany"
-      )
-      .value,
+      ).value,
 
     dateTime:
-      document
-      .getElementById(
+      document.getElementById(
         "reservationDateTime"
-      )
-      .value,
+      ).value,
 
     number:
-      document
-      .getElementById(
+      document.getElementById(
         "reservationNumber"
-      )
-      .value,
+      ).value,
 
     price:
       Number(
-        document
-        .getElementById(
+        document.getElementById(
           "reservationPrice"
-        )
-        .value
+        ).value
       ),
 
     memo:
-      document
-      .getElementById(
+      document.getElementById(
         "reservationMemo"
-      )
-      .value
+      ).value
 
   };
 
@@ -6081,11 +5842,9 @@ function editTripMemo(){
     ()=>{
 
       travelData.tripMemo =
-        document
-        .getElementById(
+        document.getElementById(
           "editTripMemo"
-        )
-        .value;
+        ).value;
 
     }
 
@@ -6116,9 +5875,7 @@ function editFlight(){
 
     `
 
-    <label>
-      항공사
-    </label>
+    <label>항공사</label>
 
     <input
       id="editAirline"
@@ -6128,9 +5885,7 @@ function editFlight(){
     >
 
 
-    <label>
-      예약번호
-    </label>
+    <label>예약번호</label>
 
     <input
       id="editBookingNumber"
@@ -6140,9 +5895,7 @@ function editFlight(){
     >
 
 
-    <label>
-      탑승 인원
-    </label>
+    <label>탑승 인원</label>
 
     <input
       type="number"
@@ -6168,9 +5921,7 @@ function editFlight(){
     </div>
 
 
-    <label>
-      편명
-    </label>
+    <label>편명</label>
 
     <input
       id="editOutFlight"
@@ -6180,9 +5931,7 @@ function editFlight(){
     >
 
 
-    <label>
-      출발 날짜
-    </label>
+    <label>출발 날짜</label>
 
     <input
       id="editOutDate"
@@ -6192,9 +5941,7 @@ function editFlight(){
     >
 
 
-    <label>
-      출발 시간
-    </label>
+    <label>출발 시간</label>
 
     <input
       id="editOutDeparture"
@@ -6204,9 +5951,7 @@ function editFlight(){
     >
 
 
-    <label>
-      도착 날짜
-    </label>
+    <label>도착 날짜</label>
 
     <input
       id="editOutArrivalDate"
@@ -6216,9 +5961,7 @@ function editFlight(){
     >
 
 
-    <label>
-      도착 시간
-    </label>
+    <label>도착 시간</label>
 
     <input
       id="editOutArrival"
@@ -6228,9 +5971,7 @@ function editFlight(){
     >
 
 
-    <label>
-      비행 시간
-    </label>
+    <label>비행 시간</label>
 
     <input
       id="editOutDuration"
@@ -6240,9 +5981,7 @@ function editFlight(){
     >
 
 
-    <label>
-      인천 터미널
-    </label>
+    <label>인천 터미널</label>
 
     <input
       id="editOutTerminal"
@@ -6252,9 +5991,7 @@ function editFlight(){
     >
 
 
-    <label>
-      좌석
-    </label>
+    <label>좌석</label>
 
     <input
       id="editOutSeats"
@@ -6278,9 +6015,7 @@ function editFlight(){
     </div>
 
 
-    <label>
-      편명
-    </label>
+    <label>편명</label>
 
     <input
       id="editReturnFlight"
@@ -6290,9 +6025,7 @@ function editFlight(){
     >
 
 
-    <label>
-      출발 날짜
-    </label>
+    <label>출발 날짜</label>
 
     <input
       id="editReturnDate"
@@ -6302,9 +6035,7 @@ function editFlight(){
     >
 
 
-    <label>
-      출발 시간
-    </label>
+    <label>출발 시간</label>
 
     <input
       id="editReturnDeparture"
@@ -6314,9 +6045,7 @@ function editFlight(){
     >
 
 
-    <label>
-      도착 날짜
-    </label>
+    <label>도착 날짜</label>
 
     <input
       id="editReturnArrivalDate"
@@ -6326,9 +6055,7 @@ function editFlight(){
     >
 
 
-    <label>
-      도착 시간
-    </label>
+    <label>도착 시간</label>
 
     <input
       id="editReturnArrival"
@@ -6338,9 +6065,7 @@ function editFlight(){
     >
 
 
-    <label>
-      비행 시간
-    </label>
+    <label>비행 시간</label>
 
     <input
       id="editReturnDuration"
@@ -6350,9 +6075,7 @@ function editFlight(){
     >
 
 
-    <label>
-      인천 터미널
-    </label>
+    <label>인천 터미널</label>
 
     <input
       id="editReturnTerminal"
@@ -6362,9 +6085,7 @@ function editFlight(){
     >
 
 
-    <label>
-      좌석
-    </label>
+    <label>좌석</label>
 
     <input
       id="editReturnSeats"
@@ -6377,159 +6098,120 @@ function editFlight(){
 
     ()=>{
 
-
       flight.airline =
-        document
-        .getElementById(
+        document.getElementById(
           "editAirline"
-        )
-        .value;
+        ).value;
 
 
       flight.bookingNumber =
-        document
-        .getElementById(
+        document.getElementById(
           "editBookingNumber"
-        )
-        .value;
+        ).value;
 
 
       flight.passengers =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editPassengers"
-          )
-          .value
+          ).value
         );
 
 
       out.flight =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutFlight"
-        )
-        .value;
+        ).value;
 
 
       out.date =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutDate"
-        )
-        .value;
+        ).value;
 
 
       out.departure =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutDeparture"
-        )
-        .value;
+        ).value;
 
 
       out.arrivalDate =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutArrivalDate"
-        )
-        .value;
+        ).value;
 
 
       out.arrival =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutArrival"
-        )
-        .value;
+        ).value;
 
 
       out.duration =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutDuration"
-        )
-        .value;
+        ).value;
 
 
       out.departureTerminal =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutTerminal"
-        )
-        .value;
+        ).value;
 
 
       out.seats =
-        document
-        .getElementById(
+        document.getElementById(
           "editOutSeats"
-        )
-        .value;
+        ).value;
 
 
       ret.flight =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnFlight"
-        )
-        .value;
+        ).value;
 
 
       ret.date =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnDate"
-        )
-        .value;
+        ).value;
 
 
       ret.departure =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnDeparture"
-        )
-        .value;
+        ).value;
 
 
       ret.arrivalDate =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnArrivalDate"
-        )
-        .value;
+        ).value;
 
 
       ret.arrival =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnArrival"
-        )
-        .value;
+        ).value;
 
 
       ret.duration =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnDuration"
-        )
-        .value;
+        ).value;
 
 
       ret.arrivalTerminal =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnTerminal"
-        )
-        .value;
+        ).value;
 
 
       ret.seats =
-        document
-        .getElementById(
+        document.getElementById(
           "editReturnSeats"
-        )
-        .value;
+        ).value;
 
     }
 
@@ -6550,9 +6232,7 @@ function editBudget(){
 
     `
 
-    <label>
-      항공
-    </label>
+    <label>항공</label>
 
     <input
       type="number"
@@ -6563,9 +6243,7 @@ function editBudget(){
     >
 
 
-    <label>
-      투어
-    </label>
+    <label>투어</label>
 
     <input
       type="number"
@@ -6576,9 +6254,7 @@ function editBudget(){
     >
 
 
-    <label>
-      기타
-    </label>
+    <label>기타</label>
 
     <input
       type="number"
@@ -6621,31 +6297,25 @@ function editBudget(){
 
       travelData.expenses.flight =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editBudgetFlight"
-          )
-          .value
+          ).value
         );
 
 
       travelData.expenses.tour =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editBudgetTour"
-          )
-          .value
+          ).value
         );
 
 
       travelData.expenses.other =
         Number(
-          document
-          .getElementById(
+          document.getElementById(
             "editBudgetOther"
-          )
-          .value
+          ).value
         );
 
     }
@@ -6656,7 +6326,7 @@ function editBudget(){
 
 
 /* =========================================================
- CLOSE
+ CLOSE MODAL
 ========================================================= */
 
 document
