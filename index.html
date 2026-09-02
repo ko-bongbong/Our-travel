@@ -8,8 +8,6 @@
 <title>OUR TRAVEL · BOHOL</title>
 
 <script src="https://unpkg.com/lucide@latest"></script>
-
-<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -61,7 +59,7 @@ button{
 }
 
 /* =========================================================
-   PAGE
+ PAGE
 ========================================================= */
 
 .page{
@@ -77,12 +75,6 @@ button{
   padding:
     calc(20px + env(safe-area-inset-top))
     20px 16px;
-}
-
-.page-header-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
 }
 
 .page-brand{
@@ -137,7 +129,7 @@ button{
 }
 
 /* =========================================================
-   HOME
+ HOME
 ========================================================= */
 
 .home-hero{
@@ -316,10 +308,50 @@ button{
   font-size:8px;
 }
 
+/* SYNC */
+
+.sync-wrap{
+  padding:15px 18px 0;
+}
+
+.sync-status{
+  width:100%;
+  min-height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:white;
+  color:#6d7975;
+  font-size:9px;
+  font-weight:750;
+}
+
+.sync-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#aab3b0;
+}
+
+.sync-status.syncing .sync-dot{
+  background:#d5a138;
+}
+
+.sync-status.success .sync-dot{
+  background:#20a77c;
+}
+
+.sync-status.offline .sync-dot{
+  background:#d46c60;
+}
+
 /* HOME CATEGORY */
 
 .home-content{
-  padding:24px 18px 25px;
+  padding:18px 18px 25px;
 }
 
 .home-section-title{
@@ -391,7 +423,7 @@ button{
 }
 
 /* =========================================================
-   COMMON
+ COMMON
 ========================================================= */
 
 .card{
@@ -477,7 +509,7 @@ button{
 }
 
 /* =========================================================
-   SCHEDULE
+ SCHEDULE
 ========================================================= */
 
 .schedule-card{
@@ -594,7 +626,7 @@ button{
 }
 
 /* =========================================================
-   HOTEL
+ HOTEL
 ========================================================= */
 
 .hotel-card{
@@ -684,7 +716,7 @@ button{
 }
 
 /* =========================================================
-   FOOD
+ FOOD
 ========================================================= */
 
 .food-date-tabs{
@@ -853,7 +885,7 @@ button{
 }
 
 /* =========================================================
-   FLIGHT
+ FLIGHT
 ========================================================= */
 
 .flight-route{
@@ -944,7 +976,7 @@ button{
 }
 
 /* =========================================================
-   MORE
+ MORE
 ========================================================= */
 
 .more-menu{
@@ -984,7 +1016,7 @@ button{
 }
 
 /* =========================================================
-   BUDGET
+ BUDGET
 ========================================================= */
 
 .budget-row{
@@ -1030,7 +1062,7 @@ button{
 }
 
 /* =========================================================
-   RESERVATIONS
+ RESERVATIONS
 ========================================================= */
 
 .reservation-list{
@@ -1131,7 +1163,7 @@ button{
 }
 
 /* =========================================================
-   TRIP MEMO
+ TRIP MEMO
 ========================================================= */
 
 .trip-memo-card{
@@ -1151,7 +1183,7 @@ button{
 }
 
 /* =========================================================
-   BOTTOM NAV
+ BOTTOM NAV
 ========================================================= */
 
 .bottom-nav{
@@ -1210,7 +1242,7 @@ button{
 }
 
 /* =========================================================
-   MODAL
+ MODAL
 ========================================================= */
 
 .modal{
@@ -1416,17 +1448,38 @@ button{
 </div>
 
 
+<div class="sync-wrap">
+
+  <div
+    class="sync-status syncing"
+    id="syncStatus"
+  >
+
+    <span class="sync-dot"></span>
+
+    <span id="syncText">
+      Supabase 연결 중...
+    </span>
+
+  </div>
+
+</div>
+
+
 <div class="home-content">
 
   <div class="home-section-title">
     <strong>Trip planner</strong>
-    <span>OUR BOHOL</span>
+    <span>OUR BOHOL · V7</span>
   </div>
 
 
   <div class="category-grid">
 
-    <div class="category-card" onclick="showPage('schedule')">
+    <div
+      class="category-card"
+      onclick="showPage('schedule')"
+    >
 
       <div class="category-icon">
         <i data-lucide="calendar-days"></i>
@@ -1441,7 +1494,10 @@ button{
     </div>
 
 
-    <div class="category-card" onclick="showMoreSection('flight')">
+    <div
+      class="category-card"
+      onclick="showMoreSection('flight')"
+    >
 
       <div class="category-icon">
         <i data-lucide="plane"></i>
@@ -1458,7 +1514,10 @@ button{
     </div>
 
 
-    <div class="category-card" onclick="showPage('hotel')">
+    <div
+      class="category-card"
+      onclick="showPage('hotel')"
+    >
 
       <div class="category-icon">
         <i data-lucide="bed-double"></i>
@@ -1473,7 +1532,10 @@ button{
     </div>
 
 
-    <div class="category-card" onclick="showPage('food')">
+    <div
+      class="category-card"
+      onclick="showPage('food')"
+    >
 
       <div class="category-icon">
         <i data-lucide="utensils"></i>
@@ -1490,7 +1552,10 @@ button{
     </div>
 
 
-    <div class="category-card" onclick="showMoreSection('budget')">
+    <div
+      class="category-card"
+      onclick="showMoreSection('budget')"
+    >
 
       <div class="category-icon">
         <i data-lucide="wallet"></i>
@@ -1507,7 +1572,10 @@ button{
     </div>
 
 
-    <div class="category-card" onclick="showMoreSection('reservation')">
+    <div
+      class="category-card"
+      onclick="showMoreSection('reservation')"
+    >
 
       <div class="category-icon">
         <i data-lucide="bookmark-check"></i>
@@ -1557,7 +1625,10 @@ button{
 
   </div>
 
-  <div class="content" id="scheduleList"></div>
+  <div
+    class="content"
+    id="scheduleList"
+  ></div>
 
 </div>
 
@@ -1589,7 +1660,10 @@ button{
 
   </div>
 
-  <div class="content" id="hotelList"></div>
+  <div
+    class="content"
+    id="hotelList"
+  ></div>
 
 </div>
 
@@ -1622,13 +1696,22 @@ button{
   </div>
 
 
-  <div class="food-date-tabs" id="foodDateTabs"></div>
+  <div
+    class="food-date-tabs"
+    id="foodDateTabs"
+  ></div>
 
 
-  <div class="food-day-title" id="foodDayTitle"></div>
+  <div
+    class="food-day-title"
+    id="foodDayTitle"
+  ></div>
 
 
-  <div class="content" id="mealList"></div>
+  <div
+    class="content"
+    id="mealList"
+  ></div>
 
 </div>
 
@@ -1715,7 +1798,10 @@ button{
 
     <!-- FLIGHT -->
 
-    <div class="more-section" id="flightSection">
+    <div
+      class="more-section"
+      id="flightSection"
+    >
 
       <div class="section-row">
 
@@ -1732,7 +1818,10 @@ button{
 
         </div>
 
-        <button class="edit" onclick="editFlight()">
+        <button
+          class="edit"
+          onclick="editFlight()"
+        >
           <i data-lucide="pencil"></i>
           수정
         </button>
@@ -1764,9 +1853,15 @@ button{
               ICN
             </div>
 
-            <div class="flight-clock" id="outDeparture"></div>
+            <div
+              class="flight-clock"
+              id="outDeparture"
+            ></div>
 
-            <div class="flight-date" id="outDate"></div>
+            <div
+              class="flight-date"
+              id="outDate"
+            ></div>
 
           </div>
 
@@ -1781,7 +1876,10 @@ button{
 
             </div>
 
-            <div class="flight-duration" id="outDuration"></div>
+            <div
+              class="flight-duration"
+              id="outDuration"
+            ></div>
 
           </div>
 
@@ -1792,9 +1890,15 @@ button{
               TAG
             </div>
 
-            <div class="flight-clock" id="outArrival"></div>
+            <div
+              class="flight-clock"
+              id="outArrival"
+            ></div>
 
-            <div class="flight-date" id="outArrivalDate"></div>
+            <div
+              class="flight-date"
+              id="outArrivalDate"
+            ></div>
 
           </div>
 
@@ -1836,9 +1940,15 @@ button{
               TAG
             </div>
 
-            <div class="flight-clock" id="returnDeparture"></div>
+            <div
+              class="flight-clock"
+              id="returnDeparture"
+            ></div>
 
-            <div class="flight-date" id="returnDate"></div>
+            <div
+              class="flight-date"
+              id="returnDate"
+            ></div>
 
           </div>
 
@@ -1853,7 +1963,10 @@ button{
 
             </div>
 
-            <div class="flight-duration" id="returnDuration"></div>
+            <div
+              class="flight-duration"
+              id="returnDuration"
+            ></div>
 
           </div>
 
@@ -1864,9 +1977,15 @@ button{
               ICN
             </div>
 
-            <div class="flight-clock" id="returnArrival"></div>
+            <div
+              class="flight-clock"
+              id="returnArrival"
+            ></div>
 
-            <div class="flight-date" id="returnArrivalDate"></div>
+            <div
+              class="flight-date"
+              id="returnArrivalDate"
+            ></div>
 
           </div>
 
@@ -1888,7 +2007,10 @@ button{
 
     <!-- BUDGET -->
 
-    <div class="more-section" id="budgetSection">
+    <div
+      class="more-section"
+      id="budgetSection"
+    >
 
       <div class="section-row">
 
@@ -1906,7 +2028,10 @@ button{
         </div>
 
 
-        <button class="edit" onclick="editBudget()">
+        <button
+          class="edit"
+          onclick="editBudget()"
+        >
           <i data-lucide="pencil"></i>
           수정
         </button>
@@ -2007,7 +2132,10 @@ button{
             총 예상 경비
           </span>
 
-          <span class="total" id="budgetTotal"></span>
+          <span
+            class="total"
+            id="budgetTotal"
+          ></span>
 
         </div>
 
@@ -2018,7 +2146,10 @@ button{
 
     <!-- RESERVATIONS -->
 
-    <div class="more-section" id="reservationSection">
+    <div
+      class="more-section"
+      id="reservationSection"
+    >
 
       <div class="section-row">
 
@@ -2036,7 +2167,10 @@ button{
         </div>
 
 
-        <button class="edit" onclick="addReservation()">
+        <button
+          class="edit"
+          onclick="addReservation()"
+        >
           <i data-lucide="plus"></i>
           추가
         </button>
@@ -2044,10 +2178,16 @@ button{
       </div>
 
 
-      <div class="reservation-list" id="reservationList"></div>
+      <div
+        class="reservation-list"
+        id="reservationList"
+      ></div>
 
 
-      <div style="margin-top:26px" class="section-row">
+      <div
+        style="margin-top:26px"
+        class="section-row"
+      >
 
         <div class="section-heading">
 
@@ -2063,7 +2203,10 @@ button{
         </div>
 
 
-        <button class="edit" onclick="editTripMemo()">
+        <button
+          class="edit"
+          onclick="editTripMemo()"
+        >
           <i data-lucide="pencil"></i>
           수정
         </button>
@@ -2073,7 +2216,10 @@ button{
 
       <div class="card trip-memo-card">
 
-        <div class="trip-memo-text" id="tripMemo"></div>
+        <div
+          class="trip-memo-text"
+          id="tripMemo"
+        ></div>
 
       </div>
 
@@ -2092,7 +2238,11 @@ button{
 
 <nav class="bottom-nav">
 
-  <button class="active" data-page="home" onclick="showPage('home',this)">
+  <button
+    class="active"
+    data-page="home"
+    onclick="showPage('home',this)"
+  >
 
     <span class="nav-icon-wrap">
       <i data-lucide="home"></i>
@@ -2103,7 +2253,10 @@ button{
   </button>
 
 
-  <button data-page="schedule" onclick="showPage('schedule',this)">
+  <button
+    data-page="schedule"
+    onclick="showPage('schedule',this)"
+  >
 
     <span class="nav-icon-wrap">
       <i data-lucide="calendar-days"></i>
@@ -2114,7 +2267,10 @@ button{
   </button>
 
 
-  <button data-page="hotel" onclick="showPage('hotel',this)">
+  <button
+    data-page="hotel"
+    onclick="showPage('hotel',this)"
+  >
 
     <span class="nav-icon-wrap">
       <i data-lucide="bed-double"></i>
@@ -2125,7 +2281,10 @@ button{
   </button>
 
 
-  <button data-page="food" onclick="showPage('food',this)">
+  <button
+    data-page="food"
+    onclick="showPage('food',this)"
+  >
 
     <span class="nav-icon-wrap">
       <i data-lucide="utensils"></i>
@@ -2136,7 +2295,10 @@ button{
   </button>
 
 
-  <button data-page="more" onclick="showPage('more',this)">
+  <button
+    data-page="more"
+    onclick="showPage('more',this)"
+  >
 
     <span class="nav-icon-wrap">
       <i data-lucide="menu"></i>
@@ -2153,7 +2315,10 @@ button{
  MODAL
 ====================================================== -->
 
-<div class="modal" id="modal">
+<div
+  class="modal"
+  id="modal"
+>
 
   <div class="modal-box">
 
@@ -2165,11 +2330,17 @@ button{
 
     <div id="modalContent"></div>
 
-    <button class="save-btn" onclick="saveModal()">
+    <button
+      class="save-btn"
+      onclick="saveModal()"
+    >
       저장
     </button>
 
-    <button class="cancel-btn" onclick="closeModal()">
+    <button
+      class="cancel-btn"
+      onclick="closeModal()"
+    >
       취소
     </button>
 
@@ -2181,7 +2352,7 @@ button{
 <script>
 
 /* =========================================================
- SUPABASE CONNECTION TEST
+ SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
@@ -2196,50 +2367,7 @@ const supabaseClient =
     SUPABASE_KEY
   );
 
-
-async function testSupabaseConnection(){
-
-  try{
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
-      .from("travel_data")
-      .select("id,data")
-      .eq("id",1)
-      .single();
-
-
-    if(error){
-
-      console.error(
-        "Supabase 연결 실패:",
-        error
-      );
-
-      return;
-
-    }
-
-
-    console.log(
-      "Supabase 연결 성공:",
-      data
-    );
-
-
-  }catch(error){
-
-    console.error(
-      "Supabase 연결 오류:",
-      error
-    );
-
-  }
-
-}
+const SUPABASE_ROW_ID = 1;
 
 
 /* =========================================================
@@ -2305,7 +2433,7 @@ const defaultData = {
       checkout:"2027.03.02",
       nights:1,
       price:0,
-      memo:"보홀 도착 후 1박"
+      memo:"보홀 도착 후 이용"
     },
 
     {
@@ -2515,227 +2643,361 @@ const defaultData = {
 ========================================================= */
 
 const STORAGE_KEY =
+  "ourTravelDataV7";
+
+const PREVIOUS_STORAGE_KEY =
   "ourTravelDataV6";
 
-let travelData;
+let travelData =
+  loadLocalData();
 
-try{
-
-  const current =
-    localStorage.getItem(
-      STORAGE_KEY
-    );
-
-  const previous =
-    localStorage.getItem(
-      "ourTravelDataV5"
-    );
-
-  travelData =
-    current
-      ? JSON.parse(current)
-      : previous
-        ? JSON.parse(previous)
-        : clone(defaultData);
-
-}catch(e){
-
-  travelData =
-    clone(defaultData);
-
-}
-
-
-/* =========================================================
- MIGRATION
-========================================================= */
-
-if(
-  !Array.isArray(
-    travelData.hotels
-  )
-){
-  travelData.hotels =
-    clone(defaultData.hotels);
-}
-
-if(
-  travelData.hotels.length < 3
-){
-  travelData.hotels.push(
-    clone(defaultData.hotels[2])
-  );
-}
-
-travelData.hotels[2].nights = 0;
-
-
-if(
-  !travelData.expenses
-){
-  travelData.expenses = {};
-}
-
-if(
-  travelData.expenses.flight === undefined
-){
-  travelData.expenses.flight = 0;
-}
-
-if(
-  travelData.expenses.tour === undefined
-){
-  travelData.expenses.tour = 0;
-}
-
-if(
-  travelData.expenses.other === undefined
-){
-  travelData.expenses.other = 0;
-}
-
-
-if(
-  !Array.isArray(
-    travelData.meals
-  )
-){
-  travelData.meals =
-    clone(defaultData.meals);
-}
-
-
-defaultData.meals.forEach(defaultDay=>{
-
-  let day =
-    travelData.meals.find(
-      item=>
-        item.date ===
-        defaultDay.date
-    );
-
-  if(!day){
-
-    travelData.meals.push(
-      clone(defaultDay)
-    );
-
-    return;
-  }
-
-  [
-    "breakfast",
-    "lunch",
-    "dinner"
-  ]
-  .forEach(type=>{
-
-    if(!day[type]){
-      day[type] =
-        emptyMeal();
-    }
-
-  });
-
-});
-
-
-if(
-  !Array.isArray(
-    travelData.reservations
-  )
-){
-  travelData.reservations = [];
-}
-
-if(
-  typeof travelData.tripMemo !==
-  "string"
-){
-  travelData.tripMemo = "";
-}
-
-
-/* =========================================================
- 확정 항공권 정보
-========================================================= */
-
-if(!travelData.flight){
-  travelData.flight = {};
-}
-
-travelData.flight.airline =
-  "제주항공";
-
-travelData.flight.bookingNumber =
-  "XDZGXM";
-
-travelData.flight.passengers =
-  2;
-
-
-travelData.flight.outbound = {
-
-  flight:"7C2125",
-
-  date:"2027.03.01",
-  arrivalDate:"2027.03.02",
-
-  departure:"20:45",
-  arrival:"00:45",
-
-  duration:"5시간",
-
-  departureAirport:"ICN",
-  departureName:"인천국제공항",
-  departureTerminal:"제1터미널",
-
-  arrivalAirport:"TAG",
-  arrivalName:"보홀 팡라오 국제공항",
-
-  seats:"16A · 16B"
-
-};
-
-
-travelData.flight.return = {
-
-  flight:"7C2126",
-
-  date:"2027.03.06",
-  arrivalDate:"2027.03.06",
-
-  departure:"01:45",
-  arrival:"07:10",
-
-  duration:"4시간 25분",
-
-  departureAirport:"TAG",
-  departureName:"보홀 팡라오 국제공항",
-
-  arrivalAirport:"ICN",
-  arrivalName:"인천국제공항",
-  arrivalTerminal:"제1터미널",
-
-  seats:"16A · 16B"
-
-};
-
-
-saveData();
-
-
-/* =========================================================
- UTIL
-========================================================= */
 
 function clone(value){
+
   return JSON.parse(
     JSON.stringify(value)
   );
+
 }
 
-function saveData(){
+
+function loadLocalData(){
+
+  try{
+
+    const current =
+      localStorage.getItem(
+        STORAGE_KEY
+      );
+
+    if(current){
+
+      return normalizeData(
+        JSON.parse(current)
+      );
+
+    }
+
+
+    const previous =
+      localStorage.getItem(
+        PREVIOUS_STORAGE_KEY
+      );
+
+    if(previous){
+
+      return normalizeData(
+        JSON.parse(previous)
+      );
+
+    }
+
+  }catch(error){
+
+    console.warn(
+      "로컬 데이터 불러오기 실패",
+      error
+    );
+
+  }
+
+
+  return normalizeData(
+    clone(defaultData)
+  );
+
+}
+
+
+/* =========================================================
+ DATA NORMALIZE
+========================================================= */
+
+function normalizeData(source){
+
+  const data =
+    source &&
+    typeof source === "object"
+      ? clone(source)
+      : clone(defaultData);
+
+
+  if(
+    !Array.isArray(
+      data.hotels
+    )
+  ){
+
+    data.hotels =
+      clone(defaultData.hotels);
+
+  }
+
+
+  while(
+    data.hotels.length < 3
+  ){
+
+    data.hotels.push(
+      clone(
+        defaultData.hotels[
+          data.hotels.length
+        ]
+      )
+    );
+
+  }
+
+
+  data.hotels[2].nights = 0;
+
+
+  if(
+    !data.flight ||
+    typeof data.flight !== "object"
+  ){
+
+    data.flight =
+      clone(defaultData.flight);
+
+  }
+
+
+  data.flight.airline =
+    data.flight.airline ||
+    defaultData.flight.airline;
+
+  data.flight.bookingNumber =
+    data.flight.bookingNumber ||
+    defaultData.flight.bookingNumber;
+
+  data.flight.passengers =
+    Number(
+      data.flight.passengers ||
+      defaultData.flight.passengers
+    );
+
+
+  data.flight.outbound = {
+
+    ...clone(
+      defaultData.flight.outbound
+    ),
+
+    ...(
+      data.flight.outbound ||
+      {}
+    )
+
+  };
+
+
+  data.flight.return = {
+
+    ...clone(
+      defaultData.flight.return
+    ),
+
+    ...(
+      data.flight.return ||
+      {}
+    )
+
+  };
+
+
+  if(
+    !data.expenses ||
+    typeof data.expenses !== "object"
+  ){
+
+    data.expenses = {};
+
+  }
+
+
+  data.expenses.flight =
+    Number(
+      data.expenses.flight ||
+      0
+    );
+
+  data.expenses.tour =
+    Number(
+      data.expenses.tour ||
+      0
+    );
+
+  data.expenses.other =
+    Number(
+      data.expenses.other ||
+      0
+    );
+
+
+  if(
+    !Array.isArray(
+      data.schedule
+    )
+  ){
+
+    data.schedule =
+      clone(defaultData.schedule);
+
+  }
+
+
+  if(
+    !Array.isArray(
+      data.meals
+    )
+  ){
+
+    data.meals =
+      clone(defaultData.meals);
+
+  }
+
+
+  defaultData.meals.forEach(
+    defaultDay=>{
+
+      let day =
+        data.meals.find(
+          item=>
+            item.date ===
+            defaultDay.date
+        );
+
+
+      if(!day){
+
+        data.meals.push(
+          clone(defaultDay)
+        );
+
+        return;
+
+      }
+
+
+      [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ]
+      .forEach(type=>{
+
+        day[type] = {
+
+          ...emptyMeal(),
+
+          ...(
+            day[type] ||
+            {}
+          )
+
+        };
+
+      });
+
+    }
+  );
+
+
+  if(
+    !Array.isArray(
+      data.reservations
+    )
+  ){
+
+    data.reservations = [];
+
+  }
+
+
+  if(
+    typeof data.tripMemo !==
+    "string"
+  ){
+
+    data.tripMemo = "";
+
+  }
+
+
+  return data;
+
+}
+
+
+/* =========================================================
+ MODERN DATA CHECK
+========================================================= */
+
+function isModernTravelData(data){
+
+  return !!(
+    data &&
+    Array.isArray(data.hotels) &&
+    Array.isArray(data.schedule) &&
+    Array.isArray(data.meals) &&
+    data.flight &&
+    data.flight.outbound &&
+    data.flight.return
+  );
+
+}
+
+
+/* =========================================================
+ SYNC STATUS
+========================================================= */
+
+function setSyncStatus(
+  state,
+  text
+){
+
+  const box =
+    document.getElementById(
+      "syncStatus"
+    );
+
+  const label =
+    document.getElementById(
+      "syncText"
+    );
+
+
+  if(!box || !label){
+    return;
+  }
+
+
+  box.classList.remove(
+    "syncing",
+    "success",
+    "offline"
+  );
+
+
+  box.classList.add(
+    state
+  );
+
+
+  label.textContent =
+    text;
+
+}
+
+
+/* =========================================================
+ SAVE LOCAL
+========================================================= */
+
+function saveLocalData(){
 
   localStorage.setItem(
     STORAGE_KEY,
@@ -2744,6 +3006,225 @@ function saveData(){
 
 }
 
+
+/* =========================================================
+ SAVE SUPABASE
+========================================================= */
+
+let saveTimer = null;
+
+
+function saveData(){
+
+  saveLocalData();
+
+
+  setSyncStatus(
+    "syncing",
+    "Supabase 저장 중..."
+  );
+
+
+  clearTimeout(
+    saveTimer
+  );
+
+
+  saveTimer =
+    setTimeout(
+      ()=>{
+        saveToSupabase();
+      },
+      250
+    );
+
+}
+
+
+async function saveToSupabase(){
+
+  try{
+
+    const {
+      error
+    } =
+      await supabaseClient
+      .from(
+        "travel_data"
+      )
+      .upsert(
+        {
+          id:
+            SUPABASE_ROW_ID,
+
+          data:
+            travelData
+        },
+        {
+          onConflict:"id"
+        }
+      );
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    setSyncStatus(
+      "success",
+      "Supabase 동기화 완료"
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Supabase 저장 실패:",
+      error
+    );
+
+
+    setSyncStatus(
+      "offline",
+      "Supabase 저장 실패 · 로컬에는 저장됨"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+ INITIAL SUPABASE LOAD
+========================================================= */
+
+async function initializeApp(){
+
+  /*
+    우선 로컬 데이터로 즉시 화면 표시
+  */
+
+  travelData =
+    normalizeData(
+      travelData
+    );
+
+
+  saveLocalData();
+
+  render();
+
+
+  setSyncStatus(
+    "syncing",
+    "Supabase 데이터 확인 중..."
+  );
+
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+      .from(
+        "travel_data"
+      )
+      .select(
+        "id,data"
+      )
+      .eq(
+        "id",
+        SUPABASE_ROW_ID
+      )
+      .maybeSingle();
+
+
+    if(error){
+
+      throw error;
+
+    }
+
+
+    /*
+      Supabase에 현재 V6/V7 구조의
+      정상 데이터가 이미 있으면 사용
+    */
+
+    if(
+      data &&
+      isModernTravelData(
+        data.data
+      )
+    ){
+
+      travelData =
+        normalizeData(
+          data.data
+        );
+
+
+      saveLocalData();
+
+
+      selectedMealDate =
+        travelData.schedule[0]
+        ?.date ||
+        "03.01";
+
+
+      render();
+
+
+      setSyncStatus(
+        "success",
+        "Supabase 동기화 완료"
+      );
+
+
+      return;
+
+    }
+
+
+    /*
+      기존 Supabase 데이터가
+      예전 버전이거나 행이 없는 경우
+
+      현재 V6/V7 로컬 데이터를
+      Supabase에 최초 업로드
+    */
+
+    await saveToSupabase();
+
+
+  }catch(error){
+
+    console.error(
+      "Supabase 불러오기 실패:",
+      error
+    );
+
+
+    setSyncStatus(
+      "offline",
+      "Supabase 연결 실패 · 로컬 데이터 사용 중"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+ UTIL
+========================================================= */
+
 function won(number){
 
   return "₩" +
@@ -2751,6 +3232,7 @@ function won(number){
     .toLocaleString("ko-KR");
 
 }
+
 
 function escapeHTML(value){
 
@@ -2761,12 +3243,17 @@ function escapeHTML(value){
 
 }
 
+
 function escapeValue(value){
 
   return escapeHTML(value)
-    .replaceAll('"',"&quot;");
+    .replaceAll(
+      '"',
+      "&quot;"
+    );
 
 }
+
 
 function showOrDash(value){
 
@@ -2776,10 +3263,13 @@ function showOrDash(value){
 
 }
 
+
 function refreshIcons(){
 
   if(window.lucide){
+
     lucide.createIcons();
+
   }
 
 }
@@ -2795,30 +3285,49 @@ function showPage(
 ){
 
   document
-    .querySelectorAll(".page")
+    .querySelectorAll(
+      ".page"
+    )
     .forEach(page=>{
-      page.classList.remove("active");
+
+      page.classList.remove(
+        "active"
+      );
+
     });
+
 
   const target =
     document.getElementById(
       "page-" + name
     );
 
+
   if(target){
-    target.classList.add("active");
+
+    target.classList.add(
+      "active"
+    );
+
   }
+
 
   document
     .querySelectorAll(
       ".bottom-nav button"
     )
     .forEach(btn=>{
-      btn.classList.remove("active");
+
+      btn.classList.remove(
+        "active"
+      );
+
     });
+
 
   let navButton =
     button;
+
 
   if(!navButton){
 
@@ -2829,18 +3338,30 @@ function showPage(
 
   }
 
+
   if(navButton){
-    navButton.classList.add("active");
+
+    navButton.classList.add(
+      "active"
+    );
+
   }
+
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
 
-  if(name === "food"){
+
+  if(
+    name === "food"
+  ){
+
     renderMeals();
+
   }
+
 
   refreshIcons();
 
@@ -2849,18 +3370,35 @@ function showPage(
 
 function showMoreSection(section){
 
-  showPage("more");
+  showPage(
+    "more"
+  );
+
 
   setTimeout(()=>{
 
     const map = {
-      flight:"flightSection",
-      budget:"budgetSection",
-      reservation:"reservationSection"
+
+      flight:
+        "flightSection",
+
+      budget:
+        "budgetSection",
+
+      reservation:
+        "reservationSection"
+
     };
 
-    if(map[section]){
-      scrollMore(map[section]);
+
+    if(
+      map[section]
+    ){
+
+      scrollMore(
+        map[section]
+      );
+
     }
 
   },100);
@@ -2871,7 +3409,10 @@ function showMoreSection(section){
 function scrollMore(id){
 
   const target =
-    document.getElementById(id);
+    document.getElementById(
+      id
+    );
+
 
   if(target){
 
@@ -2892,29 +3433,59 @@ function scrollMore(id){
 function scheduleImage(title){
 
   const t =
-    String(title || "")
+    String(
+      title ||
+      ""
+    )
     .toLowerCase();
 
-  if(t.includes("henann"))
+
+  if(
+    t.includes(
+      "henann"
+    )
+  )
     return images.henann;
 
-  if(t.includes("balicasag"))
+
+  if(
+    t.includes(
+      "balicasag"
+    )
+  )
     return images.balicasag;
 
-  if(t.includes("alona"))
+
+  if(
+    t.includes(
+      "alona"
+    )
+  )
     return images.alona;
 
-  if(t.includes("free"))
+
+  if(
+    t.includes(
+      "free"
+    )
+  )
     return images.relax;
 
-  if(t.includes("last"))
+
+  if(
+    t.includes(
+      "last"
+    )
+  )
     return images.hotel;
+
 
   if(
     t.includes("seoul") ||
     t.includes("bohol")
   )
     return images.airport;
+
 
   return images.bohol;
 
@@ -2924,8 +3495,12 @@ function scheduleImage(title){
 function scheduleIcon(title){
 
   const t =
-    String(title || "")
+    String(
+      title ||
+      ""
+    )
     .toLowerCase();
+
 
   if(
     t.includes("henann") ||
@@ -2933,20 +3508,37 @@ function scheduleIcon(title){
   )
     return "palmtree";
 
-  if(t.includes("balicasag"))
+
+  if(
+    t.includes(
+      "balicasag"
+    )
+  )
     return "waves";
 
-  if(t.includes("free"))
+
+  if(
+    t.includes(
+      "free"
+    )
+  )
     return "sun";
 
-  if(t.includes("last"))
+
+  if(
+    t.includes(
+      "last"
+    )
+  )
     return "bed-double";
+
 
   if(
     t.includes("seoul") ||
     t.includes("bohol")
   )
     return "plane";
+
 
   return "map-pin";
 
@@ -2960,14 +3552,25 @@ function hotelImage(
 
   const name =
     String(
-      hotel.name || ""
-    ).toLowerCase();
+      hotel.name ||
+      ""
+    )
+    .toLowerCase();
 
-  if(name.includes("henann"))
+
+  if(
+    name.includes(
+      "henann"
+    )
+  )
     return images.henann;
 
-  if(index === 2)
+
+  if(
+    index === 2
+  )
     return images.alona;
+
 
   return images.hotel;
 
@@ -3011,6 +3614,7 @@ function renderHome(){
 
   const out =
     travelData.flight.outbound;
+
 
   const flightText =
     out.departure &&
@@ -3078,6 +3682,7 @@ function renderSchedule(){
       "scheduleList"
     );
 
+
   box.innerHTML = "";
 
 
@@ -3092,6 +3697,7 @@ function renderSchedule(){
         document.createElement(
           "div"
         );
+
 
       card.className =
         "card schedule-card";
@@ -3205,7 +3811,9 @@ function renderSchedule(){
       `;
 
 
-      box.appendChild(card);
+      box.appendChild(
+        card
+      );
 
     }
   );
@@ -3224,6 +3832,7 @@ function renderHotels(){
       "hotelList"
     );
 
+
   box.innerHTML = "";
 
 
@@ -3239,18 +3848,21 @@ function renderHotels(){
           "div"
         );
 
+
       card.className =
         "card hotel-card";
 
 
       const nightText =
         Number(
-          hotel.nights || 0
+          hotel.nights ||
+          0
         ) === 0
 
           ? "DAY USE"
 
-          : hotel.nights + "박";
+          : hotel.nights +
+            "박";
 
 
       card.innerHTML = `
@@ -3359,7 +3971,9 @@ function renderHotels(){
       `;
 
 
-      box.appendChild(card);
+      box.appendChild(
+        card
+      );
 
     }
   );
@@ -3407,6 +4021,7 @@ function renderFoodTabs(){
       "foodDateTabs"
     );
 
+
   box.innerHTML = "";
 
 
@@ -3417,6 +4032,7 @@ function renderFoodTabs(){
       document.createElement(
         "button"
       );
+
 
     button.className =
       "food-date-button"
@@ -3484,6 +4100,7 @@ function renderMeals(){
   const day =
     mealDay();
 
+
   if(!day){
     return;
   }
@@ -3532,6 +4149,7 @@ function renderMeals(){
       "mealList"
     );
 
+
   box.innerHTML = "";
 
 
@@ -3547,12 +4165,18 @@ function renderMeals(){
       mealTypes[type];
 
     const hasMeal =
-      meal.name.trim() !== "";
+      String(
+        meal.name ||
+        ""
+      )
+      .trim() !== "";
+
 
     const card =
       document.createElement(
         "div"
       );
+
 
     card.className =
       "card meal-card";
@@ -3760,7 +4384,9 @@ function countEnteredMeals(){
         )
         .trim()
       ){
+
         count++;
+
       }
 
     });
@@ -4003,7 +4629,6 @@ function renderFlight(){
     `;
 
 
-
   document
     .getElementById(
       "returnDate"
@@ -4204,7 +4829,8 @@ function hotelTotal(){
 
         sum +
         Number(
-          hotel.price || 0
+          hotel.price ||
+          0
         ),
 
       0
@@ -4320,6 +4946,7 @@ function renderBudget(){
 function reservationIcon(type){
 
   const map = {
+
     HOTEL:"hotel",
     FLIGHT:"plane",
     TOUR:"ship-wheel",
@@ -4327,7 +4954,9 @@ function reservationIcon(type){
     MASSAGE:"sparkles",
     RESTAURANT:"utensils",
     OTHER:"bookmark"
+
   };
+
 
   return map[type] ||
     "bookmark";
@@ -4427,7 +5056,6 @@ function renderReservations(){
 
         <div class="reservation-meta">
 
-
           ${
             item.company
 
@@ -4496,13 +5124,13 @@ function renderReservations(){
             : ""
           }
 
-
         </div>
 
 
         ${
           Number(
-            item.price || 0
+            item.price ||
+            0
           ) > 0
 
           ? `
@@ -4599,20 +5227,18 @@ function renderTripMemo(){
     box.textContent =
       travelData.tripMemo;
 
-    box.classList
-      .remove(
-        "trip-memo-empty"
-      );
+    box.classList.remove(
+      "trip-memo-empty"
+    );
 
   }else{
 
     box.textContent =
       "여행 중 기억할 내용이나 자유 메모를 입력하세요.";
 
-    box.classList
-      .add(
-        "trip-memo-empty"
-      );
+    box.classList.add(
+      "trip-memo-empty"
+    );
 
   }
 
@@ -4623,7 +5249,8 @@ function renderTripMemo(){
  MODAL
 ========================================================= */
 
-let saveAction = null;
+let saveAction =
+  null;
 
 
 function openModal(
@@ -4680,9 +5307,20 @@ function closeModal(){
 
 function saveModal(){
 
-  if(saveAction){
+  if(
+    saveAction
+  ){
+
     saveAction();
+
   }
+
+
+  travelData =
+    normalizeData(
+      travelData
+    );
+
 
   saveData();
 
@@ -4700,7 +5338,9 @@ function saveModal(){
 function editSchedule(index){
 
   const item =
-    travelData.schedule[index];
+    travelData.schedule[
+      index
+    ];
 
 
   openModal(
@@ -4797,7 +5437,9 @@ function editSchedule(index){
 function editHotel(index){
 
   const hotel =
-    travelData.hotels[index];
+    travelData.hotels[
+      index
+    ];
 
 
   openModal(
@@ -4955,7 +5597,8 @@ function editMeal(
     travelData.meals
     .find(
       item=>
-        item.date === date
+        item.date ===
+        date
     );
 
 
@@ -5019,7 +5662,8 @@ function editMeal(
       type="number"
       id="editMealPrice"
       value="${Number(
-        meal.price || 0
+        meal.price ||
+        0
       )}"
     >
 
@@ -5113,7 +5757,7 @@ function editMeal(
 
 
 /* =========================================================
- RESERVATION ADD
+ RESERVATION ADD / EDIT
 ========================================================= */
 
 function addReservation(){
@@ -5140,18 +5784,24 @@ function addReservation(){
 function editReservation(index){
 
   const item =
-    travelData.reservations[index];
+    travelData.reservations[
+      index
+    ];
 
 
   openModal(
 
     "예약정보 수정",
 
-    reservationForm(item),
+    reservationForm(
+      item
+    ),
 
     ()=>{
 
-      travelData.reservations[index] =
+      travelData.reservations[
+        index
+      ] =
         getReservationFormData();
 
     }
@@ -5217,7 +5867,8 @@ function reservationForm(
       id="reservationName"
 
       value="${escapeValue(
-        item.name || ""
+        item.name ||
+        ""
       )}"
 
       placeholder="예: Airport Pickup"
@@ -5232,7 +5883,8 @@ function reservationForm(
       id="reservationCompany"
 
       value="${escapeValue(
-        item.company || ""
+        item.company ||
+        ""
       )}"
 
       placeholder="예: Henann Resort"
@@ -5247,7 +5899,8 @@ function reservationForm(
       id="reservationDateTime"
 
       value="${escapeValue(
-        item.dateTime || ""
+        item.dateTime ||
+        ""
       )}"
 
       placeholder="예: 03.05 · 22:30"
@@ -5262,7 +5915,8 @@ function reservationForm(
       id="reservationNumber"
 
       value="${escapeValue(
-        item.number || ""
+        item.number ||
+        ""
       )}"
 
       placeholder="예: ABC123456"
@@ -5279,7 +5933,8 @@ function reservationForm(
       id="reservationPrice"
 
       value="${Number(
-        item.price || 0
+        item.price ||
+        0
       )}"
     >
 
@@ -5293,7 +5948,8 @@ function reservationForm(
 
       placeholder="예약 관련 내용을 입력하세요."
     >${escapeHTML(
-      item.memo || ""
+      item.memo ||
+      ""
     )}</textarea>
 
   `;
@@ -5364,7 +6020,9 @@ function getReservationFormData(){
 function deleteReservation(index){
 
   const item =
-    travelData.reservations[index];
+    travelData.reservations[
+      index
+    ];
 
 
   if(
@@ -5490,7 +6148,8 @@ function editFlight(){
       type="number"
       id="editPassengers"
       value="${Number(
-        flight.passengers || 2
+        flight.passengers ||
+        2
       )}"
     >
 
@@ -5809,7 +6468,6 @@ function editFlight(){
         .value;
 
 
-
       ret.flight =
         document
         .getElementById(
@@ -6013,7 +6671,9 @@ document
       e.target.id ===
       "modal"
     ){
+
       closeModal();
+
     }
 
   }
@@ -6029,7 +6689,9 @@ document
       e.key ===
       "Escape"
     ){
+
       closeModal();
+
     }
 
   }
@@ -6040,14 +6702,7 @@ document
  START
 ========================================================= */
 
-render();
-
-/*
-  현재 단계에서는
-  Supabase 연결 여부만 테스트합니다.
-*/
-
-testSupabaseConnection();
+initializeApp();
 
 </script>
 
