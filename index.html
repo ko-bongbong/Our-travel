@@ -9,6 +9,9 @@
 
 <script src="https://unpkg.com/lucide@latest"></script>
 
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 :root{
   --bg:#e9efed;
@@ -1618,9 +1621,12 @@ button{
 
   </div>
 
+
   <div class="food-date-tabs" id="foodDateTabs"></div>
 
+
   <div class="food-day-title" id="foodDayTitle"></div>
+
 
   <div class="content" id="mealList"></div>
 
@@ -1660,7 +1666,10 @@ button{
 
     <div class="more-menu">
 
-      <div class="more-menu-card" onclick="scrollMore('flightSection')">
+      <div
+        class="more-menu-card"
+        onclick="scrollMore('flightSection')"
+      >
 
         <div class="category-icon">
           <i data-lucide="plane"></i>
@@ -1672,7 +1681,10 @@ button{
       </div>
 
 
-      <div class="more-menu-card" onclick="scrollMore('budgetSection')">
+      <div
+        class="more-menu-card"
+        onclick="scrollMore('budgetSection')"
+      >
 
         <div class="category-icon">
           <i data-lucide="wallet"></i>
@@ -1684,7 +1696,10 @@ button{
       </div>
 
 
-      <div class="more-menu-card" onclick="scrollMore('reservationSection')">
+      <div
+        class="more-menu-card"
+        onclick="scrollMore('reservationSection')"
+      >
 
         <div class="category-icon">
           <i data-lucide="bookmark-check"></i>
@@ -2166,6 +2181,68 @@ button{
 <script>
 
 /* =========================================================
+ SUPABASE CONNECTION TEST
+========================================================= */
+
+const SUPABASE_URL =
+  "https://usfxzxzssajnqfasbzkr.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_3-VFzdCdhlSRSEXokDc24A_dECpWgcb";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+async function testSupabaseConnection(){
+
+  try{
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+      .from("travel_data")
+      .select("id,data")
+      .eq("id",1)
+      .single();
+
+
+    if(error){
+
+      console.error(
+        "Supabase 연결 실패:",
+        error
+      );
+
+      return;
+
+    }
+
+
+    console.log(
+      "Supabase 연결 성공:",
+      data
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Supabase 연결 오류:",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
  IMAGES
 ========================================================= */
 
@@ -2580,7 +2657,7 @@ if(
 
 
 /* =========================================================
- 확정 항공권 정보 V6
+ 확정 항공권 정보
 ========================================================= */
 
 if(!travelData.flight){
@@ -5964,6 +6041,13 @@ document
 ========================================================= */
 
 render();
+
+/*
+  현재 단계에서는
+  Supabase 연결 여부만 테스트합니다.
+*/
+
+testSupabaseConnection();
 
 </script>
 
